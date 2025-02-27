@@ -31,3 +31,5 @@ pnpm-debug.log*
 .turbo
 .vercel
 .idea
+
+.rslib
