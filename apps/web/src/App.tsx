@@ -1,8 +1,8 @@
 import { Header } from '@/components/layout/Header'
 import { useTheme } from '@/components/provider/theme-provider'
 import { cn } from '@/lib'
-import { Button } from '@/ui/button'
 import { Editor } from '@doc-editor/editor'
+import { Button } from '@doc-editor/ui'
 import { useEffect, useState } from 'react'
 
 function App() {

@@ -5,7 +5,6 @@ import * as React from 'react'
 
 import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib'
-import { Button } from '@/ui/button'
 import { Input } from '@/ui/input'
 import { Separator } from '@/ui/separator'
 import {
@@ -22,6 +21,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from '@/ui/tooltip'
+import { Button } from '@doc-editor/ui'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
