@@ -1,0 +1,31 @@
+FROM node:20-alpine AS base
+
+# Install pnpm
+RUN npm install -g pnpm@8.15.4
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+# Copy packages and apps package.json
+COPY packages/ui/package.json ./packages/ui/
+COPY packages/schema/package.json ./packages/schema/
+COPY packages/editor/package.json ./packages/editor/
+COPY apps/web/package.json ./apps/web/
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy the rest of the code
+COPY . .
+
+# Build packages
+RUN pnpm --filter "@doc-editor/ui" build
+RUN pnpm --filter "@doc-editor/schema" build
+RUN pnpm --filter "@doc-editor/editor" build
+
+# Start the web app
+WORKDIR /app/apps/web
+CMD ["pnpm", "dev", "--host"]

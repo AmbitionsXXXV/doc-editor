@@ -1,0 +1,39 @@
+FROM rust:1.78-slim as builder
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y pkg-config libssl-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create a new empty project
+WORKDIR /app
+RUN USER=root cargo new --bin apps/api
+WORKDIR /app/apps/api
+
+# Copy over manifests
+COPY ./apps/api/Cargo.toml ./Cargo.toml
+COPY ./apps/api/Cargo.lock ./Cargo.lock
+
+# Build dependencies - this is the caching Docker layer
+RUN cargo build --release
+RUN rm src/*.rs
+
+# Copy source code
+COPY ./apps/api/src ./src
+
+# Build application
+RUN cargo build --release
+
+# Runtime stage
+FROM debian:bookworm-slim
+
+# Install runtime dependencies
+RUN apt-get update && \
+    apt-get install -y libssl-dev ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy the binary from builder
+COPY --from=builder /app/apps/api/target/release/api /usr/local/bin/api
+
+# Set the startup command
+CMD ["api"]
