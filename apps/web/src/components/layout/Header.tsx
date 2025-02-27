@@ -19,18 +19,20 @@ export const Header: React.FC<HeaderProps> = ({ userName, onLogin, onLogout }) =
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
-					className="h-6 w-6"
-					aria-labelledby="docIconTitle"
+					className="h-6 w-6 text-primary"
+					aria-labelledby="docEditorTitle"
 					role="img"
 				>
-					<title id="docIconTitle">Document Icon</title>
+					<title id="docEditorTitle">Doc Editor Logo</title>
 					<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
 					<polyline points="14 2 14 8 20 8" />
-					<line x1="16" y1="13" x2="8" y2="13" />
+					<path d="M9.5 12.5l1.5 1.5 3.5-3.5" />
 					<line x1="16" y1="17" x2="8" y2="17" />
-					<line x1="10" y1="9" x2="8" y2="9" />
+					<circle cx="7" cy="20" r="1" />
 				</svg>
-				<h1 className="text-xl font-bold">Doc Editor</h1>
+				<h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+					Doc Editor
+				</h1>
 			</div>
 			<div className="flex items-center gap-4">
 				{userName ? (

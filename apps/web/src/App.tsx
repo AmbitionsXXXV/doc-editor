@@ -13,7 +13,7 @@ function App() {
 	return (
 		<div
 			className={cn(
-				'min-h-screen transition-colors bg-background',
+				'min-h-screen transition-colors bg-background text-foreground',
 				isDarkMode ? 'dark' : '',
 			)}
 		>
