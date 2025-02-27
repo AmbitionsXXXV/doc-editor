@@ -1,6 +1,6 @@
 # Doc Editor
 
-一个支持在线编辑的文档网站，基于React 19 + shadcn/ui + Tailwind CSS v4 + Tiptap编辑器。后端使用Rust构建，前端使用React编译器提升性能。
+一个支持在线编辑的文档网站，基于 React 19 + shadcn/ui + Tailwind CSS v4 + Tiptap 编辑器。后端使用 Rust 构建，前端使用 React 编译器提升性能。
 
 ## 技术栈
 
@@ -8,13 +8,13 @@
   - React 19 + React Compiler
   - Tailwind CSS v4
   - shadcn/ui 组件库
-  - Tiptap编辑器
-  - Biome (格式化和lint工具)
-  
+  - Tiptap 编辑器
+  - Biome (格式化和 lint 工具)
+
 - 后端：
-  - Rust (Axum框架)
-  - PostgreSQL数据库
-  - Redis缓存
+  - Rust (Axum 框架)
+  - PostgreSQL 数据库
+  - Redis 缓存
 
 ## 快速开始
 
@@ -50,14 +50,14 @@ pnpm dev:all
 # 仅启动前端
 pnpm --filter "@doc-editor/web" dev
 
-# 直接使用Cargo启动后端
+# 直接使用  Cargo 启动后端
 cd apps/api && cargo run
 ```
 
 ## 项目结构
 
 - `/apps/web` - 前端React应用
-- `/apps/api` - 后端Rust应用 
+- `/apps/api` - 后端Rust应用
 - `/packages/ui` - UI组件库
 - `/packages/editor` - 编辑器封装
 - `/packages/schema` - 共享类型定义和验证
@@ -81,11 +81,11 @@ cd apps/api && cargo run
 
 ## 贡献指南
 
-1. Fork仓库
+1. Fork 仓库
 2. 创建功能分支 (`git checkout -b feature/amazing-feature`)
 3. 提交更改 (`git commit -m 'Add some amazing feature'`)
 4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 打开Pull Request
+5. 打开 Pull Request
 
 ## 许可证
 
