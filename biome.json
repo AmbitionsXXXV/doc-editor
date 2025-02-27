@@ -17,13 +17,15 @@
 				"useExhaustiveDependencies": "off"
 			},
 			"suspicious": {
-				"noExplicitAny": "warn",
-				"noConsoleLog": "warn"
+				"noConsoleLog": "warn",
+				"noExplicitAny": "warn"
 			},
 			"style": {
-				"noNonNullAssertion": "off",
 				"noNegationElse": "error",
-				"useShorthandArrayType": "error"
+				"useShorthandArrayType": "error",
+
+				"noNonNullAssertion": "off",
+				"useSelfClosingElements": "off"
 			}
 		},
 		"ignore": ["./tools/*.js"]

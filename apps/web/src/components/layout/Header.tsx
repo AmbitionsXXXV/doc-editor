@@ -1,4 +1,4 @@
-import { Button } from '@doc-editor/ui'
+import { Button } from '@/ui/button'
 import type React from 'react'
 
 interface HeaderProps {
@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({ userName, onLogin, onLogout }) =
 						</Button>
 					</>
 				) : (
-					<Button size="sm" onClick={onLogin}>
+					<Button size="lg" onClick={onLogin}>
 						Login
 					</Button>
 				)}
