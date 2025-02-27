@@ -15,7 +15,6 @@ export default defineConfig({
 		minify: true,
 		sourceMap: true,
 		cleanDistPath: true,
-		externals: ['react', 'react-dom'],
 	},
 	resolve: {
 		alias: {
