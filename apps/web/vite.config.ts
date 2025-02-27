@@ -18,7 +18,6 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
-			'@doc-editor/ui': path.resolve(__dirname, '../../packages/ui/src'),
 		},
 	},
 })

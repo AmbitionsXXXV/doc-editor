@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@doc-editor/ui'
 import { useEffect, useState } from 'react'
 import { useTheme } from './components/provider/theme-provider'
 

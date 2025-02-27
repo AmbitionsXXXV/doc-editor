@@ -11,8 +11,7 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"],
-			"@doc-editor/ui": ["../../packages/ui/src"]
+			"@/*": ["./src/*"]
 		}
 	}
 }
