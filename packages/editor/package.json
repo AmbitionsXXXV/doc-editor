@@ -1,42 +1,40 @@
 {
-  "name": "@doc-editor/editor",
-  "version": "0.1.0",
-  "private": true,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist/**"
-  ],
-  "scripts": {
-    "build": "npx tsup",
-    "dev": "npx tsup --watch",
-    "lint": "biome check --write ./src",
-    "format": "biome format --write ./src",
-    "typecheck": "tsc --noEmit",
-    "clean": "node ../../tools/clean.js dist node_modules .turbo"
-  },
-  "dependencies": {
-    "@doc-editor/ui": "workspace:*",
-    "@hocuspocus/provider": "^2.15.2",
-    "@tiptap/extension-collaboration": "^2.11.5",
-    "@tiptap/extension-collaboration-cursor": "^2.11.5",
-    "@tiptap/extension-color": "^2.11.5",
-    "@tiptap/extension-text-style": "^2.11.5",
-    "@tiptap/pm": "^2.11.5",
-    "@tiptap/react": "^2.11.5",
-    "@tiptap/starter-kit": "^2.11.5",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "y-webrtc": "^10.3.0",
-    "yjs": "^13.6.23"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@types/node": "^22.13.5",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "tsup": "^8.4.0",
-    "typescript": "^5.7.3"
-  }
+	"name": "@doc-editor/editor",
+	"version": "0.1.0",
+	"private": true,
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"files": ["dist/**"],
+	"scripts": {
+		"build": "npx tsup",
+		"dev": "npx tsup --watch",
+		"lint": "biome check --write ./src",
+		"format": "biome format --write ./src",
+		"typecheck": "tsc --noEmit",
+		"clean": "node ../../tools/clean.js dist node_modules .turbo"
+	},
+	"dependencies": {
+		"@doc-editor/ui": "workspace:*",
+		"@hocuspocus/provider": "^2.15.2",
+		"@tiptap/extension-collaboration": "^2.11.5",
+		"@tiptap/extension-collaboration-cursor": "^2.11.5",
+		"@tiptap/extension-color": "^2.11.5",
+		"@tiptap/extension-text-style": "^2.11.5",
+		"@tiptap/pm": "^2.11.5",
+		"@tiptap/react": "^2.11.5",
+		"@tiptap/starter-kit": "^2.11.5",
+		"react": "19.0.0",
+		"react-dom": "19.0.0",
+		"y-webrtc": "^10.3.0",
+		"yjs": "^13.6.23"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/node": "^22.13.5",
+		"@types/react": "^19.0.10",
+		"@types/react-dom": "^19.0.4",
+		"tsup": "^8.4.0",
+		"typescript": "^5.7.3"
+	}
 }

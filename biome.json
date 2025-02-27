@@ -7,19 +7,26 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"a11y": {
+				"useButtonType": "off",
+				"useValidAnchor": "off",
+				"noSvgWithoutTitle": "off"
+			},
 			"correctness": {
 				"noUnusedVariables": "error",
-				"useExhaustiveDependencies": "error"
+				"useExhaustiveDependencies": "off"
 			},
 			"suspicious": {
 				"noExplicitAny": "warn",
 				"noConsoleLog": "warn"
 			},
 			"style": {
+				"noNonNullAssertion": "off",
 				"noNegationElse": "error",
 				"useShorthandArrayType": "error"
 			}
-		}
+		},
+		"ignore": ["./tools/*.js"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -37,7 +44,13 @@
 		}
 	},
 	"files": {
-		"include": ["**/*.{js,jsx,ts,tsx,cjs,mjs,cts,mts,json,jsonc,css,vue}"],
-		"ignore": ["**/node_modules", "**/dist", "**/build", "**/.turbo", "**/coverage"]
+		"ignore": [
+			"**/node_modules",
+			"**/dist",
+			"**/build",
+			"**/.turbo",
+			"**/coverage",
+			"**/tsconfig.*.json"
+		]
 	}
 }

@@ -5,9 +5,9 @@ import { ThemeProvider } from './components/provider/theme-provider.tsx'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ThemeProvider defaultTheme="dark">
-      <App />
-    </ThemeProvider>
-  </StrictMode>,
+	<StrictMode>
+		<ThemeProvider defaultTheme="dark">
+			<App />
+		</ThemeProvider>
+	</StrictMode>,
 )

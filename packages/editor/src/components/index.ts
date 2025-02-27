@@ -1,2 +1,2 @@
 // Export all editor components
-export * from './Editor';
+export * from './Editor'

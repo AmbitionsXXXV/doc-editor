@@ -1,28 +1,28 @@
 {
-  "name": "doc-editor",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build --filter=./packages/* --filter=./apps/*",
-    "dev": "turbo run dev --filter=./packages/* --filter=./apps/* --filter=!./apps/api",
-    "dev:api": "cd apps/api && cargo watch -x run",
-    "typecheck": "turbo run typecheck --filter=./packages/* --filter=./apps/*",
-    "lint": "biome lint .",
-    "lint:fix": "biome check --write .",
-    "format": "biome format .",
-    "format:fix": "biome format --write .",
-    "check": "biome check .",
-    "check:fix": "biome check --write .",
-    "clean": "turbo run clean --filter=./packages/* --filter=./apps/* && node tools/clean.js node_modules .turbo",
-    "prepare": "lefthook install"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "lefthook": "^1.11.1",
-    "turbo": "^2.4.4"
-  },
-  "packageManager": "pnpm@10.5.0",
-  "engines": {
-    "node": ">=22.0.0"
-  }
+	"name": "doc-editor",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build --filter=./packages/* --filter=./apps/*",
+		"dev": "turbo run dev --filter=./packages/* --filter=./apps/* --filter=!./apps/api",
+		"dev:api": "cd apps/api && cargo watch -x run",
+		"typecheck": "turbo run typecheck --filter=./packages/* --filter=./apps/*",
+		"lint": "biome lint .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format .",
+		"format:fix": "biome format --write .",
+		"check": "biome check .",
+		"check:fix": "biome check --write .",
+		"clean": "turbo run clean --filter=./packages/* --filter=./apps/* && node tools/clean.js node_modules .turbo",
+		"prepare": "lefthook install"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"lefthook": "^1.11.1",
+		"turbo": "^2.4.4"
+	},
+	"packageManager": "pnpm@10.5.0",
+	"engines": {
+		"node": ">=22.0.0"
+	}
 }
