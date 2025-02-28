@@ -6,7 +6,6 @@
 	"scripts": {
 		"dev": "react-router dev",
 		"build": "react-router build",
-		"preview": "react-router-serve ./build/server/index.js",
 		"lint": "biome check --write ./src",
 		"format": "biome format --write ./src",
 		"typecheck": "react-router typegen && tsc",
