@@ -1,15 +1,14 @@
-import { Header } from '@/components/layout/Header'
 import { useTheme } from '@/components/provider/theme-provider'
-import { cn } from '@/lib'
-import { SidebarProvider } from '@/ui/sidebar'
+import { SidebarInset, SidebarProvider } from '@/ui/sidebar'
 import { useEffect, useState } from 'react'
-import { Outlet, useNavigate } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
+import AppSidebar from './AppSidebar'
 
 export function RootLayout() {
 	const [isDarkMode, setIsDarkMode] = useState(false)
 	const { theme, setTheme } = useTheme()
-	const navigate = useNavigate()
-	const [userName, setUserName] = useState<string | undefined>(undefined)
+	const { pathname } = useLocation()
+	const [userName] = useState<string | undefined>(undefined)
 
 	// Sync theme state with theme provider
 	useEffect(() => {
@@ -20,32 +19,15 @@ export function RootLayout() {
 		setTheme(isDarkMode ? 'dark' : 'light')
 	}, [isDarkMode, setTheme])
 
-	// 模拟登录/登出功能
-	const handleLogin = () => {
-		setUserName('测试用户')
-		navigate('/documents')
-	}
-
-	const handleLogout = () => {
-		setUserName(undefined)
-		navigate('/')
-	}
-
 	return (
-		<div
-			className={cn(
-				'min-h-screen transition-colors bg-background text-foreground',
-				isDarkMode ? 'dark' : '',
-			)}
-		>
+		<SidebarProvider>
 			{/* 顶部导航栏 */}
-			<Header userName={userName} onLogin={handleLogin} onLogout={handleLogout} />
+			{pathname !== '/' && <AppSidebar />}
 
-			{/* 主内容区 - 通过 Outlet 渲染子路由 */}
-			<SidebarProvider>
+			<SidebarInset>
 				<Outlet context={{ isDarkMode, setIsDarkMode, userName }} />
-			</SidebarProvider>
-		</div>
+			</SidebarInset>
+		</SidebarProvider>
 	)
 }
 

@@ -9,7 +9,7 @@ export function Home() {
 	}
 
 	return (
-		<div className="h-[calc(100vh-64px)] flex flex-col items-center justify-center text-center">
+		<div className="h-[calc(100vh-4rem)] w-full flex flex-col items-center justify-center text-center">
 			<div className="max-w-3xl mx-auto">
 				<div className="mb-6">
 					<svg

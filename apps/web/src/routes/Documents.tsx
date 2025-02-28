@@ -1,10 +1,9 @@
 import ThemeToggle from '@/components/ThemeToggle'
-import Sidebar from '@/components/layout/Sidebar'
 import { Editor } from '@/editor/components'
 import { Button } from '@/ui/button'
 import { Edit, Share } from 'lucide-react'
 import { useState } from 'react'
-import { useNavigate, useOutletContext, useParams } from 'react-router'
+import { useOutletContext, useParams } from 'react-router'
 
 // 模拟文档数据
 const MOCK_DOCUMENTS = [
@@ -21,34 +20,14 @@ type ContextType = {
 
 export function Documents() {
 	const { documentId } = useParams()
-	const navigate = useNavigate()
 	const [documents] = useState(MOCK_DOCUMENTS)
 	const { isDarkMode, setIsDarkMode, userName } = useOutletContext<ContextType>()
 
 	// 如果没有指定文档ID，使用第一个文档
 	const activeDocId = documentId || '1'
 
-	// 处理文档选择
-	const handleDocumentSelect = (id: string) => {
-		navigate(`/documents/${id}`)
-	}
-
-	// 处理创建新文档
-	const handleCreateDocument = () => {
-		// 这里应该有创建新文档的逻辑
-		console.log('创建新文档')
-	}
-
 	return (
 		<div className="flex h-[calc(100vh-64px)]">
-			{/* 侧边栏 */}
-			<Sidebar
-				documents={documents}
-				activeDocumentId={activeDocId}
-				onDocumentSelect={handleDocumentSelect}
-				onCreateDocument={handleCreateDocument}
-			/>
-
 			{/* 文档内容区 */}
 			<main className="flex-1 overflow-auto p-6">
 				<div className="h-full flex flex-col">

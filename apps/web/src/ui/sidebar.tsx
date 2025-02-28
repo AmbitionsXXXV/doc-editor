@@ -22,6 +22,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from '@/ui/tooltip'
+import { useLocation } from 'react-router'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -66,6 +67,7 @@ function SidebarProvider({
 }) {
 	const isMobile = useIsMobile()
 	const [openMobile, setOpenMobile] = React.useState(false)
+	const { pathname } = useLocation()
 
 	// This is the internal state of the sidebar.
 	// We use openProp and setOpenProp for control from outside the component.
@@ -138,6 +140,7 @@ function SidebarProvider({
 					}
 					className={cn(
 						'group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full',
+						pathname === '/' && 'min-h-[calc(100svh-4rem)]',
 						className,
 					)}
 					{...props}
