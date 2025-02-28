@@ -5,7 +5,7 @@ import { Button } from '@/ui/button'
 import { Input } from '@/ui/input'
 import { Label } from '@/ui/label'
 
-export function LoginForm({
+export function SignInForm({
 	className,
 	...props
 }: React.ComponentPropsWithoutRef<'div'>) {
@@ -34,7 +34,7 @@ export function LoginForm({
 							<Input id="email" type="email" placeholder="m@example.com" required />
 						</div>
 						<Button type="submit" className="w-full">
-							Login
+							Sign in
 						</Button>
 					</div>
 					<div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">

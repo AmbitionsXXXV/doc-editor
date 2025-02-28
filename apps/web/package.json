@@ -39,6 +39,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"@doc-editor/config-tailwind": "workspace:*",
 		"@react-router/dev": "^7.2.0",
 		"@tailwindcss/vite": "^4.0.9",
 		"@types/node": "^22.13.5",

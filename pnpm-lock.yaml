@@ -98,6 +98,9 @@ importers:
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
+      '@doc-editor/config-tailwind':
+        specifier: workspace:*
+        version: link:../../packages/config-tailwind
       '@react-router/dev':
         specifier: ^7.2.0
         version: 7.2.0(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(react-router@7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1))
@@ -137,6 +140,12 @@ importers:
       vite-tsconfig-paths:
         specifier: ^5.1.4
         version: 5.1.4(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1))
+
+  packages/config-tailwind:
+    devDependencies:
+      tailwindcss:
+        specifier: ^4.0.6
+        version: 4.0.9
 
   packages/schema:
     devDependencies:

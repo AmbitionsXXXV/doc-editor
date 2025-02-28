@@ -1,0 +1,11 @@
+{
+	"name": "@doc-editor/config-tailwind",
+	"version": "0.1.0",
+	"private": true,
+	"exports": {
+		".": "./tailwind.config.ts"
+	},
+	"devDependencies": {
+		"tailwindcss": "^4.0.6"
+	}
+}
