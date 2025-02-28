@@ -1,4 +1,4 @@
-import { Button } from '@doc-editor/ui'
+import { Button } from '@/ui/button'
 import type React from 'react'
 
 interface HeaderProps {
