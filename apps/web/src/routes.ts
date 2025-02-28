@@ -6,4 +6,7 @@ export default [
 		index('./routes/Home.tsx'),
 		route('/documents', './routes/Documents.tsx'),
 	]),
+
+	route('/login', './routes/sign/SignIn.tsx'),
+	route('/signup', './routes/sign/SignUp.tsx'),
 ] satisfies RouteConfig
