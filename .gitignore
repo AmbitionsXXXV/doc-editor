@@ -33,3 +33,4 @@ pnpm-debug.log*
 .idea
 
 .rslib
+.react-router

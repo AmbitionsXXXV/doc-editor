@@ -2,7 +2,6 @@ import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import type React from 'react'
 import { useEffect, useState } from 'react'
 import { WebrtcProvider } from 'y-webrtc'
 import * as Y from 'yjs'
@@ -38,7 +37,7 @@ export const Editor: React.FC<EditorProps> = ({
 
 		// For development, we use WebRTC
 		return new WebrtcProvider(`doc-editor-${documentId}`, ydoc, {
-			signaling: ['wss://signaling.yjs.dev'],
+			// signaling: ['wss://signaling.yjs.dev'],
 		})
 	})
 
