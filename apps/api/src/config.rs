@@ -6,6 +6,7 @@ pub struct Config {
     pub database_max_connections: u32,
     pub jwt_secret: String,
     pub jwt_expiration: u64,
+    pub mode: String,
 }
 
 impl Config {
@@ -24,7 +25,10 @@ impl Config {
             .parse::<u64>()
             .expect("JWT_EXPIRATION must be a number");
 
+        let mode = env::var("ENV").unwrap_or_else(|_| "development".to_string());
+
         Self {
+            mode,
             database_url,
             database_max_connections,
             jwt_secret,

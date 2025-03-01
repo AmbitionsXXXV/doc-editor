@@ -7,11 +7,10 @@ mod models;
 mod routes;
 mod utils;
 
-use std::env;
 #[allow(unused)]
 use std::net::SocketAddr;
 
-use axum::routing::get;
+use axum::{Router, routing::get};
 use routes::create_router;
 use sqlx::postgres::PgPoolOptions;
 use tower_http::{
@@ -32,20 +31,20 @@ async fn main() -> anyhow::Result<()> {
     let config = config::Config::from_env();
 
     // -- 创建数据库连接池
-    let pool = match PgPoolOptions::new()
-        .max_connections(10)
-        .connect(&config.database_url)
-        .await
-    {
-        Ok(pool) => {
-            println!("✅ Connection to the database is successful!");
-            pool
-        }
-        Err(err) => {
-            println!("🔥 Failed to connect to the database: {:?}", err);
-            std::process::exit(1);
-        }
-    };
+    // let pool = match PgPoolOptions::new()
+    //     .max_connections(10)
+    //     .connect(&config.database_url)
+    //     .await
+    // {
+    //     Ok(pool) => {
+    //         println!("✅ Connection to the database is successful!");
+    //         pool
+    //     }
+    //     Err(err) => {
+    //         println!("🔥 Failed to connect to the database: {:?}", err);
+    //         std::process::exit(1);
+    //     }
+    // };
 
     // 服务器配置
     let host = std::env::var("HOST").unwrap_or_else(|_| "127.0.0.1".to_string());
@@ -62,16 +61,14 @@ async fn main() -> anyhow::Result<()> {
     let cors = CorsLayer::new()
         .allow_origin(Any)
         .allow_methods(Any)
-        .allow_credentials(true)
         .allow_headers(Any);
 
     // 创建路由
-    let mut app = create_router(pool)
-        .layer(TraceLayer::new_for_http())
-        .layer(cors);
+    // let mut app = create_router(pool)
+    let mut app = Router::new().layer(TraceLayer::new_for_http()).layer(cors);
 
     // -- dev 模式下，添加一个测试路由
-    if env::var("ENV").unwrap_or_else(|_| "development".to_string()) == "development" {
+    if config.mode == "development" {
         app = app.route("/", get(|| async { "Doc Editor API is running!" }));
     }
 
