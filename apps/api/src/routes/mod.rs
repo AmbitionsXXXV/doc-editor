@@ -3,6 +3,7 @@ use axum::{
     routing::{delete, get, post, put},
 };
 use sqlx::PgPool;
+use tower_http::trace::TraceLayer;
 
 use crate::controllers::{
     create_document, create_user, delete_document, get_document, get_documents, login,
@@ -24,5 +25,6 @@ pub fn create_router(pool: PgPool) -> Router {
         .route("/api/users", post(create_user))
         .route("/api/login", post(login))
         .nest("/api", auth_routes)
+        .layer(TraceLayer::new_for_http())
         .with_state(pool)
 }
