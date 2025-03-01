@@ -10,6 +10,7 @@ import {
 } from 'react-router'
 import './index.css'
 
+import Loader from '@/components/Loader'
 // @ts-ignore
 import type { Route } from './+types/root'
 
@@ -47,7 +48,11 @@ export default function Root() {
 }
 
 export function HydrateFallback() {
-	return <div>loading...</div>
+	return (
+		<div className="flex justify-center items-center h-screen">
+			<Loader />
+		</div>
+	)
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

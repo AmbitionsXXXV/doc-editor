@@ -154,15 +154,15 @@ export const Icon = ({
 	const getColorClass = () => {
 		switch (color) {
 			case 'primary':
-				return 'text-primary'
+				return 'stroke-primary'
 			case 'destructive':
-				return 'text-destructive'
+				return 'stroke-destructive'
 			case 'accent':
-				return 'text-accent'
+				return 'stroke-accent'
 			case 'muted':
-				return 'text-muted-foreground'
+				return 'stroke-muted-foreground'
 			case 'current':
-				return 'text-current'
+				return 'stroke-current'
 			default:
 				return ''
 		}
