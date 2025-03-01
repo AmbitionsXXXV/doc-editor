@@ -127,10 +127,10 @@
 }
 
 @theme {
-  --animate-loaderJump: loaderJump 0.5s linear infinite;
-  --animate-loaderShadow: loaderShadow 0.5s linear infinite;
+  --animate-loader-jump: loader-jump 0.5s linear infinite;
+  --animate-loader-shadow: loader-shadow 0.5s linear infinite;
   
-  @keyframes loaderJump {
+  @keyframes loader-jump {
     15% { border-bottom-right-radius: 3px; }
     25% { transform: translateY(9px) rotate(22.5deg); }
     50% { 
@@ -141,7 +141,7 @@
     100% { transform: translateY(0) rotate(90deg); }
   }
   
-  @keyframes loaderShadow {
+  @keyframes loader-shadow {
     0%, 100% { transform: scale(1, 1); }
     50% { transform: scale(1.2, 1); }
   }
