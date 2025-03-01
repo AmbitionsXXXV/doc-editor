@@ -167,7 +167,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
 				<SidebarMenu>
 					<SidebarMenuItem>
 						<SidebarMenuButton size="lg" asChild>
-							<a href="#">
+							<a href="/">
 								<div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
 									<GalleryVerticalEnd className="size-4" />
 								</div>
@@ -191,7 +191,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
 								className="group/collapsible"
 							>
 								<SidebarMenuItem>
-									<CollapsibleTrigger asChild>
+									<CollapsibleTrigger asChild className="hover:cursor-pointer">
 										<SidebarMenuButton>
 											{item.title}{' '}
 											<Plus className="ml-auto group-data-[state=open]/collapsible:hidden" />
