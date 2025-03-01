@@ -78,7 +78,19 @@ export const Header: React.FC<HeaderProps> = ({ userName, onSignin, onLogout }) 
 					</div>
 				)}
 
-				<ThemeToggle />
+				<div className="flex items-center gap-2">
+					<Button
+						size="sm"
+						variant="ghost"
+						onClick={() =>
+							window.open('https://github.com/AmbitionsXXXV/doc-editor', '_blank')
+						}
+					>
+						<Icon type="github" className="size-4" />
+					</Button>
+
+					<ThemeToggle />
+				</div>
 			</div>
 		</header>
 	)
