@@ -1,3 +1,5 @@
+import { Header } from '@/components'
+import { ScrollArea } from '@/ui/scroll-area'
 import { SidebarInset, SidebarProvider } from '@/ui/sidebar'
 import { useState } from 'react'
 import { Outlet, useLocation } from 'react-router'
@@ -14,7 +16,11 @@ export function RootLayout() {
 			{pathname !== '/' && <AppSidebar />}
 
 			<SidebarInset>
-				<Outlet context={{ isDarkMode, setIsDarkMode, userName }} />
+				<Header />
+
+				<ScrollArea className="h-[calc(100vh-4rem)]">
+					<Outlet context={{ isDarkMode, setIsDarkMode, userName }} />
+				</ScrollArea>
 			</SidebarInset>
 		</SidebarProvider>
 	)

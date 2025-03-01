@@ -8,6 +8,7 @@ export default [
 		route('/icons', './routes/IconsDemo.tsx'),
 	]),
 
+	// 登录和注册页面使用独立布局
 	route('/login', './routes/sign/SignIn.tsx'),
 	route('/signup', './routes/sign/SignUp.tsx'),
 ] satisfies RouteConfig
