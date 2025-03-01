@@ -7,9 +7,11 @@ mod models;
 mod routes;
 mod utils;
 
+use std::env;
 #[allow(unused)]
 use std::net::SocketAddr;
 
+use axum::routing::get;
 use routes::create_router;
 use sqlx::postgres::PgPoolOptions;
 use tower_http::{
@@ -64,9 +66,14 @@ async fn main() -> anyhow::Result<()> {
         .allow_headers(Any);
 
     // 创建路由
-    let app = create_router(pool)
+    let mut app = create_router(pool)
         .layer(TraceLayer::new_for_http())
         .layer(cors);
+
+    // -- dev 模式下，添加一个测试路由
+    if env::var("ENV").unwrap_or_else(|_| "development".to_string()) == "development" {
+        app = app.route("/", get(|| async { "Doc Editor API is running!" }));
+    }
 
     let listener = tokio::net::TcpListener::bind(socket_addr).await?;
 

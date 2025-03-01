@@ -1,8 +1,4 @@
-use axum::{
-    extract::State,
-    http::StatusCode,
-    Json,
-};
+use axum::{Json, extract::State, http::StatusCode};
 use serde::{Deserialize, Serialize};
 use sqlx::PgPool;
 use uuid::Uuid;
@@ -46,7 +42,7 @@ pub async fn create_user(
     // 3. Return the created user
 
     let id = Uuid::new_v4().to_string();
-    
+
     let user = UserResponse {
         id,
         email: payload.email,
