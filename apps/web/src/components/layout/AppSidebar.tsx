@@ -180,6 +180,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
 					</SidebarMenuItem>
 				</SidebarMenu>
 			</SidebarHeader>
+
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarMenu>
@@ -216,6 +217,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
 					</SidebarMenu>
 				</SidebarGroup>
 			</SidebarContent>
+
 			<SidebarRail />
 		</Sidebar>
 	)

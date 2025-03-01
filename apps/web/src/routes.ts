@@ -5,6 +5,7 @@ export default [
 	layout('./components/layout/RootLayout.tsx', [
 		index('./routes/Home.tsx'),
 		route('/documents', './routes/Documents.tsx'),
+		route('/icons', './routes/IconsDemo.tsx'),
 	]),
 
 	route('/login', './routes/sign/SignIn.tsx'),
