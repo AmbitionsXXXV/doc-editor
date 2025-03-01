@@ -5,16 +5,16 @@ import { Link, useNavigate } from 'react-router'
 
 interface HeaderProps {
 	userName?: string
-	onLogin?: () => void
+	onSignin?: () => void
 	onLogout?: () => void
 }
 
-export const Header: React.FC<HeaderProps> = ({ userName, onLogin, onLogout }) => {
+export const Header: React.FC<HeaderProps> = ({ userName, onSignin, onLogout }) => {
 	const navigate = useNavigate()
 
-	const handleLogin = () => {
-		if (onLogin) {
-			onLogin()
+	const handleSignIn = () => {
+		if (onSignin) {
+			onSignin()
 		} else {
 			navigate('/login')
 		}
@@ -67,8 +67,8 @@ export const Header: React.FC<HeaderProps> = ({ userName, onLogin, onLogout }) =
 					</>
 				) : (
 					<div className="flex items-center gap-2">
-						<Button size="sm" onClick={handleLogin}>
-							Login
+						<Button size="sm" onClick={handleSignIn}>
+							Sign In
 						</Button>
 						<Link to="/signup">
 							<Button variant="outline" size="sm">
