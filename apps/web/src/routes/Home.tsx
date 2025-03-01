@@ -1,4 +1,3 @@
-import Loader from '@/components/Loader'
 import { Icon } from '@/icons'
 import { Button } from '@/ui/button'
 import { useNavigate } from 'react-router'
@@ -12,7 +11,6 @@ export function Home() {
 
 	return (
 		<div className="flex flex-col h-full">
-			<Loader />
 			<main className="flex-1 flex flex-col items-center justify-center py-12 px-4">
 				<div className="max-w-3xl mx-auto w-full text-center">
 					<div className="mb-6">
