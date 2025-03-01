@@ -1,17 +1,17 @@
 import { Header } from '@/components'
+import { ThemeProvider } from '@/components/provider/theme-provider'
 import { ScrollArea } from '@/ui/scroll-area'
-import { SidebarInset, SidebarProvider } from '@/ui/sidebar'
+import { SidebarInset } from '@/ui/sidebar'
 import { useState } from 'react'
 import { Outlet, useLocation } from 'react-router'
 import AppSidebar from './AppSidebar'
 
 export function RootLayout() {
-	const [isDarkMode, setIsDarkMode] = useState(false)
 	const { pathname } = useLocation()
 	const [userName] = useState<string | undefined>(undefined)
 
 	return (
-		<SidebarProvider>
+		<ThemeProvider defaultTheme="dark">
 			{/* 顶部导航栏 */}
 			{pathname !== '/' && <AppSidebar />}
 
@@ -19,10 +19,10 @@ export function RootLayout() {
 				<Header />
 
 				<ScrollArea className="h-[calc(100vh-4rem)]">
-					<Outlet context={{ isDarkMode, setIsDarkMode, userName }} />
+					<Outlet context={{ userName }} />
 				</ScrollArea>
 			</SidebarInset>
-		</SidebarProvider>
+		</ThemeProvider>
 	)
 }
 

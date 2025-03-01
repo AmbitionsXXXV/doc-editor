@@ -1,3 +1,4 @@
+import ThemeToggle from '@/components/ThemeToggle'
 import { Icon } from '@/icons'
 import { Button } from '@/ui/button'
 import { Link, useNavigate } from 'react-router'
@@ -76,6 +77,8 @@ export const Header: React.FC<HeaderProps> = ({ userName, onLogin, onLogout }) =
 						</Link>
 					</div>
 				)}
+
+				<ThemeToggle />
 			</div>
 		</header>
 	)

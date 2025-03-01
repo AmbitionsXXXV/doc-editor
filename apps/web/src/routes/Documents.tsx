@@ -1,4 +1,3 @@
-import ThemeToggle from '@/components/ThemeToggle'
 import { Editor } from '@/editor/components'
 import { Button } from '@/ui/button'
 import { Edit, Share } from 'lucide-react'
@@ -13,15 +12,13 @@ const MOCK_DOCUMENTS = [
 ]
 
 type ContextType = {
-	isDarkMode: boolean
-	setIsDarkMode: (isDark: boolean) => void
 	userName: string | undefined
 }
 
 export function Documents() {
 	const { documentId } = useParams()
 	const [documents] = useState(MOCK_DOCUMENTS)
-	const { isDarkMode, setIsDarkMode, userName } = useOutletContext<ContextType>()
+	const { userName } = useOutletContext<ContextType>()
 
 	// 如果没有指定文档ID，使用第一个文档
 	const activeDocId = documentId || '1'
@@ -44,7 +41,6 @@ export function Documents() {
 								<Share className="h-4 w-4 mr-1" />
 								分享
 							</Button>
-							<ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
 						</div>
 					</div>
 

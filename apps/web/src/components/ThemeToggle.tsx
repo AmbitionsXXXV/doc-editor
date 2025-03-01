@@ -1,20 +1,18 @@
+import { useTheme } from '@/components/provider/theme-provider'
 import { Button } from '@/ui/button'
 import { Moon, Sun } from 'lucide-react'
 
-interface ThemeToggleProps {
-	isDarkMode: boolean
-	setIsDarkMode: (isDark: boolean) => void
-}
+export function ThemeToggle() {
+	const { theme, setTheme } = useTheme()
 
-export function ThemeToggle({ isDarkMode, setIsDarkMode }: ThemeToggleProps) {
 	return (
 		<Button
 			variant="ghost"
 			size="icon"
-			onClick={() => setIsDarkMode(!isDarkMode)}
+			onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 			className="rounded-md bg-background hover:bg-accent/80"
 		>
-			{isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+			{theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
 		</Button>
 	)
 }
