@@ -1,6 +1,7 @@
 import { Icon } from '@/icons'
 import { BackgroundLines } from '@/ui/background-lines'
 import { Button } from '@/ui/button'
+import { ColorfulText } from '@/ui/colorful-text'
 import { useNavigate } from 'react-router'
 
 export function Home() {
@@ -25,7 +26,7 @@ export function Home() {
 							/>
 						</div>
 						<h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-							Doc Editor
+							<ColorfulText text="Doc Editor" />
 						</h1>
 						<p className="text-xl mb-8 text-muted-foreground">
 							现代化的协作文档编辑平台，让团队协作更高效
@@ -35,6 +36,7 @@ export function Home() {
 							<Button size="lg" onClick={handleGetStarted} className="mr-4">
 								立即开始
 							</Button>
+
 							<Button size="lg" variant="outline">
 								了解更多
 							</Button>
