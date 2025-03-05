@@ -1,13 +1,10 @@
-use std::fmt;
-
 use axum::{
     Json,
     http::StatusCode,
     response::{IntoResponse, Response},
 };
 use serde::{Deserialize, Serialize};
-use serde_json::json;
-use thiserror::Error;
+use std::fmt;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ErrorResponse {
@@ -37,9 +34,9 @@ pub enum ErrorMessage {
     UserNotAuthenticated,
 }
 
-impl ToString for ErrorMessage {
-    fn to_string(&self) -> String {
-        self.to_str().to_owned()
+impl fmt::Display for ErrorMessage {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.to_str())
     }
 }
 
@@ -141,64 +138,3 @@ impl IntoResponse for HttpError {
         self.into_http_response()
     }
 }
-
-#[derive(Error, Debug)]
-pub enum AppError {
-    #[error("Authentication error: {0}")]
-    Auth(String),
-
-    #[error("Authorization error: {0}")]
-    Forbidden(String),
-
-    #[error("Not found: {0}")]
-    NotFound(String),
-
-    #[error("Validation error: {0}")]
-    Validation(String),
-
-    #[error("Database error: {0}")]
-    Database(#[from] sqlx::Error),
-
-    #[error("Internal server error: {0}")]
-    Internal(String),
-
-    #[error("Unauthorized: {0}")]
-    Unauthorized(String),
-}
-
-impl IntoResponse for AppError {
-    fn into_response(self) -> Response {
-        let (status, error_message) = match self {
-            AppError::Auth(message) => (StatusCode::UNAUTHORIZED, message),
-            AppError::Forbidden(message) => (StatusCode::FORBIDDEN, message),
-            AppError::NotFound(message) => (StatusCode::NOT_FOUND, message),
-            AppError::Validation(message) => (StatusCode::BAD_REQUEST, message),
-            AppError::Database(err) => {
-                tracing::error!("Database error: {:?}", err);
-                (
-                    StatusCode::INTERNAL_SERVER_ERROR,
-                    "A database error occurred".into(),
-                )
-            }
-            AppError::Internal(message) => {
-                tracing::error!("Internal error: {}", message);
-                (
-                    StatusCode::INTERNAL_SERVER_ERROR,
-                    "An internal server error occurred".into(),
-                )
-            }
-            AppError::Unauthorized(message) => (StatusCode::UNAUTHORIZED, message),
-        };
-
-        let body = Json(json!({
-            "error": {
-                "message": error_message,
-                "code": status.as_u16()
-            }
-        }));
-
-        (status, body).into_response()
-    }
-}
-
-pub type Result<T> = std::result::Result<T, AppError>;

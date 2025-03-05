@@ -33,13 +33,14 @@ services:
       - ../apps/api:/app/apps/api
 
   postgres:
-    image: postgres:16-alpine
+    image: bitnami/postgresql:latest
+    container_name: doc_editor_backend
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=doc_editor
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: doc_editor
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
