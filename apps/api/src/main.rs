@@ -3,7 +3,7 @@
 mod config;
 mod db;
 mod dtos;
-mod errors;
+mod error;
 mod handlers;
 mod mail;
 mod middleware;
@@ -19,7 +19,6 @@ use axum::{
         header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},
     },
     middleware::from_fn,
-    routing::get,
 };
 use config::Config;
 use db::DBClient;
@@ -36,7 +35,7 @@ pub struct AppState {
 }
 
 #[tokio::main]
-async fn main() -> anyhow::Result<()> {
+async fn main() {
     // -- 加载环境变量
     dotenv().ok();
 
@@ -48,16 +47,16 @@ async fn main() -> anyhow::Result<()> {
 
     // -- 创建数据库连接池
     let pool = match PgPoolOptions::new()
-        .max_connections(10)
+        .max_connections(config.max_connections)
         .connect(&config.database_url)
         .await
     {
         Ok(pool) => {
-            println!("✅ Connection to the database is successful!");
+            tracing::info!("✅ Connection to the database is successful!");
             pool
         }
         Err(err) => {
-            println!("🔥 Failed to connect to the database: {:?}", err);
+            tracing::error!("🔥 Failed to connect to the database: {:?}", err);
             std::process::exit(1);
         }
     };
@@ -82,12 +81,7 @@ async fn main() -> anyhow::Result<()> {
     };
 
     // -- 使用 Arc 包装 app_state 实现线程安全的共享引用，使多个并发请求可以安全地访问应用状态
-    let mut app = create_router(Arc::new(app_state.clone())).layer(cors);
-
-    // -- dev 模式下，添加一个测试路由
-    if config.mode == "development" {
-        app = app.route("/", get(|| async { "Doc Editor API is running!" }));
-    }
+    let app = create_router(Arc::new(app_state.clone())).layer(cors);
 
     let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{}", &config.server_port))
         .await
@@ -95,6 +89,4 @@ async fn main() -> anyhow::Result<()> {
 
     tracing::info!("Server running on port {}", config.server_port);
     axum::serve(listener, app).await.unwrap();
-
-    Ok(())
 }

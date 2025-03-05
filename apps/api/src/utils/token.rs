@@ -3,7 +3,7 @@ use chrono::{Duration, Utc};
 use jsonwebtoken::{Algorithm, DecodingKey, EncodingKey, Header, Validation, decode, encode};
 use serde::{Deserialize, Serialize};
 
-use crate::errors::{ErrorMessage, HttpError};
+use crate::error::{ErrorMessage, HttpError};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct TokenClaims {

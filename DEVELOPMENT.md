@@ -68,7 +68,7 @@ cd apps/api && cargo run
 
 Doc Editor 使用 monorepo 结构，包含以下主要目录:
 
-```
+```bash
 doc-editor/
 ├── apps/                  # 应用程序
 │   ├── api/               # Rust 后端 API
@@ -176,29 +176,31 @@ node tools/update-deps.js typescript --dev
 
 ```bash
 # 启动所有服务
-docker-compose -f docker/docker-compose.yml up
+docker compose -f docker/docker-compose.yml up
 
 # 在后台启动
-docker-compose -f docker/docker-compose.yml up -d
+docker compose -f docker/docker-compose.yml up -d
 
 # 仅启动数据库
-docker-compose -f docker/docker-compose.yml up postgres
+docker compose -f docker/docker-compose.yml up postgres
+sqlx database create
+sqlx migrate run
 ```
 
 ### 查看日志
 
 ```bash
 # 查看所有容器的日志
-docker-compose -f docker/docker-compose.yml logs -f
+docker compose -f docker/docker-compose.yml logs -f
 
 # 查看特定服务的日志
-docker-compose -f docker/docker-compose.yml logs -f api
+docker compose -f docker/docker-compose.yml logs -f api
 ```
 
 ### 停止环境
 
 ```bash
-docker-compose -f docker/docker-compose.yml down
+docker compose -f docker/docker-compose.yml down
 ```
 
 ## 部署流程
@@ -227,6 +229,7 @@ docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up
 #### 前端部署
 
 1. 构建前端应用:
+
    ```bash
    pnpm --filter "@doc-editor/web" build
    ```
@@ -236,18 +239,21 @@ docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up
 #### 后端部署
 
 1. 构建后端应用:
+
    ```bash
    cd apps/api && cargo build --release
    ```
 
 2. 配置环境变量:
-   ```
+
+   ```bash
    DATABASE_URL=postgres://user:password@localhost:5432/doc_editor
    JWT_SECRET=your_production_secret
    RUST_LOG=info
    ```
 
 3. 运行二进制文件:
+
    ```bash
    ./target/release/api
    ```
@@ -269,38 +275,42 @@ cd apps/api && cargo run --bin migrate
 ### 常见问题
 
 1. **依赖问题**:
-   
+
    如果遇到依赖冲突，尝试清除 node_modules 并重新安装:
+
    ```bash
    pnpm clean && pnpm install
    ```
 
 2. **端口冲突**:
-   
+
    默认端口:
    - 前端: 3000
    - 后端: 8000
    - 数据库: 5432
-   
+
    可以通过环境变量修改:
+
    ```bash
    PORT=4000 pnpm --filter "@doc-editor/web" dev
    ```
 
 3. **数据库连接问题**:
-   
+
    确保 PostgreSQL 正在运行并且连接字符串正确。检查 `.env` 文件中的配置。
 
 4. **构建失败**:
-   
+
    如果构建失败，尝试清除构建缓存:
+
    ```bash
    pnpm clean:build && pnpm build
    ```
 
 5. **TypeScript 错误**:
-   
+
    如果遇到 TypeScript 错误，确保所有依赖包都已构建:
+
    ```bash
    pnpm build
    ```
@@ -308,19 +318,19 @@ cd apps/api && cargo run --bin migrate
 ### 调试技巧
 
 1. **前端调试**:
-   
+
    - 使用 React DevTools 进行组件调试
    - 检查 Vite 开发服务器的控制台输出
    - 使用浏览器开发工具的网络面板检查 API 请求
 
 2. **后端调试**:
-   
+
    - 设置 `RUST_LOG=debug` 环境变量获取详细日志
    - 使用 `cargo run` 的调试模式
    - 检查数据库查询日志
 
 3. **Docker 调试**:
-   
+
    - 使用 `docker-compose logs` 查看容器日志
    - 使用 `docker exec -it <container_id> /bin/sh` 进入容器
    - 检查容器网络和卷挂载

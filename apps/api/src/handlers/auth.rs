@@ -18,7 +18,7 @@ use crate::{
         ForgotPasswordRequestDto, LoginUserDto, RegisterUserDto, ResendVerificationDto,
         ResetPasswordRequestDto, Response, UserLoginResponseDto, VerifyEmailQueryDto,
     },
-    errors::{ErrorMessage, HttpError},
+    error::{ErrorMessage, HttpError},
     mail::mails::{send_forgot_password_email, send_verification_email, send_welcome_email},
     utils::{password, token},
 };

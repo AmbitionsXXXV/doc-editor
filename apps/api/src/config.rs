@@ -10,7 +10,7 @@ pub struct Config {
     pub frontend_url: String,
     pub log_dir: String,
     pub log_retention_days: u64,
-    pub mode: String,
+    pub max_connections: u32,
 }
 
 impl Config {
@@ -45,7 +45,10 @@ impl Config {
             .parse()
             .unwrap_or(7);
 
-        let mode = env::var("MODE").unwrap_or_else(|_| "development".to_string());
+        let max_connections = env::var("DATABASE_MAX_CONNECTIONS")
+            .unwrap_or_else(|_| "10".to_string())
+            .parse()
+            .unwrap_or(10);
 
         Self {
             jwt_secret,
@@ -55,7 +58,7 @@ impl Config {
             frontend_url,
             log_dir,
             log_retention_days,
-            mode,
+            max_connections,
         }
     }
 }

@@ -4,18 +4,8 @@ use sqlx::Error;
 use uuid::Uuid;
 
 use super::DBClient;
+
 use crate::models::{User, UserRole};
-
-/// 时区转换辅助函数 -- 将本地时间转换为 UTC 时间
-fn to_utc(local_time: DateTime<FixedOffset>) -> DateTime<Utc> {
-    local_time.with_timezone(&Utc)
-}
-
-/// 时区转换辅助函数 -- 将 UTC 时间转换为东八区时间
-fn to_local(utc_time: DateTime<Utc>) -> DateTime<FixedOffset> {
-    let china_timezone = FixedOffset::east_opt(8 * 3600).unwrap();
-    utc_time.with_timezone(&china_timezone)
-}
 
 /// 用户数据库操作扩展特征 -- 定义了所有与用户相关的数据库操作
 #[async_trait]

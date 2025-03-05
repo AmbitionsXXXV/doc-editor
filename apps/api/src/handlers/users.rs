@@ -16,7 +16,7 @@ use crate::{
         FilterUserDto, NameUpdateDto, RequestQueryDto, Response, RoleUpdateDto, UserData,
         UserListResponseDto, UserPasswordUpdateDto, UserResponseDto,
     },
-    errors::{ErrorMessage, HttpError},
+    error::{ErrorMessage, HttpError},
     middleware::{JWTAuthMiddleware, role_check},
     models::UserRole,
     utils::password,
