@@ -82,6 +82,7 @@ export const Header: React.FC<HeaderProps> = ({ userName, onSignin, onLogout }) 
 					<Button
 						size="sm"
 						variant="ghost"
+						className="rounded-full hover:rounded-full size-7"
 						onClick={() =>
 							window.open('https://github.com/AmbitionsXXXV/doc-editor', '_blank')
 						}
