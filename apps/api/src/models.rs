@@ -32,3 +32,47 @@ pub struct User {
     #[serde(rename = "updatedAt")]
     pub updated_at: Option<DateTime<Utc>>,
 }
+
+// 在 models.rs 中添加
+#[derive(Debug, Deserialize, Serialize, sqlx::FromRow, sqlx::Type, Clone)]
+pub struct Document {
+    pub id: uuid::Uuid,
+    pub title: String,
+    pub content: String,
+    pub owner_id: uuid::Uuid,
+    pub is_public: bool,
+    #[serde(rename = "createdAt")]
+    pub created_at: Option<DateTime<Utc>>,
+    #[serde(rename = "updatedAt")]
+    pub updated_at: Option<DateTime<Utc>>,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone, sqlx::Type, PartialEq, Eq)]
+#[sqlx(type_name = "permission_level", rename_all = "lowercase")]
+pub enum PermissionLevel {
+    Read,
+    ReadWrite,
+    Owner,
+}
+
+impl PermissionLevel {
+    pub fn to_str(&self) -> &'static str {
+        match self {
+            PermissionLevel::Read => "read",
+            PermissionLevel::ReadWrite => "readwrite",
+            PermissionLevel::Owner => "owner",
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, sqlx::FromRow, Clone)]
+pub struct DocumentPermission {
+    pub id: uuid::Uuid,
+    pub document_id: uuid::Uuid,
+    pub user_id: uuid::Uuid,
+    pub permission_level: PermissionLevel,
+    #[serde(rename = "createdAt")]
+    pub created_at: Option<DateTime<Utc>>,
+    #[serde(rename = "updatedAt")]
+    pub updated_at: Option<DateTime<Utc>>,
+}

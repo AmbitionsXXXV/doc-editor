@@ -4,47 +4,59 @@ use sqlx::Error;
 use uuid::Uuid;
 
 use super::DBClient;
+use super::DbError;
+use super::DbResult;
 
 use crate::models::{User, UserRole};
 
-/// 用户数据库操作扩展特征 -- 定义了所有与用户相关的数据库操作
+/// User database operations extension trait
+///
+/// Defines all operations related to user management in the database
 #[async_trait]
 pub trait UserExt {
-    /// 获取用户信息 -- 支持通过多种方式查询
+    /// Get a user by various identifiers
     ///
-    /// # 参数
-    /// - `user_id` -- 用户ID
-    /// - `name` -- 用户名
-    /// - `email` -- 用户邮箱
-    /// - `token` -- 验证令牌
+    /// # Arguments
+    /// * `user_id` - User ID
+    /// * `name` - Username
+    /// * `email` - User email
+    /// * `token` - Verification token
     ///
-    /// # 返回
-    /// - `Ok(Some(User))` -- 查找到用户
-    /// - `Ok(None)` -- 未找到用户
-    /// - `Err(sqlx::Error)` -- 数据库错误
+    /// # Returns
+    /// * `Ok(Some(User))` - User found
+    /// * `Ok(None)` - User not found
+    /// * `Err(DbError)` - Database error
     async fn get_user(
         &self,
         user_id: Option<Uuid>,
         name: Option<&str>,
         email: Option<&str>,
         token: Option<&str>,
-    ) -> Result<Option<User>, Error>;
+    ) -> DbResult<Option<User>>;
 
-    /// 分页获取用户列表 -- 按创建时间倒序排列
+    /// Get paginated list of users
     ///
-    /// # 参数
-    /// - `page` -- 页码，从1开始
-    /// - `limit` -- 每页数量
-    async fn get_users(&self, page: u32, limit: usize) -> Result<Vec<User>, Error>;
+    /// # Arguments
+    /// * `page` - Page number (1-based)
+    /// * `limit` - Number of items per page
+    ///
+    /// # Returns
+    /// * `Ok(Vec<User>)` - List of users
+    /// * `Err(DbError)` - Database error
+    async fn get_users(&self, page: u32, limit: usize) -> DbResult<Vec<User>>;
 
-    /// 保存新用户 -- 创建新的用户记录
+    /// Create a new user
     ///
-    /// # 参数
-    /// - `name` -- 用户名
-    /// - `email` -- 邮箱
-    /// - `password` -- 密码（已哈希）
-    /// - `verification_token` -- 验证令牌
-    /// - `token_expires_at` -- 令牌过期时间
+    /// # Arguments
+    /// * `name` - Username
+    /// * `email` - Email address
+    /// * `password` - Hashed password
+    /// * `verification_token` - Email verification token
+    /// * `token_expires_at` - Token expiration time
+    ///
+    /// # Returns
+    /// * `Ok(User)` - Created user
+    /// * `Err(DbError)` - Database error
     async fn save_user<T: Into<String> + Send>(
         &self,
         name: T,
@@ -52,36 +64,81 @@ pub trait UserExt {
         password: T,
         verification_token: T,
         token_expires_at: DateTime<Utc>,
-    ) -> Result<User, Error>;
+    ) -> DbResult<User>;
 
-    /// 获取用户总数 -- 用于分页
-    async fn get_user_count(&self) -> Result<i64, Error>;
+    /// Get total count of users for pagination
+    ///
+    /// # Returns
+    /// * `Ok(i64)` - Count of users
+    /// * `Err(DbError)` - Database error
+    async fn get_user_count(&self) -> DbResult<i64>;
 
-    /// 更新用户名 -- 修改用户的显示名称
+    /// Update a user's display name
+    ///
+    /// # Arguments
+    /// * `user_id` - User ID to update
+    /// * `name` - New display name
+    ///
+    /// # Returns
+    /// * `Ok(User)` - Updated user
+    /// * `Err(DbError)` - Database error
     async fn update_user_name<T: Into<String> + Send>(
         &self,
         user_id: Uuid,
         name: T,
-    ) -> Result<User, Error>;
+    ) -> DbResult<User>;
 
-    /// 更新用户角色 -- 修改用户的权限级别
-    async fn update_user_role(&self, user_id: Uuid, role: UserRole) -> Result<User, Error>;
+    /// Update a user's role
+    ///
+    /// # Arguments
+    /// * `user_id` - User ID to update
+    /// * `role` - New user role
+    ///
+    /// # Returns
+    /// * `Ok(User)` - Updated user
+    /// * `Err(DbError)` - Database error
+    async fn update_user_role(&self, user_id: Uuid, role: UserRole) -> DbResult<User>;
 
-    /// 更新用户密码 -- 修改用户的登录密码
-    async fn update_user_password(&self, user_id: Uuid, password: String) -> Result<User, Error>;
+    /// Update a user's password
+    ///
+    /// # Arguments
+    /// * `user_id` - User ID to update
+    /// * `password` - New hashed password
+    ///
+    /// # Returns
+    /// * `Ok(User)` - Updated user
+    /// * `Err(DbError)` - Database error
+    async fn update_user_password(&self, user_id: Uuid, password: String) -> DbResult<User>;
 
-    /// 验证用户令牌 -- 确认邮箱验证或重置密码
-    async fn verified_token(&self, token: &str) -> Result<(), Error>;
+    /// Verify a user's token for email verification or password reset
+    ///
+    /// # Arguments
+    /// * `token` - Verification token
+    ///
+    /// # Returns
+    /// * `Ok(())` - Token verified successfully
+    /// * `Err(DbError)` - Database error
+    async fn verified_token(&self, token: &str) -> DbResult<()>;
 
-    /// 添加验证令牌 -- 用于邮箱验证或密码重置
+    /// Add a verification token for email verification or password reset
+    ///
+    /// # Arguments
+    /// * `user_id` - User ID
+    /// * `token` - Verification token
+    /// * `expires_at` - Token expiration time
+    ///
+    /// # Returns
+    /// * `Ok(())` - Token added successfully
+    /// * `Err(DbError)` - Database error
     async fn add_verified_token(
         &self,
         user_id: Uuid,
         token: &str,
         expires_at: DateTime<Utc>,
-    ) -> Result<(), Error>;
+    ) -> DbResult<()>;
 }
 
+/// Implementation of user database operations for the database client
 #[async_trait]
 impl UserExt for DBClient {
     async fn get_user(
@@ -90,7 +147,7 @@ impl UserExt for DBClient {
         name: Option<&str>,
         email: Option<&str>,
         token: Option<&str>,
-    ) -> Result<Option<User>, Error> {
+    ) -> DbResult<Option<User>> {
         let mut user: Option<User> = None;
 
         if let Some(user_id) = user_id {
@@ -122,7 +179,7 @@ impl UserExt for DBClient {
         Ok(user)
     }
 
-    async fn get_users(&self, page: u32, limit: usize) -> Result<Vec<User>, Error> {
+    async fn get_users(&self, page: u32, limit: usize) -> DbResult<Vec<User>> {
         let offset = (page - 1) * limit as u32;
 
         let users = sqlx::query_as!(
@@ -143,7 +200,7 @@ impl UserExt for DBClient {
         password: T,
         verification_token: T,
         token_expires_at: DateTime<Utc>,
-    ) -> Result<User, Error> {
+    ) -> DbResult<User> {
         let user = sqlx::query_as!(
             User,
             r#"
@@ -161,7 +218,7 @@ impl UserExt for DBClient {
         Ok(user)
     }
 
-    async fn get_user_count(&self) -> Result<i64, Error> {
+    async fn get_user_count(&self) -> DbResult<i64> {
         let count = sqlx::query_scalar!(r#"SELECT COUNT(*) FROM users"#)
             .fetch_one(self.pool())
             .await?;
@@ -173,7 +230,7 @@ impl UserExt for DBClient {
         &self,
         user_id: Uuid,
         new_name: T,
-    ) -> Result<User, Error> {
+    ) -> DbResult<User> {
         let user = sqlx::query_as!(
             User,
             r#"
@@ -190,7 +247,7 @@ impl UserExt for DBClient {
         Ok(user)
     }
 
-    async fn update_user_role(&self, user_id: Uuid, new_role: UserRole) -> Result<User, Error> {
+    async fn update_user_role(&self, user_id: Uuid, new_role: UserRole) -> DbResult<User> {
         let user = sqlx::query_as!(
             User,
             r#"
@@ -207,11 +264,7 @@ impl UserExt for DBClient {
         Ok(user)
     }
 
-    async fn update_user_password(
-        &self,
-        user_id: Uuid,
-        new_password: String,
-    ) -> Result<User, Error> {
+    async fn update_user_password(&self, user_id: Uuid, new_password: String) -> DbResult<User> {
         let user = sqlx::query_as!(
             User,
             r#"
@@ -228,7 +281,7 @@ impl UserExt for DBClient {
         Ok(user)
     }
 
-    async fn verified_token(&self, token: &str) -> Result<(), Error> {
+    async fn verified_token(&self, token: &str) -> DbResult<()> {
         let _ = sqlx::query!(
             r#"
             UPDATE users
@@ -251,7 +304,7 @@ impl UserExt for DBClient {
         user_id: Uuid,
         token: &str,
         token_expires_at: DateTime<Utc>,
-    ) -> Result<(), Error> {
+    ) -> DbResult<()> {
         let _ = sqlx::query!(
             r#"
             UPDATE users

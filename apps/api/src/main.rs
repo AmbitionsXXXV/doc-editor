@@ -8,6 +8,7 @@ mod handlers;
 mod mail;
 mod middleware;
 mod models;
+mod repositories;
 mod routes;
 mod utils;
 
@@ -34,59 +35,81 @@ pub struct AppState {
     pub db_client: DBClient,
 }
 
+/// Bootstrap the application
+///
+/// This function initializes all components of the application:
+/// - Loads environment variables and configurations
+/// - Sets up logging
+/// - Establishes database connections
+/// - Configures middleware
+/// - Sets up the HTTP server with all routes
 #[tokio::main]
-async fn main() {
-    // -- 加载环境变量
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // -- Load environment variables
     dotenv().ok();
 
-    // -- 加载配置
+    // -- Load configuration
     let config = config::Config::from_env();
 
-    // -- 初始化日志系统，使用配置中的日志目录和保留天数
+    // -- Initialize logging system with configured log directory and retention
     init_production_logging(Some(&config.log_dir), Some(config.log_retention_days)).await;
+    tracing::info!("Logging initialized");
 
-    // -- 创建数据库连接池
-    let pool = match PgPoolOptions::new()
+    // -- Setup database connection pool with configured parameters
+    tracing::info!(
+        "Connecting to database at {}",
+        config.database_url.split('@').last().unwrap_or("")
+    );
+    let pool = PgPoolOptions::new()
         .max_connections(config.max_connections)
         .connect(&config.database_url)
         .await
-    {
-        Ok(pool) => {
-            tracing::info!("✅ Connection to the database is successful!");
-            pool
-        }
-        Err(err) => {
-            tracing::error!("🔥 Failed to connect to the database: {:?}", err);
-            std::process::exit(1);
-        }
-    };
+        .map_err(|err| {
+            tracing::error!("🐞 Failed to connect to the database: {:?}", err);
+            err
+        })?;
+    tracing::info!("✅ Connected to database successfully");
 
-    // -- 创建一个新的 CORS 中间件层
+    // --Configure CORS middleware for frontend communication
     let cors = CorsLayer::new()
-        // -- 允许来自前端 URL 的跨域请求
-        .allow_origin(config.frontend_url.parse::<HeaderValue>().unwrap())
-        // -- 允许请求头中包含 认证、 接受类型 和 内容类型 字段
+        .allow_origin(
+            config
+                .frontend_url
+                .parse::<HeaderValue>()
+                .unwrap_or_else(|_| {
+                    tracing::warn!("Invalid frontend URL, using wildcard");
+                    HeaderValue::from_static("*")
+                }),
+        )
         .allow_headers([AUTHORIZATION, ACCEPT, CONTENT_TYPE])
-        // -- 允许跨域请求中包含 认证信息（如 cookies）
         .allow_credentials(true)
-        // -- 允许使用 GET、 POST 和 PUT 这些 HTTP 请求方法
-        .allow_methods([Method::GET, Method::POST, Method::PUT]);
+        .allow_methods([
+            Method::GET,
+            Method::POST,
+            Method::PUT,
+            Method::DELETE,
+            Method::OPTIONS,
+        ]);
+    tracing::info!("CORS configured for origin: {}", config.frontend_url);
 
-    // -- 初始化数据库客户端连接
+    // -- Initialize application state with all required components
     let db_client = DBClient::new(pool);
-    // -- 创建应用程序状态，包含 环境配置 和 数据库客户端
-    let app_state = AppState {
+    let app_state = Arc::new(AppState {
         env: config.clone(),
         db_client,
-    };
+    });
 
-    // -- 使用 Arc 包装 app_state 实现线程安全的共享引用，使多个并发请求可以安全地访问应用状态
-    let app = create_router(Arc::new(app_state.clone())).layer(cors);
+    // -- Create router with all defined routes and middleware
+    let app = create_router(app_state).layer(cors);
 
-    let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{}", &config.server_port))
-        .await
-        .unwrap();
+    // Configure and start the HTTP server
+    let bind_addr = format!("0.0.0.0:{}", &config.server_port);
+    tracing::info!("Starting server on {}", bind_addr);
+    let listener = tokio::net::TcpListener::bind(&bind_addr).await?;
+    tracing::info!("✅ Server running on port {}", config.server_port);
 
-    tracing::info!("Server running on port {}", config.server_port);
-    axum::serve(listener, app).await.unwrap();
+    // -- Start serving requests
+    axum::serve(listener, app).await?;
+
+    Ok(())
 }

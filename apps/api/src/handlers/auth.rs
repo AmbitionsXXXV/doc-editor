@@ -9,11 +9,12 @@ use axum::{
 };
 use axum_extra::extract::cookie::Cookie;
 use chrono::{Duration, FixedOffset, Utc};
+use sqlx::error::DatabaseError;
 use validator::Validate;
 
 use crate::{
     AppState,
-    db::UserExt,
+    db::{DbError, UserExt},
     dtos::{
         ForgotPasswordRequestDto, LoginUserDto, RegisterUserDto, ResendVerificationDto,
         ResetPasswordRequestDto, Response, UserLoginResponseDto, VerifyEmailQueryDto,
@@ -118,14 +119,19 @@ pub async fn register(
             ))
         }
         // -- 处理数据库错误
-        Err(sqlx::Error::Database(db_err)) => {
+        Err(DbError::Sqlx(db_err)) => {
             // -- 处理唯一约束违反（邮箱已存在）
-            if db_err.is_unique_violation() {
-                Err(HttpError::unique_constraint_violation(
-                    ErrorMessage::EmailExist.to_string(),
-                ))
+            if let Some(db_err) = db_err.as_database_error() {
+                if db_err.is_unique_violation() {
+                    Err(HttpError::unique_constraint_violation(
+                        ErrorMessage::EmailExist.to_string(),
+                    ))
+                } else {
+                    // -- 处理其他数据库错误
+                    Err(HttpError::server_error(db_err.to_string()))
+                }
             } else {
-                // -- 处理其他数据库错误
+                // -- 处理非数据库错误
                 Err(HttpError::server_error(db_err.to_string()))
             }
         }

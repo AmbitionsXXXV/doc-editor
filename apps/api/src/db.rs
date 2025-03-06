@@ -1,37 +1,72 @@
 use sqlx::Pool;
 use sqlx::postgres::{PgPool, PgPoolOptions, Postgres};
+use std::sync::Arc;
 use std::time::Duration;
 
+// Module declarations
+mod document;
 mod user;
 
+// Public re-exports
+pub use document::DocumentExt;
 pub use user::UserExt;
 
-/// 数据库客户端结构体 -- 封装了数据库连接池
+/// Database client that provides access to all repositories
+///
+/// This client follows the repository pattern, providing specialized
+/// interfaces for each entity type while centralizing database access.
 #[derive(Debug, Clone)]
 pub struct DBClient {
     pool: Pool<Postgres>,
 }
 
 impl DBClient {
-    /// 创建新的数据库客户端实例 -- 使用给定的连接池初始化
+    /// Create a new database client with the given connection pool
     pub fn new(pool: Pool<Postgres>) -> Self {
         DBClient { pool }
     }
 
-    /// 获取数据库连接池的引用 -- 用于内部模块访问
+    /// Get a reference to the underlying connection pool
+    ///
+    /// This method is restricted to use within this crate only
     pub(crate) fn pool(&self) -> &Pool<Postgres> {
         &self.pool
     }
+
+    /// Run a health check on the database
+    pub async fn health_check(&self) -> Result<bool, DbError> {
+        sqlx::query("SELECT 1")
+            .execute(self.pool())
+            .await
+            .map(|_| true)
+            .map_err(DbError::from)
+    }
+
+    /// Begin a transaction
+    pub async fn begin_transaction(&self) -> Result<sqlx::Transaction<'_, Postgres>, DbError> {
+        self.pool().begin().await.map_err(DbError::from)
+    }
 }
 
-// -- 常用错误类型
+/// Database operation errors
+///
+/// Comprehensive error type for all database-related operations
 #[derive(Debug, thiserror::Error)]
 pub enum DbError {
     #[error("Database error: {0}")]
     Sqlx(#[from] sqlx::Error),
 
+    #[error("Entity not found: {0}")]
+    NotFound(String),
+
     #[error("User not found")]
     UserNotFound,
+
+    #[error("Document not found")]
+    DocumentNotFound,
+
+    #[error("Permission denied for resource")]
+    PermissionDenied,
 
     #[error("Email already exists")]
     EmailExists,
@@ -41,4 +76,13 @@ pub enum DbError {
 
     #[error("Token expired or invalid")]
     InvalidToken,
+
+    #[error("Constraint violation: {0}")]
+    ConstraintViolation(String),
+
+    #[error("Transaction error: {0}")]
+    TransactionError(String),
 }
+
+/// Common database operation result type
+pub type DbResult<T> = Result<T, DbError>;
