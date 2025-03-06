@@ -29,10 +29,11 @@ use sqlx::postgres::PgPoolOptions;
 use tower_http::cors::CorsLayer;
 use utils::init_production_logging;
 
-#[derive(Debug, Clone)]
 pub struct AppState {
     pub env: Config,
     pub db_client: DBClient,
+    pub user_repository: repositories::user::DbUserRepository,
+    pub document_repository: repositories::document::DbDocumentRepository,
 }
 
 /// Bootstrap the application
@@ -94,9 +95,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // -- Initialize application state with all required components
     let db_client = DBClient::new(pool);
+    let db_client_arc = Arc::new(db_client.clone());
+
+    let user_repository = repositories::user::DbUserRepository::new(db_client_arc.clone());
+    let document_repository = repositories::document::DbDocumentRepository::new(db_client_arc);
+
     let app_state = Arc::new(AppState {
         env: config.clone(),
         db_client,
+        user_repository,
+        document_repository,
     });
 
     // -- Create router with all defined routes and middleware

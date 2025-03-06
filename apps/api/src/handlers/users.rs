@@ -19,6 +19,7 @@ use crate::{
     error::{ErrorMessage, HttpError},
     middleware::{JWTAuthMiddleware, role_check},
     models::UserRole,
+    repositories::UserRepository,
     utils::password,
 };
 
@@ -62,14 +63,14 @@ pub async fn get_users(
     Query(query_params): Query<RequestQueryDto>,
     Extension(app_state): Extension<Arc<AppState>>,
 ) -> Result<impl IntoResponse, HttpError> {
-    let page = query_params.page.unwrap_or(1);
+    let page = query_params.page.unwrap_or(1) as u32;
     let limit = query_params.limit.unwrap_or(10);
 
     tracing::info!("获取用户列表，页码: {}, 每页数量: {}", page, limit);
 
     let users = app_state
-        .db_client
-        .get_users(page as u32, limit)
+        .user_repository
+        .get_users(page, limit)
         .await
         .map_err(|e| {
             tracing::error!("获取用户列表失败: {}", e);
@@ -112,7 +113,7 @@ pub async fn update_user_name(
     let user_id = uuid::Uuid::parse_str(&user.id.to_string()).unwrap();
 
     let result = app_state
-        .db_client
+        .user_repository
         .update_user_name(user_id, &body.name)
         .await
         .map_err(|e| {
@@ -155,7 +156,7 @@ pub async fn update_user_role(
     let user_id = uuid::Uuid::parse_str(&user.user.id.to_string()).unwrap();
 
     let result = app_state
-        .db_client
+        .user_repository
         .update_user_role(user_id, body.role)
         .await
         .map_err(|e| {
@@ -191,7 +192,7 @@ pub async fn update_user_password(
     let user_id = uuid::Uuid::parse_str(&user.id.to_string()).unwrap();
 
     let result = app_state
-        .db_client
+        .user_repository
         .get_user(Some(user_id), None, None, None)
         .await
         .map_err(|e| HttpError::server_error(e.to_string()))?;
@@ -216,7 +217,7 @@ pub async fn update_user_password(
     })?;
 
     app_state
-        .db_client
+        .user_repository
         .update_user_password(user_id, hash_password)
         .await
         .map_err(|e| {
