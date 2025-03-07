@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ userName, onSignin, onLogout }) 
 	}
 
 	return (
-		<header className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 h-16">
+		<header className="flex h-16 items-center justify-between border-gray-200 border-b p-4 dark:border-gray-800">
 			<div className="flex items-center gap-2">
 				<Link to="/" className="flex items-center gap-2">
 					<Icon
@@ -36,23 +36,23 @@ export const Header: React.FC<HeaderProps> = ({ userName, onSignin, onLogout }) 
 						color="primary"
 						aria-hidden="true"
 					/>
-					<h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+					<h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text font-bold text-transparent text-xl">
 						Doc Editor
 					</h1>
 				</Link>
 			</div>
 
 			<div className="flex items-center gap-4">
-				<nav className="hidden md:flex items-center gap-4 mr-4">
+				<nav className="mr-4 hidden items-center gap-4 md:flex">
 					<Link
 						to="/documents"
-						className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+						className="font-medium text-muted-foreground text-sm transition-colors hover:text-foreground"
 					>
 						Documents
 					</Link>
 					<Link
 						to="/icons"
-						className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+						className="font-medium text-muted-foreground text-sm transition-colors hover:text-foreground"
 					>
 						Icons
 					</Link>
@@ -82,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({ userName, onSignin, onLogout }) 
 					<Button
 						size="sm"
 						variant="ghost"
-						className="rounded-full hover:rounded-full size-7"
+						className="size-7 rounded-full hover:rounded-full"
 						onClick={() =>
 							window.open('https://github.com/AmbitionsXXXV/doc-editor', '_blank')
 						}

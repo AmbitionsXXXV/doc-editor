@@ -26,6 +26,16 @@
 
 				"noNonNullAssertion": "off",
 				"useSelfClosingElements": "off"
+			},
+			"nursery": {
+				"useSortedClasses": {
+					"level": "error",
+					"fix": "safe",
+					"options": {
+						"attributes": ["className"],
+						"functions": ["cn"]
+					}
+				}
 			}
 		},
 		"ignore": ["./tools/*.js"]
