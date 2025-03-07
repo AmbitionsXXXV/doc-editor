@@ -3,112 +3,112 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Base colors */
-  --background: hsl(210 40% 98%);
-  --foreground: hsl(222 47% 11%);
-  
-  /* Card colors */
-  --card: hsl(210 40% 96%);
-  --card-foreground: hsl(222 47% 11%);
-  
-  /* Popover colors */
-  --popover: hsl(210 40% 98%);
-  --popover-foreground: hsl(222 47% 11%);
-  
-  /* Primary colors - Teal-based */
-  --primary: hsl(176 80% 37%);
-  --primary-foreground: hsl(0 0% 100%);
-  
-  /* Secondary colors - Subtle gray with teal undertone */
-  --secondary: hsl(180 5% 90%);
-  --secondary-foreground: hsl(176 73% 25%);
-  
-  /* Muted colors */
-  --muted: hsl(180 5% 96%);
-  --muted-foreground: hsl(215 25% 40%);
-  
-  /* Accent colors - Vibrant complementary color */
-  --accent: hsl(262 83% 58%);
-  --accent-foreground: hsl(0 0% 100%);
-  
-  /* Destructive colors */
-  --destructive: hsl(0 84% 60%);
-  --destructive-foreground: hsl(0 0% 100%);
-  
-  /* Border colors */
-  --border: hsl(214 32% 91%);
-  
-  /* Input colors */
-  --input: hsl(214 32% 91%);
-  
-  /* Ring colors */
-  --ring: hsl(176 80% 37%);
-  
-  /* Sidebar colors */
-  --sidebar: hsl(180 5% 98%);
-  --sidebar-foreground: hsl(176 15% 25%);
-  --sidebar-primary: hsl(176 80% 30%);
-  --sidebar-primary-foreground: hsl(0 0% 98%);
-  --sidebar-accent: hsl(180 5% 94%);
-  --sidebar-accent-foreground: hsl(176 40% 20%);
-  --sidebar-border: hsl(180 5% 90%);
-  --sidebar-ring: hsl(176 80% 37%);
-  
-  /* Radius */
-  --radius: 0.5rem;
+	/* Base colors */
+	--background: hsl(210 40% 98%);
+	--foreground: hsl(222 47% 11%);
+
+	/* Card colors */
+	--card: hsl(210 40% 96%);
+	--card-foreground: hsl(222 47% 11%);
+
+	/* Popover colors */
+	--popover: hsl(210 40% 98%);
+	--popover-foreground: hsl(222 47% 11%);
+
+	/* Primary colors - Teal-based */
+	--primary: hsl(176 80% 37%);
+	--primary-foreground: hsl(0 0% 100%);
+
+	/* Secondary colors - Subtle gray with teal undertone */
+	--secondary: hsl(180 5% 90%);
+	--secondary-foreground: hsl(176 73% 25%);
+
+	/* Muted colors */
+	--muted: hsl(180 5% 96%);
+	--muted-foreground: hsl(215 25% 40%);
+
+	/* Accent colors - Vibrant complementary color */
+	--accent: hsl(262 83% 58%);
+	--accent-foreground: hsl(0 0% 100%);
+
+	/* Destructive colors */
+	--destructive: hsl(0 84% 60%);
+	--destructive-foreground: hsl(0 0% 100%);
+
+	/* Border colors */
+	--border: hsl(214 32% 91%);
+
+	/* Input colors */
+	--input: hsl(214 32% 91%);
+
+	/* Ring colors */
+	--ring: hsl(176 80% 37%);
+
+	/* Sidebar colors */
+	--sidebar: hsl(180 5% 98%);
+	--sidebar-foreground: hsl(176 15% 25%);
+	--sidebar-primary: hsl(176 80% 30%);
+	--sidebar-primary-foreground: hsl(0 0% 98%);
+	--sidebar-accent: hsl(180 5% 94%);
+	--sidebar-accent-foreground: hsl(176 40% 20%);
+	--sidebar-border: hsl(180 5% 90%);
+	--sidebar-ring: hsl(176 80% 37%);
+
+	/* Radius */
+	--radius: 0.5rem;
 }
 
 .dark {
-  /* Base colors */
-  --background: hsl(222 47% 8%);
-  --foreground: hsl(210 40% 98%);
-  
-  /* Card colors */
-  --card: hsl(222 47% 10%);
-  --card-foreground: hsl(210 40% 98%);
-  
-  /* Popover colors */
-  --popover: hsl(222 47% 8%);
-  --popover-foreground: hsl(210 40% 98%);
-  
-  /* Primary colors - Teal-based */
-  --primary: hsl(176 80% 50%);
-  --primary-foreground: hsl(222 47% 10%);
-  
-  /* Secondary colors */
-  --secondary: hsl(182 12% 20%);
-  --secondary-foreground: hsl(176 73% 70%);
-  
-  /* Muted colors */
-  --muted: hsl(180 5% 22%);
-  --muted-foreground: hsl(217 24% 75%);
-  
-  /* Accent colors - Vibrant complementary color */
-  --accent: hsl(262 83% 65%);
-  --accent-foreground: hsl(0 0% 100%);
-  
-  /* Destructive colors */
-  --destructive: hsl(0 70% 50%);
-  --destructive-foreground: hsl(210 40% 98%);
-  
-  /* Border colors */
-  --border: hsl(217 33% 18%);
-  
-  /* Input colors */
-  --input: hsl(217 33% 18%);
-  
-  /* Ring colors */
-  --ring: hsl(176 80% 50%);
-  
-  /* Sidebar colors */
-  --sidebar: hsl(222 47% 12%);
-  --sidebar-foreground: hsl(180 5% 85%);
-  --sidebar-primary: hsl(176 70% 45%);
-  --sidebar-primary-foreground: hsl(222 47% 10%);
-  --sidebar-accent: hsl(222 20% 16%);
-  --sidebar-accent-foreground: hsl(180 5% 85%);
-  --sidebar-border: hsl(222 20% 18%);
-  --sidebar-ring: hsl(176 80% 50%);
+	/* Base colors */
+	--background: hsl(222 47% 8%);
+	--foreground: hsl(210 40% 98%);
+
+	/* Card colors */
+	--card: hsl(222 47% 10%);
+	--card-foreground: hsl(210 40% 98%);
+
+	/* Popover colors */
+	--popover: hsl(222 47% 8%);
+	--popover-foreground: hsl(210 40% 98%);
+
+	/* Primary colors - Teal-based */
+	--primary: hsl(176 80% 50%);
+	--primary-foreground: hsl(222 47% 10%);
+
+	/* Secondary colors */
+	--secondary: hsl(182 12% 20%);
+	--secondary-foreground: hsl(176 73% 70%);
+
+	/* Muted colors */
+	--muted: hsl(180 5% 22%);
+	--muted-foreground: hsl(217 24% 75%);
+
+	/* Accent colors - Vibrant complementary color */
+	--accent: hsl(262 83% 65%);
+	--accent-foreground: hsl(0 0% 100%);
+
+	/* Destructive colors */
+	--destructive: hsl(0 70% 50%);
+	--destructive-foreground: hsl(210 40% 98%);
+
+	/* Border colors */
+	--border: hsl(217 33% 18%);
+
+	/* Input colors */
+	--input: hsl(217 33% 18%);
+
+	/* Ring colors */
+	--ring: hsl(176 80% 50%);
+
+	/* Sidebar colors */
+	--sidebar: hsl(222 47% 12%);
+	--sidebar-foreground: hsl(180 5% 85%);
+	--sidebar-primary: hsl(176 70% 45%);
+	--sidebar-primary-foreground: hsl(222 47% 10%);
+	--sidebar-accent: hsl(222 20% 16%);
+	--sidebar-accent-foreground: hsl(180 5% 85%);
+	--sidebar-border: hsl(222 20% 18%);
+	--sidebar-ring: hsl(176 80% 50%);
 }
 
 @theme inline {
@@ -150,31 +150,44 @@
 }
 
 @theme {
-  --animate-loader-jump: loader-jump 0.5s linear infinite;
-  --animate-loader-shadow: loader-shadow 0.5s linear infinite;
-  
-  @keyframes loader-jump {
-    15% { border-bottom-right-radius: 3px; }
-    25% { transform: translateY(9px) rotate(22.5deg); }
-    50% { 
-      transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-      border-bottom-right-radius: 40px;
-    }
-    75% { transform: translateY(9px) rotate(67.5deg); }
-    100% { transform: translateY(0) rotate(90deg); }
-  }
-  
-  @keyframes loader-shadow {
-    0%, 100% { transform: scale(1, 1); }
-    50% { transform: scale(1.2, 1); }
-  }
+	--animate-loader-jump: loader-jump 0.5s linear infinite;
+	--animate-loader-shadow: loader-shadow 0.5s linear infinite;
+
+	@keyframes loader-jump {
+		15% {
+			border-bottom-right-radius: 3px;
+		}
+		25% {
+			transform: translateY(9px) rotate(22.5deg);
+		}
+		50% {
+			transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+			border-bottom-right-radius: 40px;
+		}
+		75% {
+			transform: translateY(9px) rotate(67.5deg);
+		}
+		100% {
+			transform: translateY(0) rotate(90deg);
+		}
+	}
+
+	@keyframes loader-shadow {
+		0%,
+		100% {
+			transform: scale(1, 1);
+		}
+		50% {
+			transform: scale(1.2, 1);
+		}
+	}
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+	* {
+		@apply border-border outline-ring/50;
 	}
-  body {
-    @apply bg-background text-foreground;
+	body {
+		@apply bg-background text-foreground;
 	}
 }

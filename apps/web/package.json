@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "react-router dev",
 		"build": "react-router build",
-		"lint": "biome check --write ./src",
+		"lint": "pnpm biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off ./src",
 		"format": "biome format --write ./src",
 		"typecheck": "react-router typegen && tsc",
 		"clean": "node ../../tools/clean.js dist node_modules .turbo"

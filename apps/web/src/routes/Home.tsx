@@ -12,10 +12,10 @@ export function Home() {
 	}
 
 	return (
-		<BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
-			<div className="flex flex-col h-full">
-				<main className="flex-1 flex flex-col items-center justify-center py-12 px-4">
-					<div className="max-w-3xl mx-auto w-full text-center">
+		<BackgroundLines className="flex w-full flex-col items-center justify-center px-4">
+			<div className="flex h-full flex-col">
+				<main className="flex flex-1 flex-col items-center justify-center px-4 py-12">
+					<div className="mx-auto w-full max-w-3xl text-center">
 						<div className="mb-6">
 							<Icon
 								type="document"
@@ -25,14 +25,14 @@ export function Home() {
 								animate="pulse"
 							/>
 						</div>
-						<h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+						<h1 className="mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text font-bold text-4xl text-transparent">
 							<ColorfulText text="Doc Editor" />
 						</h1>
-						<p className="text-xl mb-8 text-muted-foreground">
+						<p className="mb-8 text-muted-foreground text-xl">
 							现代化的协作文档编辑平台，让团队协作更高效
 						</p>
 
-						<div className="flex justify-center mb-12">
+						<div className="mb-12 flex justify-center">
 							<Button size="lg" onClick={handleGetStarted} className="mr-4">
 								立即开始
 							</Button>

@@ -27,24 +27,24 @@ export function Documents() {
 		<div className="flex h-[calc(100vh-64px)]">
 			{/* 文档内容区 */}
 			<main className="flex-1 overflow-auto p-6">
-				<div className="h-full flex flex-col">
-					<div className="flex items-center justify-between mb-6">
-						<h2 className="text-2xl font-bold">
+				<div className="flex h-full flex-col">
+					<div className="mb-6 flex items-center justify-between">
+						<h2 className="font-bold text-2xl">
 							{documents.find((doc) => doc.id === activeDocId)?.title || '新文档'}
 						</h2>
 						<div className="flex items-center gap-2">
 							<Button size="sm" variant="outline">
-								<Edit className="h-4 w-4 mr-1" />
+								<Edit className="mr-1 h-4 w-4" />
 								编辑
 							</Button>
 							<Button size="sm" variant="ghost">
-								<Share className="h-4 w-4 mr-1" />
+								<Share className="mr-1 h-4 w-4" />
 								分享
 							</Button>
 						</div>
 					</div>
 
-					<div className="border rounded-lg p-4 flex-1 bg-card">
+					<div className="flex-1 rounded-lg border bg-card p-4">
 						<Editor
 							documentId={activeDocId}
 							userName={userName}
