@@ -112,10 +112,7 @@ const SVG = ({
 						delay: Math.floor(Math.random() * 10),
 						repeatDelay: Math.floor(Math.random() * 10 + 2),
 					}}
-					key={`path-first-${
-						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-						idx
-					}`}
+					key={`path-first-${colors[idx]}`}
 				/>
 			))}
 
@@ -137,10 +134,7 @@ const SVG = ({
 						delay: Math.floor(Math.random() * 10),
 						repeatDelay: Math.floor(Math.random() * 10 + 2),
 					}}
-					key={`path-second-${
-						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-						idx
-					}`}
+					key={`path-second-${colors[idx]}`}
 				/>
 			))}
 		</motion.svg>

@@ -12,6 +12,7 @@ mod repositories;
 mod routes;
 mod utils;
 
+use std::path::Path;
 use std::sync::Arc;
 
 use axum::{
@@ -20,6 +21,7 @@ use axum::{
         header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},
     },
     middleware::from_fn,
+    routing::get,
 };
 use config::Config;
 use db::DBClient;
@@ -46,17 +48,42 @@ pub struct AppState {
 /// - Sets up the HTTP server with all routes
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // -- Load environment variables
+    // -- 加载环境变量，优先从根目录加载
+    // 1. 尝试加载根目录的 .env 文件
+    let root_env_path = Path::new("../../.env");
+    if root_env_path.exists() {
+        println!("Loading environment variables from root directory");
+        dotenvy::from_path(root_env_path).ok();
+    }
+
+    // 2. 然后加载当前目录的 .env 文件（如果存在，它会覆盖根目录的同名变量）
     dotenv().ok();
 
-    // -- Load configuration
+    // 3. 根据环境加载特定环境的配置
+    let env = std::env::var("ENV").unwrap_or_else(|_| "development".to_string());
+    let env_file = format!("../../.env.{}", env);
+    let env_path = Path::new(&env_file);
+    if env_path.exists() {
+        println!("Loading environment-specific variables from: {}", env_file);
+        dotenvy::from_path(env_path).ok();
+    }
+
+    // -- 加载配置
     let config = config::Config::from_env();
 
-    // -- Initialize logging system with configured log directory and retention
+    // -- 打印配置信息
+    println!("Environment: {}", config.env);
+    println!(
+        "Database URL: {}",
+        config.database_url.split('@').last().unwrap_or("")
+    );
+    println!("Server: {}:{}", config.host, config.server_port);
+
+    // -- 初始化日志系统
     init_production_logging(Some(&config.log_dir), Some(config.log_retention_days)).await;
     tracing::info!("Logging initialized");
 
-    // -- Setup database connection pool with configured parameters
+    // -- 设置数据库连接池
     tracing::info!(
         "Connecting to database at {}",
         config.database_url.split('@').last().unwrap_or("")
@@ -71,16 +98,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         })?;
     tracing::info!("✅ Connected to database successfully");
 
-    // --Configure CORS middleware for frontend communication
+    // -- 配置 CORS 中间件
     let cors = CorsLayer::new()
         .allow_origin(
             config
-                .frontend_url
-                .parse::<HeaderValue>()
-                .unwrap_or_else(|_| {
-                    tracing::warn!("Invalid frontend URL, using wildcard");
-                    HeaderValue::from_static("*")
-                }),
+                .cors_allowed_origins
+                .first()
+                .map(|origin| {
+                    origin.parse::<HeaderValue>().unwrap_or_else(|_| {
+                        tracing::warn!("Invalid origin: {}, using wildcard", origin);
+                        HeaderValue::from_static("*")
+                    })
+                })
+                .unwrap_or_else(|| HeaderValue::from_static("*")),
         )
         .allow_headers([AUTHORIZATION, ACCEPT, CONTENT_TYPE])
         .allow_credentials(true)
@@ -91,9 +121,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             Method::DELETE,
             Method::OPTIONS,
         ]);
-    tracing::info!("CORS configured for origin: {}", config.frontend_url);
+    tracing::info!(
+        "CORS configured for origins: {:?}",
+        config.cors_allowed_origins
+    );
 
-    // -- Initialize application state with all required components
+    // -- 初始化应用状态
     let db_client = DBClient::new(pool);
     let db_client_arc = Arc::new(db_client.clone());
 
@@ -107,16 +140,24 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         document_repository,
     });
 
-    // -- Create router with all defined routes and middleware
-    let app = create_router(app_state).layer(cors);
+    // -- 创建路由
+    let mut app = create_router(app_state).layer(cors);
 
-    // Configure and start the HTTP server
-    let bind_addr = format!("0.0.0.0:{}", &config.server_port);
+    if config.env == "development" {
+        app = app.route("/", get(|| async { "Hello, World!" }));
+    }
+
+    // -- 配置并启动 HTTP 服务器
+    let bind_addr = format!("{}:{}", &config.host, &config.server_port);
     tracing::info!("Starting server on {}", bind_addr);
     let listener = tokio::net::TcpListener::bind(&bind_addr).await?;
-    tracing::info!("✅ Server running on port {}", config.server_port);
+    tracing::info!(
+        "✅ Server running at http://{}:{}",
+        config.host,
+        config.server_port
+    );
 
-    // -- Start serving requests
+    // -- 开始处理请求
     axum::serve(listener, app).await?;
 
     Ok(())
