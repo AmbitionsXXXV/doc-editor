@@ -28,6 +28,7 @@ export function Layout({
 				<Meta />
 				<Links />
 			</head>
+
 			<body>
 				{children}
 				<ScrollRestoration />
