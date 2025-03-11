@@ -54,4 +54,4 @@ validator = { version = "0.20.0", features = ["derive"] }
 chrono = { version = "0.4.40", features = ["serde"] }
 
 # 邮件
-lettre = "0.11.14"
+lettre = "0.11.15"
