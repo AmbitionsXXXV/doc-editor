@@ -11,7 +11,6 @@ import {
 import './index.css'
 
 import Loader from '@/components/Loader'
-// @ts-ignore
 import type { Route } from './+types/root'
 
 export function Layout({

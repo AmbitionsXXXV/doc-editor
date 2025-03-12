@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"rootDirs": [".", "./.react-router/types"],
 		"composite": true,
 
 		"incremental": true,
@@ -28,5 +29,5 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src",".react-router/types/**/*"]
 }

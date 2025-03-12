@@ -7,7 +7,6 @@
 		"build": "cargo build --release",
 		"lint": "cargo clippy -- -D warnings",
 		"format": "cargo fmt",
-		"typecheck": "cargo check",
 		"test": "cargo test",
 		"clean": "cargo clean && node ../../tools/clean.js target node_modules .turbo"
 	}

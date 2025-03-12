@@ -8,9 +8,7 @@
 			"path": "./tsconfig.node.json"
 		}
 	],
-	"include": [".react-router/types/**/*"],
 	"compilerOptions": {
-		"rootDirs": [".", "./.react-router/types"],
 		"verbatimModuleSyntax": true,
 
 		"baseUrl": ".",
