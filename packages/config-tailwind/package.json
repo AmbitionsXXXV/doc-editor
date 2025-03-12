@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"exports": {
-		".": "./tailwind.config.ts"
+		".": "./tailwind.config.ts",
+		"./css": "./index.css"
 	},
 	"devDependencies": {
 		"tailwindcss": "^4.0.12"
