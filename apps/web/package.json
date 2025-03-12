@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "react-router dev",
+		"dev:scan": "react-router dev && react-scan dev",
 		"build": "react-router build",
 		"lint": "pnpm biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off ./src",
 		"format": "biome format --write ./src",
@@ -36,6 +37,7 @@
 		"react-dom": "19.0.0",
 		"react-hot-toast": "^2.5.2",
 		"react-router": "^7.3.0",
+		"react-scan": "^0.2.14",
 		"tailwind-merge": "^3.0.2",
 		"y-webrtc": "^10.3.0",
 		"yjs": "^13.6.24"

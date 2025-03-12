@@ -14,10 +14,6 @@ export default defineConfig(({ mode }) => {
 
 	// 优先加载根目录的环境变量
 	const rootEnv = loadEnv(mode, rootPath, '')
-	// 然后加载应用目录的环境变量（它们将覆盖根目录中的同名变量）
-
-	// 合并环境变量
-	const env = { ...rootEnv }
 
 	return {
 		plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
@@ -25,12 +21,13 @@ export default defineConfig(({ mode }) => {
 			include: ['react', 'react-dom'],
 		},
 		server: {
-			host: env.VITE_HOST || 'localhost',
-			port: Number.parseInt(env.VITE_PORT || '5173'),
+			host: rootEnv.VITE_HOST || 'localhost',
+			port: Number.parseInt(rootEnv.VITE_PORT || '5173'),
 		},
 		define: {
 			// 不要完全覆盖 import.meta.env，而是只添加你需要的变量
 			// Vite 会自动将 VITE_ 前缀的环境变量暴露给客户端
+			'import.meta.env.NODE_ENV': JSON.stringify(rootEnv.NODE_ENV),
 		},
 	}
 })

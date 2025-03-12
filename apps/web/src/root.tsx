@@ -1,3 +1,4 @@
+import Loader from '@/components/Loader'
 import { ThemeProvider } from '@/components/provider/theme-provider'
 import { SidebarProvider } from '@/ui/sidebar'
 import {
@@ -8,10 +9,15 @@ import {
 	ScrollRestoration,
 	isRouteErrorResponse,
 } from 'react-router'
+import { scan } from 'react-scan'
+
 import './index.css'
 
-import Loader from '@/components/Loader'
 import type { Route } from './+types/root'
+
+scan({
+	enabled: import.meta.env.NODE_ENV === 'development',
+})
 
 export function Layout({
 	children,
