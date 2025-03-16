@@ -16,7 +16,11 @@
 		"check:fix": "biome check --write .",
 		"clean": "turbo run clean --filter=./packages/* --filter=./apps/* && node tools/clean.js node_modules .turbo",
 		"prepare": "lefthook install",
-		"commit": "git-cz"
+		"commit": "git-cz",
+		"docker:pg:start": "docker compose -f docker/docker-compose.yml up postgres",
+		"docker:pg:stop": "docker compose -f docker/docker-compose.yml down postgres",
+		"docker:web:start": "docker compose -f docker/docker-compose.yml up web",
+		"docker:web:stop": "docker compose -f docker/docker-compose.yml down web"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",

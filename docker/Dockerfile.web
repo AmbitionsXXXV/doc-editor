@@ -1,31 +1,19 @@
-FROM node:20-alpine AS base
-
-# Install pnpm
-RUN npm install -g pnpm@8.15.4
+FROM nginx:alpine
 
 # Set working directory
-WORKDIR /app
+WORKDIR /usr/share/nginx/html
 
-# Copy package.json and pnpm-lock.yaml
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+# Remove default nginx static assets
+RUN rm -rf ./*
 
-# Copy packages and apps package.json
-COPY packages/ui/package.json ./packages/ui/
-COPY packages/schema/package.json ./packages/schema/
-COPY packages/editor/package.json ./packages/editor/
-COPY apps/web/package.json ./apps/web/
+# Copy static assets from build
+COPY ./apps/web/build/client .
 
-# Install dependencies
-RUN pnpm install --frozen-lockfile
+# Copy nginx configuration if needed
+# COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the rest of the code
-COPY . .
+# Expose port
+EXPOSE 80
 
-# Build packages
-RUN pnpm --filter "@doc-editor/ui" build
-RUN pnpm --filter "@doc-editor/schema" build
-RUN pnpm --filter "@doc-editor/editor" build
-
-# Start the web app
-WORKDIR /app/apps/web
-CMD ["pnpm", "dev", "--host"]
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]

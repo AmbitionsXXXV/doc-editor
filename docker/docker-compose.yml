@@ -5,16 +5,12 @@ services:
       context: ..
       dockerfile: docker/Dockerfile.web
     ports:
-      - "3000:3000"
-    depends_on:
-      - api
+      - "3000:80"
+    # TODO: Uncomment this when the api is ready
+    # depends_on:
+    #   - api
     environment:
       - API_URL=http://api:8000
-    volumes:
-      - ../apps/web:/app/apps/web
-      - ../packages:/app/packages
-      - web_node_modules:/app/apps/web/node_modules
-      - packages_node_modules:/app/packages/node_modules
 
   api:
     build:
@@ -45,5 +41,3 @@ services:
 
 volumes:
   postgres_data:
-  web_node_modules:
-  packages_node_modules:
