@@ -15,7 +15,8 @@
 		"check": "biome check .",
 		"check:fix": "biome check --write .",
 		"clean": "turbo run clean --filter=./packages/* --filter=./apps/* && node tools/clean.js node_modules .turbo",
-		"prepare": "lefthook install"
+		"prepare": "lefthook install",
+		"commit": "git-cz"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
