@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@doc-editor/ui/lib/utils'
 import type { HTMLAttributes } from 'react'
 
 // -- 定义图标类型

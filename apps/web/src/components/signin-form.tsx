@@ -1,9 +1,9 @@
 import { GalleryVerticalEnd } from 'lucide-react'
 
-import { cn } from '@/lib/utils'
-import { Button } from '@/ui/button'
-import { Input } from '@/ui/input'
-import { Label } from '@/ui/label'
+import { Button } from '@doc-editor/ui/button'
+import { Input } from '@doc-editor/ui/input'
+import { Label } from '@doc-editor/ui/label'
+import { cn } from '@doc-editor/ui/lib/utils'
 
 export function SignInForm({
 	className,

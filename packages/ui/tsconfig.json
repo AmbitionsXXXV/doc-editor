@@ -1,0 +1,11 @@
+{
+	"extends": "../../tsconfig.client.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@doc-editor/ui/*": ["./src/*"]
+		}
+	},
+	"include": ["src"],
+	"exclude": ["node_modules"]
+}

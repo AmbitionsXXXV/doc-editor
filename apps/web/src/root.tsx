@@ -1,6 +1,6 @@
 import Loader from '@/components/Loader'
 import { ThemeProvider } from '@/components/provider/theme-provider'
-import { SidebarProvider } from '@/ui/sidebar'
+import { SidebarProvider } from '@doc-editor/ui/sidebar'
 import {
 	Links,
 	Meta,
@@ -11,6 +11,7 @@ import {
 } from 'react-router'
 import { scan } from 'react-scan'
 
+import '@doc-editor/ui/global.css'
 import './index.css'
 
 import type { Route } from './+types/root'

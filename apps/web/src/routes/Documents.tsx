@@ -1,5 +1,5 @@
 import { Editor } from '@/editor/components'
-import { Button } from '@/ui/button'
+import { Button } from '@doc-editor/ui/button'
 import { Edit, Share } from 'lucide-react'
 import { useState } from 'react'
 import { useOutletContext, useParams } from 'react-router'

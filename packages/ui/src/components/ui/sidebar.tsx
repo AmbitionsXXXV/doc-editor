@@ -3,25 +3,25 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import { PanelLeftIcon } from 'lucide-react'
 import * as React from 'react'
 
-import { useIsMobile } from '@/hooks/use-mobile'
-import { cn } from '@/lib'
-import { Button } from '@/ui/button'
-import { Input } from '@/ui/input'
-import { Separator } from '@/ui/separator'
+import { Button } from '@doc-editor/ui/components/ui/button'
+import { Input } from '@doc-editor/ui/components/ui/input'
+import { Separator } from '@doc-editor/ui/components/ui/separator'
 import {
 	Sheet,
 	SheetContent,
 	SheetDescription,
 	SheetHeader,
 	SheetTitle,
-} from '@/ui/sheet'
-import { Skeleton } from '@/ui/skeleton'
+} from '@doc-editor/ui/components/ui/sheet'
+import { Skeleton } from '@doc-editor/ui/components/ui/skeleton'
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
-} from '@/ui/tooltip'
+} from '@doc-editor/ui/components/ui/tooltip'
+import { useIsMobile } from '@doc-editor/ui/hooks/use-mobile'
+import { cn } from '@doc-editor/ui/lib/utils'
 import { useLocation } from 'react-router'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'

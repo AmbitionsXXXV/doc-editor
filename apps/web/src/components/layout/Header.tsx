@@ -1,6 +1,6 @@
 import ThemeToggle from '@/components/ThemeToggle'
 import { Icon } from '@/icons'
-import { Button } from '@/ui/button'
+import { Button } from '@doc-editor/ui/button'
 import { Link, useNavigate } from 'react-router'
 
 interface HeaderProps {

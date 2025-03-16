@@ -4,8 +4,8 @@ import {
 	Collapsible,
 	CollapsibleContent,
 	CollapsibleTrigger,
-} from '@/ui/collapsible'
-import { ScrollArea } from '@/ui/scroll-area'
+} from '@doc-editor/ui/collapsible'
+import { ScrollArea } from '@doc-editor/ui/scroll-area'
 import {
 	Sidebar,
 	SidebarContent,
@@ -18,7 +18,7 @@ import {
 	SidebarMenuSubButton,
 	SidebarMenuSubItem,
 	SidebarRail,
-} from '@/ui/sidebar'
+} from '@doc-editor/ui/sidebar'
 import { GalleryVerticalEnd, Minus, Plus } from 'lucide-react'
 
 const data = {

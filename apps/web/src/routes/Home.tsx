@@ -1,7 +1,7 @@
 import { Icon } from '@/icons'
-import { BackgroundLines } from '@/ui/background-lines'
-import { Button } from '@/ui/button'
-import { ColorfulText } from '@/ui/colorful-text'
+import { BackgroundLines } from '@doc-editor/ui/background-lines'
+import { Button } from '@doc-editor/ui/button'
+import { ColorfulText } from '@doc-editor/ui/colorful-text'
 import { useNavigate } from 'react-router'
 
 export function Home() {

@@ -1,0 +1,66 @@
+{
+	"name": "@doc-editor/ui",
+	"private": false,
+	"sideEffects": ["*.css"],
+	"version": "1.19.0",
+	"files": ["dist"],
+	"keywords": [
+		"editor",
+		"typescript",
+		"prosemirror",
+		"wysiwyg",
+		"rich-text-editor",
+		"feishu",
+		"notion",
+		"yjs",
+		"block-based",
+		"tiptap"
+	],
+	"description": "基于 Prosemirror 和 Tiptap 实现的类 Notion、飞书文档风格可扩展文本编辑器。",
+	"type": "module",
+	"source": "src/index.ts",
+	"main": "build/cjs/index.js",
+	"module": "build/esm/index.js",
+	"exports": {
+		"./global.css": "./dist/global.css",
+		"./*": "./src/components/ui/*.tsx",
+		"./lib/*": "./src/lib/*.ts"
+	},
+	"scripts": {
+		"build": "tailwindcss -i ./src/global.css -o ./dist/global.css",
+		"lint": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off ./src",
+		"dev": "tailwindcss -i ./src/global.css -o ./dist/global.css --watch"
+	},
+	"dependencies": {
+		"@radix-ui/react-collapsible": "^1.1.3",
+		"@radix-ui/react-dialog": "^1.1.6",
+		"@radix-ui/react-label": "^2.1.2",
+		"@radix-ui/react-scroll-area": "^1.2.3",
+		"@radix-ui/react-separator": "^1.1.2",
+		"@radix-ui/react-slot": "1.1.2",
+		"@radix-ui/react-tooltip": "^1.1.8",
+		"@tailwindcss/cli": "^4.0.14",
+		"@tailwindcss/postcss": "^4.0.14",
+		"autoprefixer": "^10.4.21",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.482.0",
+		"postcss": "^8.5.3",
+		"tailwind-merge": "^3.0.2",
+		"tailwindcss": "^4.0.14",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@doc-editor/config-tailwind": "workspace:*",
+		"@radix-ui/colors": "^3.0.0",
+		"@types/node": "^22.13.10",
+		"@types/react": "^19.0.10",
+		"@types/react-dom": "^19.0.4",
+		"rimraf": "^6.0.1"
+	},
+	"peerDependencies": {
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	}
+}

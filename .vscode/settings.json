@@ -3,9 +3,11 @@
 		"appender",
 		"bitnami",
 		"cxefaagzjfyekzmf",
+		"feishu",
 		"hocuspocus",
 		"isbot",
 		"lettre",
+		"prosemirror",
 		"readwrite",
 		"singlepart"
 	]

@@ -1,5 +1,5 @@
 import { useTheme } from '@/components/provider/theme-provider'
-import { Button } from '@/ui/button'
+import { Button } from '@doc-editor/ui/button'
 import { Moon, Sun } from 'lucide-react'
 
 export function ThemeToggle() {

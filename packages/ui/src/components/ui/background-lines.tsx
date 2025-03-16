@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
+
+import { cn } from '@doc-editor/ui/lib/utils'
 
 export const BackgroundLines = ({
 	children,
