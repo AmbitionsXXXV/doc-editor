@@ -1,6 +1,6 @@
 {
 	"name": "@doc-editor/ui",
-	"private": false,
+	"private": true,
 	"sideEffects": ["*.css"],
 	"version": "1.19.0",
 	"files": ["dist"],
