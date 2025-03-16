@@ -2,6 +2,7 @@
 	"name": "doc-editor",
 	"version": "0.1.0",
 	"private": true,
+	"author": "Etcetera <etcetera3636@gmail.com>",
 	"scripts": {
 		"build": "turbo run build --filter=./packages/* --filter=./apps/*",
 		"dev": "turbo run dev --filter=./packages/* --filter=./apps/* --filter=!./apps/api",
@@ -18,11 +19,20 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"@commitlint/cli": "^19.8.0",
+		"@commitlint/config-conventional": "^19.8.0",
+		"cz-git": "^1.11.1",
+		"fast-glob": "^3.3.3",
 		"lefthook": "^1.11.3",
 		"turbo": "^2.4.4",
 		"typescript": "^5.8.2"
 	},
-	"packageManager": "pnpm@10.6.2",
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
+	},
+	"packageManager": "pnpm@10.6.3",
 	"engines": {
 		"node": ">=22.0.0"
 	}
