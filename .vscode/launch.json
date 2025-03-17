@@ -4,7 +4,15 @@
 			"name": "Launch Chrome",
 			"request": "launch",
 			"type": "chrome",
+			// -- 指定浏览器为 chrome canary, 只有当 request 为 attach 时有效
+			// "runtimeExecutable": "Arc",
 			"url": "http://localhost:5173",
+			"runtimeArgs": [
+				// -- 自动打开开发者工具
+				"--auto-open-devtools-for-tabs",
+				// -- 无痕模式
+				"--incognito"
+			],
 			"webRoot": "${workspaceFolder}/apps/web"
 		}
 	]

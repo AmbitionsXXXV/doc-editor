@@ -56,13 +56,20 @@ cd apps/api && cargo run
 
 ## 项目结构
 
-- `/apps/web` - 前端React应用
-- `/apps/api` - 后端Rust应用
-- `/packages/ui` - UI组件库
-- `/packages/editor` - 编辑器封装
-- `/packages/schema` - 共享类型定义和验证
+- `/apps` - 应用程序
+  - `/apps/web` - 前端React应用
+  - `/apps/api` - 后端Rust应用 (Axum框架)
+- `/packages` - 共享包
+  - `/packages/ui` - UI组件库 (基于shadcn/ui)
+  - `/packages/config-tailwind` - Tailwind配置
+  - `/packages/schema` - 共享类型定义和验证
 - `/docker` - Docker配置文件
 - `/tools` - 开发工具脚本
+  - `/tools/setup.sh` - 环境设置脚本
+  - `/tools/clean.js` - 清理脚本
+  - `/tools/update-deps.js` - 依赖更新脚本
+- `/docs` - 项目文档
+  - `/docs/ROADMAP.md` - 项目路线图
 
 ## 主要功能
 
