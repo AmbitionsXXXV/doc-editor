@@ -28,7 +28,6 @@
 	},
 	"scripts": {
 		"build": "tailwindcss -i ./src/global.css -o ./dist/global.css",
-		"lint": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off ./src",
 		"dev": "tailwindcss -i ./src/global.css -o ./dist/global.css --watch"
 	},
 	"dependencies": {
@@ -50,11 +49,10 @@
 		"tailwindcss": "^4.0.14"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
 		"@doc-editor/config-tailwind": "workspace:*",
 		"@radix-ui/colors": "^3.0.0",
 		"@types/node": "^22.13.10",
-		"@types/react": "^19.0.10",
+		"@types/react": "^19.0.11",
 		"@types/react-dom": "^19.0.4",
 		"rimraf": "^6.0.1"
 	},

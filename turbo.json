@@ -4,6 +4,7 @@
 	"globalEnv": ["NODE_ENV"],
 	"tasks": {
 		"build": {
+			"cache": false,
 			"dependsOn": ["^build"],
 			"outputs": ["dist/**", ".next/**", "build/**", "public/build/**"],
 			"env": ["VITE_*"]
@@ -13,6 +14,7 @@
 			"outputs": []
 		},
 		"dev": {
+			"cache": false,
 			"dependsOn": ["^build"],
 			"persistent": true,
 			"env": ["VITE_*", "PORT"]
@@ -53,5 +55,6 @@
 			"dependsOn": ["build", "test", "lint"],
 			"outputs": []
 		}
-	}
+	},
+	"ui": "tui"
 }

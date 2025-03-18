@@ -57,10 +57,12 @@
 	},
 	"files": {
 		"ignore": [
+			"apps/api/**",
 			"**/node_modules",
 			"**/dist",
 			"**/build",
 			"**/.turbo",
+			"**/.react-router",
 			"**/coverage",
 			"**/tsconfig.*.json"
 		]

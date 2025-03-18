@@ -1,0 +1,88 @@
+{
+	"name": "@doc-editor/core",
+	"private": false,
+	"sideEffects": ["*.css"],
+	"license": "MIT",
+	"version": "1.19.0",
+	"keywords": [
+		"doc-editor",
+		"editor",
+		"typescript",
+		"prosemirror",
+		"rich-text-editor",
+		"notion",
+		"yjs",
+		"block-based",
+		"tiptap"
+	],
+	"type": "module",
+	"source": "src/index.ts",
+	"main": "build/cjs/index.cjs",
+	"module": "build/esm/index.js",
+	"exports": {
+		".": {
+			"import": "./build/esm/index.js"
+		},
+		"./style.css": {
+			"import": "./build/esm/index.css"
+		}
+	},
+	"scripts": {
+		"dev": "rslib build --watch",
+		"build": "rslib build",
+		"lint": "biome check --write ./src",
+		"format": "biome format --write ./src",
+		"clean": "node ../../tools/clean.js dist node_modules .turbo",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@emoji-mart/data": "^1.2.1",
+		"@tiptap/core": "^2.11.5",
+		"@tiptap/extension-bold": "^2.11.5",
+		"@tiptap/extension-code": "^2.11.5",
+		"@tiptap/extension-collaboration": "^2.11.5",
+		"@tiptap/extension-collaboration-cursor": "^2.11.5",
+		"@tiptap/extension-dropcursor": "^2.11.5",
+		"@tiptap/extension-gapcursor": "^2.11.5",
+		"@tiptap/extension-hard-break": "^2.11.5",
+		"@tiptap/extension-history": "^2.11.5",
+		"@tiptap/extension-horizontal-rule": "^2.11.5",
+		"@tiptap/extension-italic": "^2.11.5",
+		"@tiptap/extension-link": "^2.11.5",
+		"@tiptap/extension-paragraph": "^2.11.5",
+		"@tiptap/extension-strike": "^2.11.5",
+		"@tiptap/extension-table-cell": "^2.11.5",
+		"@tiptap/extension-table-header": "^2.11.5",
+		"@tiptap/extension-table-row": "^2.11.5",
+		"@tiptap/extension-text": "^2.11.5",
+		"@tiptap/extension-underline": "^2.11.5",
+		"@tiptap/pm": "^2.11.5",
+		"emoji-mart": "^5.6.0",
+		"hast-util-from-dom": "^5.0.1",
+		"prosemirror-highlight": "^0.13.0",
+		"prosemirror-model": "^1.24.1",
+		"prosemirror-state": "^1.4.3",
+		"prosemirror-tables": "^1.6.4",
+		"prosemirror-transform": "^1.10.3",
+		"prosemirror-view": "^1.38.1",
+		"rehype-format": "^5.0.1",
+		"rehype-parse": "^9.0.1",
+		"rehype-remark": "^10.0.0",
+		"rehype-stringify": "^10.0.1",
+		"remark-gfm": "^4.0.1",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.1",
+		"remark-stringify": "^11.0.0",
+		"shiki": "^3.2.1",
+		"unified": "^11.0.5",
+		"uuid": "^11.1.0",
+		"y-prosemirror": "1.2.17",
+		"y-protocols": "^1.0.6",
+		"yjs": "^13.6.24"
+	},
+	"devDependencies": {
+		"@types/emoji-mart": "^3.0.14",
+		"@types/hast": "^3.0.4",
+		"@types/uuid": "^10.0.0"
+	}
+}
