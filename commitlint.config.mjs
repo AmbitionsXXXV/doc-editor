@@ -15,6 +15,7 @@ const scopes = [
 	'dev',
 	'deploy',
 	'other',
+	'dependency',
 ]
 
 // Emoji

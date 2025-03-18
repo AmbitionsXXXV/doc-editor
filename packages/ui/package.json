@@ -47,8 +47,7 @@
 		"lucide-react": "^0.482.0",
 		"postcss": "^8.5.3",
 		"tailwind-merge": "^3.0.2",
-		"tailwindcss": "^4.0.14",
-		"tailwindcss-animate": "^1.0.7"
+		"tailwindcss": "^4.0.14"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
