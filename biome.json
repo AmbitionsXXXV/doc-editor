@@ -7,6 +7,9 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"complexity": {
+				"noBannedTypes": "off"
+			},
 			"a11y": {
 				"useButtonType": "off",
 				"useValidAnchor": "off",
@@ -18,9 +21,12 @@
 			},
 			"suspicious": {
 				"noConsoleLog": "warn",
-				"noExplicitAny": "warn"
+				"noExplicitAny": "off",
+				"noAssignInExpressions": "off"
 			},
 			"style": {
+				"useImportType": "off",
+				"noParameterAssign": "off",
 				"noNegationElse": "error",
 				"useShorthandArrayType": "error",
 

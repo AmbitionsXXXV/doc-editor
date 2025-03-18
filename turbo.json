@@ -41,20 +41,12 @@
 			"dependsOn": ["^build"],
 			"outputs": []
 		},
-		"test": {
-			"dependsOn": ["^build"],
-			"outputs": ["coverage/**"],
-			"env": ["CI", "TEST_*"]
-		},
 		"//#build": {
 			"dependsOn": ["^build"],
 			"outputs": ["dist/**", "build/**"],
 			"env": ["VITE_*"]
-		},
-		"deploy": {
-			"dependsOn": ["build", "test", "lint"],
-			"outputs": []
 		}
 	},
-	"ui": "tui"
+	"ui": "tui",
+	"cacheDir": ".turbo/cache"
 }

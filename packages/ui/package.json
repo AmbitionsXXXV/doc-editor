@@ -27,6 +27,7 @@
 		"./lib/*": "./src/lib/*.ts"
 	},
 	"scripts": {
+		"clean": "node ../../tools/clean.js dist node_modules .turbo",
 		"build": "tailwindcss -i ./src/global.css -o ./dist/global.css",
 		"dev": "tailwindcss -i ./src/global.css -o ./dist/global.css --watch"
 	},
