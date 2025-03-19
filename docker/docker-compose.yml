@@ -41,7 +41,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: doc_editor
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
 volumes:
