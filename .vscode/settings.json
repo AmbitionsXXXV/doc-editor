@@ -6,9 +6,11 @@
 		"feishu",
 		"hocuspocus",
 		"isbot",
+		"labelledby",
 		"lettre",
 		"prosemirror",
 		"readwrite",
-		"singlepart"
+		"singlepart",
+		"Textblock"
 	]
 }

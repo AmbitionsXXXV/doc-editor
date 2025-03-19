@@ -30,6 +30,7 @@
 		"cz-git": "^1.11.1",
 		"fast-glob": "^3.3.3",
 		"lefthook": "^1.11.3",
+		"tsup": "^8.4.0",
 		"turbo": "^2.4.4",
 		"typescript": "^5.8.2"
 	},

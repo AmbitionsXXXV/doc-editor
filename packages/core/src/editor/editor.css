@@ -1,0 +1,165 @@
+
+@import url('prosemirror-tables/style/tables.css');
+
+.bn-editor {
+    outline: none;
+    padding-inline: 54px;
+
+    /* Define a set of colors to be used throughout the app for consistency
+  see https://atlassian.design/foundations/color for more info */
+    --N800: #172b4d; /* Dark neutral used for tooltips and text on light background */
+    --N40: #dfe1e6; /* Light neutral used for subtle borders and text on dark background */
+}
+
+/*
+bn-root should be applied to all top-level elements
+
+This includes the Prosemirror editor, but also <div> element such as 
+Tippy popups that are appended to document.body directly
+*/
+.bn-root {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bn-root *,
+.bn-root *::before,
+.bn-root *::after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+/* reset styles, they will be set on blockContent */
+.bn-default-styles p,
+.bn-default-styles h1,
+.bn-default-styles h2,
+.bn-default-styles h3,
+.bn-default-styles li {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    /* min width to make sure cursor is always visible */
+    min-width: 2px !important;
+}
+
+.bn-default-styles {
+    font-size: 16px;
+    font-weight: normal;
+    font-family:
+        'SF Pro Display',
+        -apple-system,
+        BlinkMacSystemFont,
+        'Open Sans',
+        'Segoe UI',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.bn-table-drop-cursor {
+    position: absolute;
+    z-index: 20;
+    background-color: #adf;
+    pointer-events: none;
+}
+
+.bn-drag-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    /* Sort of a hack but seems like the most reliable solution. */
+    /* Drag preview element needs to be within bounds of the document area or it
+   won't work in some cases. */
+    /* Negative z-index covers most cases, but the element can still be visible
+   if UI elements are translucent. */
+    /* Setting opacity has no effect on the drag preview but does affect the
+   element. Unless it's set to 0, in which case the drag preview also becomes
+   hidden. So setting it to an extremely low value instead makes the element
+   functionally invisible while not affecting the drag preview itself. */
+    opacity: 0.001;
+}
+
+/* Give a remote user a caret */
+.collaboration-cursor__caret {
+    border-left: 1px solid #0d0d0d;
+    border-right: 1px solid #0d0d0d;
+    margin-left: -1px;
+    margin-right: -1px;
+    pointer-events: none;
+    position: relative;
+    word-break: normal;
+}
+
+/* Render the username above the caret */
+.collaboration-cursor__label {
+    border-radius: 3px 3px 3px 0;
+    color: #0d0d0d;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    left: -1px;
+    line-height: normal;
+    padding: 0.1rem 0.3rem;
+    position: absolute;
+    top: -1.4em;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* .tableWrapper {
+  padding
+} */
+
+.ProseMirror .tableWrapper {
+    position: relative;
+    top: -16px;
+    left: -16px;
+    /* padding: 16px; */
+    min-width: calc(100% + 16px);
+    padding-bottom: 16px;
+    overflow-y: hidden;
+}
+
+.ProseMirror .tableWrapper-inner {
+    /* position: relative; */
+    /* top: -16px;
+  left: -16px; */
+    padding: 16px;
+}
+
+/* table related: */
+.bn-editor table {
+    width: auto !important;
+    word-break: break-word;
+}
+.bn-editor th,
+.bn-editor td {
+    border: 1px solid #ddd;
+    padding: 3px 5px;
+}
+
+.bn-editor th {
+    font-weight: bold;
+    text-align: left;
+}
+
+/* tiptap uses colwidth instead of data-colwidth, se we need to adjust this style from prosemirror-tables */
+.ProseMirror td,
+.ProseMirror th {
+    min-width: auto !important;
+}
+.ProseMirror td:not([colwidth]):not(.column-resize-dragging),
+.ProseMirror th:not([colwidth]):not(.column-resize-dragging) {
+    /* if there's no explicit width set and the column is not being resized, set a default width */
+    min-width: var(--default-cell-min-width) !important;
+}

@@ -8,7 +8,9 @@
 		"rules": {
 			"recommended": true,
 			"complexity": {
-				"noBannedTypes": "off"
+				"noForEach": "off",
+				"noBannedTypes": "off",
+				"useLiteralKeys": "off"
 			},
 			"a11y": {
 				"useButtonType": "off",
@@ -22,6 +24,7 @@
 			"suspicious": {
 				"noConsoleLog": "warn",
 				"noExplicitAny": "off",
+				"noImplicitAnyLet": "off",
 				"noAssignInExpressions": "off"
 			},
 			"style": {
