@@ -3,10 +3,10 @@ import { EditorView } from '@tiptap/pm/view'
 import { Mark } from 'prosemirror-model'
 import { Plugin, PluginKey, PluginView } from 'prosemirror-state'
 
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { UiElementPosition } from '../../extensions-shared/UiElementPosition'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../schema/index'
-import { EventEmitter } from '../../util/EventEmitter'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { UiElementPosition } from '@/extensions-shared/UiElementPosition'
+import type { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
+import { EventEmitter } from '@/util/EventEmitter'
 
 export type LinkToolbarState = UiElementPosition & {
 	// The hovered link's URL, and the text it's displayed with in the

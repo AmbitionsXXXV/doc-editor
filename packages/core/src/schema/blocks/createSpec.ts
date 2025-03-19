@@ -2,9 +2,9 @@ import { Editor } from '@tiptap/core'
 import { TagParseRule } from '@tiptap/pm/model'
 import { NodeView } from '@tiptap/pm/view'
 
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { InlineContentSchema } from '../inlineContent/types'
-import { StyleSchema } from '../styles/types'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { InlineContentSchema } from '@/schema/inlineContent/types'
+import { StyleSchema } from '@/schema/styles/types'
 import {
 	createInternalBlockSpec,
 	createStronglyTypedTiptapNode,

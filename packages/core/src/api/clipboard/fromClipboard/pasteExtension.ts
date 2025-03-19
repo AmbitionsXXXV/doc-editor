@@ -1,9 +1,9 @@
 import { Extension } from '@tiptap/core'
 import { Plugin } from 'prosemirror-state'
 
-import type { EtcDocEditor } from '../../../editor/EtcDocEditor'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../../schema/index'
-import { nestedListsToEtcDocStructure } from '../../parsers/html/util/nestedLists'
+import { nestedListsToEtcDocStructure } from '@/api/parsers/html/util/nestedLists'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
 import { acceptedMIMETypes } from './acceptedMIMETypes'
 import { handleFileInsertion } from './handleFileInsertion'
 import { handleVSCodePaste } from './handleVSCodePaste'

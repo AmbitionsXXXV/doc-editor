@@ -9,7 +9,7 @@ import {
 	StyleSchema,
 } from '@doc-editor/core'
 
-import { useEtcDocContext } from '../editor/EtcDocContext'
+import { useEtcDocContext } from '@/editor/EtcDocContext'
 
 /**
  * Get the EtcDocEditor instance from the nearest EtcDocContext provider

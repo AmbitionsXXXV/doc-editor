@@ -1,6 +1,6 @@
 import { KeyboardShortcutCommand, Node } from '@tiptap/core'
 
-import { camelToDataKebab } from '../../util/string'
+import { camelToDataKebab } from '@/util/string'
 import { PropSchema, Props } from '../propTypes'
 import {
 	CustomInlineContentConfig,

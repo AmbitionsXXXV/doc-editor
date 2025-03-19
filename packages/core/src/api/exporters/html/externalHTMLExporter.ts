@@ -1,13 +1,13 @@
 import { DOMSerializer, Schema } from 'prosemirror-model'
 
-import { PartialBlock } from '../../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../../editor/EtcDocEditor'
+import { PartialBlock } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockSchema,
 	InlineContent,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../../schema/index'
+} from '@/schema/index'
 import {
 	serializeBlocksExternalHTML,
 	serializeInlineContentExternalHTML,

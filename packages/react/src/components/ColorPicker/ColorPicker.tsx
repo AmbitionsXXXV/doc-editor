@@ -1,5 +1,5 @@
-import { useComponentsContext } from '../../editor/ComponentsContext'
-import { useDictionary } from '../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useDictionary } from '@/i18n/dictionary'
 import { ColorIcon } from './ColorIcon'
 
 const colors = [

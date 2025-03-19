@@ -17,9 +17,9 @@ import React, {
 	useState,
 } from 'react'
 
-import { useEditorChange } from '../hooks/useEditorChange'
-import { useEditorSelectionChange } from '../hooks/useEditorSelectionChange'
-import { usePrefersColorScheme } from '../hooks/usePrefersColorScheme'
+import { useEditorChange } from '@/hooks/useEditorChange'
+import { useEditorSelectionChange } from '@/hooks/useEditorSelectionChange'
+import { usePrefersColorScheme } from '@/hooks/usePrefersColorScheme'
 import { EditorContent } from './EditorContent'
 import { ElementRenderer } from './ElementRenderer'
 import { EtcDocContext, useEtcDocContext } from './EtcDocContext'

@@ -9,9 +9,9 @@ import {
 import { flip, offset } from '@floating-ui/react'
 import { FC } from 'react'
 
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
-import { useUIElementPositioning } from '../../hooks/useUIElementPositioning'
-import { useUIPluginState } from '../../hooks/useUIPluginState'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useUIElementPositioning } from '@/hooks/useUIElementPositioning'
+import { useUIPluginState } from '@/hooks/useUIPluginState'
 import { LinkToolbar } from './LinkToolbar'
 import { LinkToolbarProps } from './LinkToolbarProps'
 

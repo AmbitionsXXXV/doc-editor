@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { useComponentsContext } from '../../editor/ComponentsContext'
+import { useComponentsContext } from '@/editor/ComponentsContext'
 import { DeleteLinkButton } from './DefaultButtons/DeleteLinkButton'
 import { EditLinkButton } from './DefaultButtons/EditLinkButton'
 import { OpenLinkButton } from './DefaultButtons/OpenLinkButton'

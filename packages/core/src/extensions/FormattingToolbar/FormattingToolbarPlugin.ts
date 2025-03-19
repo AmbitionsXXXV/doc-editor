@@ -2,10 +2,10 @@ import { isNodeSelection, isTextSelection, posToDOMRect } from '@tiptap/core'
 import { EditorState, Plugin, PluginKey, PluginView } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { UiElementPosition } from '../../extensions-shared/UiElementPosition'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../schema/index'
-import { EventEmitter } from '../../util/EventEmitter'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { UiElementPosition } from '@/extensions-shared/UiElementPosition'
+import type { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
+import { EventEmitter } from '@/util/EventEmitter'
 
 export type FormattingToolbarState = UiElementPosition
 

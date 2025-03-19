@@ -1,10 +1,10 @@
 import { NodeSelection, Selection, TextSelection } from 'prosemirror-state'
 import { CellSelection } from 'prosemirror-tables'
 
-import type { EtcDocEditor } from '../../../../editor/EtcDocEditor'
-import { BlockIdentifier } from '../../../../schema/index'
-import { getBlockInfoFromSelection } from '../../../getBlockInfoFromPos'
-import { getNodeById } from '../../../nodeUtil'
+import { getBlockInfoFromSelection } from '@/api/getBlockInfoFromPos'
+import { getNodeById } from '@/api/nodeUtil'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockIdentifier } from '@/schema/index'
 
 type BlockSelectionData = (
 	| {

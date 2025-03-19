@@ -8,9 +8,9 @@ import {
 } from '@doc-editor/core'
 import { FC } from 'react'
 
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
-import { useUIElementPositioning } from '../../hooks/useUIElementPositioning'
-import { useUIPluginState } from '../../hooks/useUIPluginState'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useUIElementPositioning } from '@/hooks/useUIElementPositioning'
+import { useUIPluginState } from '@/hooks/useUIPluginState'
 import { SideMenu } from './SideMenu'
 import { SideMenuProps } from './SideMenuProps'
 

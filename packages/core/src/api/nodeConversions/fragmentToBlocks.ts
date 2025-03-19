@@ -1,12 +1,12 @@
 import { Fragment } from '@tiptap/pm/model'
 
-import { EtcDocSchema } from '../../editor/EtcDocSchema'
+import { EtcDocSchema } from '@/editor/EtcDocSchema'
 import {
 	BlockNoDefaults,
 	BlockSchema,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../schema/index'
+} from '@/schema/index'
 import { nodeToBlock } from './nodeToBlock'
 
 /**

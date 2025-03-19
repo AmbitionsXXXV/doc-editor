@@ -7,11 +7,11 @@ import {
 import { useEffect, useState } from 'react'
 import { RiImageEditFill } from 'react-icons/ri'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useSelectedBlocks } from '../../../hooks/useSelectedBlocks'
-import { useDictionary } from '../../../i18n/dictionary'
-import { FilePanel } from '../../FilePanel/FilePanel'
+import { FilePanel } from '@/components/FilePanel/FilePanel'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useSelectedBlocks } from '@/hooks/useSelectedBlocks'
+import { useDictionary } from '@/i18n/dictionary'
 
 export const FileReplaceButton = () => {
 	const dict = useDictionary()

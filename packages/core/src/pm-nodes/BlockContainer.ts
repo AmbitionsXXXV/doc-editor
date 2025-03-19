@@ -1,8 +1,8 @@
 import { Node } from '@tiptap/core'
 
-import type { EtcDocEditor } from '../editor/EtcDocEditor'
-import { EtcDocDOMAttributes } from '../schema/index'
-import { mergeCSSClasses } from '../util/browser'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { EtcDocDOMAttributes } from '@/schema/index'
+import { mergeCSSClasses } from '@/util/browser'
 
 // Object containing all possible block attributes.
 const BlockAttributes: Record<string, string> = {

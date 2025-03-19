@@ -7,7 +7,7 @@ import {
 } from '@doc-editor/core'
 import { useState } from 'react'
 
-import { useEtcDocContext } from '../editor/EtcDocContext'
+import { useEtcDocContext } from '@/editor/EtcDocContext'
 import { useEditorContentOrSelectionChange } from './useEditorContentOrSelectionChange'
 
 export function useSelectedBlocks<

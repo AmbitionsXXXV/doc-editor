@@ -8,10 +8,10 @@ import {
 import { ChangeEvent, KeyboardEvent, useCallback, useMemo, useState } from 'react'
 import { RiFontFamily } from 'react-icons/ri'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useSelectedBlocks } from '../../../hooks/useSelectedBlocks'
-import { useDictionary } from '../../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useSelectedBlocks } from '@/hooks/useSelectedBlocks'
+import { useDictionary } from '@/i18n/dictionary'
 
 export const FileRenameButton = () => {
 	const dict = useDictionary()

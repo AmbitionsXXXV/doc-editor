@@ -8,11 +8,11 @@ import {
 import { useCallback, useMemo } from 'react'
 import { RiDownload2Fill } from 'react-icons/ri'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useSelectedBlocks } from '../../../hooks/useSelectedBlocks'
-import { useDictionary } from '../../../i18n/dictionary'
-import { sanitizeUrl } from '../../../util/sanitizeUrl'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useSelectedBlocks } from '@/hooks/useSelectedBlocks'
+import { useDictionary } from '@/i18n/dictionary'
+import { sanitizeUrl } from '@/util/sanitizeUrl'
 
 export const FileDownloadButton = () => {
 	const dict = useDictionary()

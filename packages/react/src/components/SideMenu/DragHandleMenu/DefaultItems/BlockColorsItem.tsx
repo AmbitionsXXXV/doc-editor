@@ -10,9 +10,9 @@ import {
 } from '@doc-editor/core'
 import { ReactNode } from 'react'
 
-import { useComponentsContext } from '../../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../../hooks/useEtcDocEditor'
-import { ColorPicker } from '../../../ColorPicker/ColorPicker'
+import { ColorPicker } from '@/components/ColorPicker/ColorPicker'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
 import { DragHandleMenuProps } from '../DragHandleMenuProps'
 
 export const BlockColorsItem = <

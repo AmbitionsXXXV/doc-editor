@@ -3,9 +3,9 @@ import { Node } from '@tiptap/pm/model'
 import { EditorState, Transaction } from '@tiptap/pm/state'
 import { EditorView } from '@tiptap/pm/view'
 
-import { blockToNode } from '../api/nodeConversions/blockToNode'
-import { PartialBlock } from '../blocks/defaultBlocks'
-import { StyleSchema } from '../schema/index'
+import { blockToNode } from '@/api/nodeConversions/blockToNode'
+import { PartialBlock } from '@/blocks/defaultBlocks'
+import { StyleSchema } from '@/schema/index'
 
 export type EtcDocTipTapEditorOptions = Partial<Omit<EditorOptions, 'content'>> & {
 	content: PartialBlock<any, any, any>[]

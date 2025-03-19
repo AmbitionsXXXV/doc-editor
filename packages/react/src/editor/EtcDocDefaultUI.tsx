@@ -1,11 +1,11 @@
-import { FilePanelController } from '../components/FilePanel/FilePanelController'
-import { FormattingToolbarController } from '../components/FormattingToolbar/FormattingToolbarController'
-import { LinkToolbarController } from '../components/LinkToolbar/LinkToolbarController'
-import { SideMenuController } from '../components/SideMenu/SideMenuController'
-import { GridSuggestionMenuController } from '../components/SuggestionMenu/GridSuggestionMenu/GridSuggestionMenuController'
-import { SuggestionMenuController } from '../components/SuggestionMenu/SuggestionMenuController'
-import { TableHandlesController } from '../components/TableHandles/TableHandlesController'
-import { useEtcDocEditor } from '../hooks/useEtcDocEditor'
+import { FilePanelController } from '@/components/FilePanel/FilePanelController'
+import { FormattingToolbarController } from '@/components/FormattingToolbar/FormattingToolbarController'
+import { LinkToolbarController } from '@/components/LinkToolbar/LinkToolbarController'
+import { SideMenuController } from '@/components/SideMenu/SideMenuController'
+import { GridSuggestionMenuController } from '@/components/SuggestionMenu/GridSuggestionMenu/GridSuggestionMenuController'
+import { SuggestionMenuController } from '@/components/SuggestionMenu/SuggestionMenuController'
+import { TableHandlesController } from '@/components/TableHandles/TableHandlesController'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
 
 export type EtcDocDefaultUIProps = {
 	formattingToolbar?: boolean

@@ -1,10 +1,10 @@
-import { uploadToTmpFilesDotOrg_DEV_ONLY } from '../../../blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
+import { uploadToTmpFilesDotOrg_DEV_ONLY } from '@/blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
 import {
 	DefaultBlockSchema,
 	DefaultInlineContentSchema,
 	DefaultStyleSchema,
-} from '../../../blocks/defaultBlocks'
-import { EtcDocEditor } from '../../../editor/EtcDocEditor'
+} from '@/blocks/defaultBlocks'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
 import { EditorTestCases } from '../index'
 
 export const defaultSchemaTestCases: EditorTestCases<

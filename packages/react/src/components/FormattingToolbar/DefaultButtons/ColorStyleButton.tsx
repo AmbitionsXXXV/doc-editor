@@ -6,13 +6,13 @@ import {
 } from '@doc-editor/core'
 import { useCallback, useMemo, useState } from 'react'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEditorContentOrSelectionChange } from '../../../hooks/useEditorContentOrSelectionChange'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useSelectedBlocks } from '../../../hooks/useSelectedBlocks'
-import { useDictionary } from '../../../i18n/dictionary'
-import { ColorIcon } from '../../ColorPicker/ColorIcon'
-import { ColorPicker } from '../../ColorPicker/ColorPicker'
+import { ColorIcon } from '@/components/ColorPicker/ColorIcon'
+import { ColorPicker } from '@/components/ColorPicker/ColorPicker'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEditorContentOrSelectionChange } from '@/hooks/useEditorContentOrSelectionChange'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useSelectedBlocks } from '@/hooks/useSelectedBlocks'
+import { useDictionary } from '@/i18n/dictionary'
 
 function checkColorInSchema<Color extends 'text' | 'background'>(
 	color: Color,

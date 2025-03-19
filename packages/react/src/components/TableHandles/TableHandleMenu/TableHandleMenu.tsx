@@ -6,7 +6,7 @@ import {
 } from '@doc-editor/core'
 import { ReactNode } from 'react'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
+import { useComponentsContext } from '@/editor/ComponentsContext'
 import { AddButton } from './DefaultButtons/AddButton'
 import { DeleteButton } from './DefaultButtons/DeleteButton'
 import { TableHandleMenuProps } from './TableHandleMenuProps'

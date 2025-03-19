@@ -1,8 +1,8 @@
 import { DOMSerializer, Schema } from 'prosemirror-model'
 
-import { PartialBlock } from '../../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../../editor/EtcDocEditor'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../../schema/index'
+import { PartialBlock } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
 import { serializeBlocksInternalHTML } from './util/serializeBlocksInternalHTML'
 // Used to serialize EtcDoc blocks and ProseMirror nodes to HTML without
 // losing data. Blocks are exported using the `toInternalHTML` method in their

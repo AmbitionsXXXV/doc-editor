@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from 'react'
 
-import { useComponentsContext } from '../../editor/ComponentsContext'
+import { useComponentsContext } from '@/editor/ComponentsContext'
 import { BasicTextStyleButton } from './DefaultButtons/BasicTextStyleButton'
 import { ColorStyleButton } from './DefaultButtons/ColorStyleButton'
 import { CreateLinkButton } from './DefaultButtons/CreateLinkButton'

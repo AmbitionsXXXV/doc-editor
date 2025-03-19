@@ -1,18 +1,18 @@
 import { Plugin, PluginKey, PluginView } from 'prosemirror-state'
 import { Decoration, DecorationSet, EditorView } from 'prosemirror-view'
 
-import { nodeToBlock } from '../../api/nodeConversions/nodeToBlock'
-import { getNodeById } from '../../api/nodeUtil'
-import { checkBlockIsDefaultType } from '../../blocks/defaultBlockTypeGuards'
-import { DefaultBlockSchema } from '../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
+import { nodeToBlock } from '@/api/nodeConversions/nodeToBlock'
+import { getNodeById } from '@/api/nodeUtil'
+import { checkBlockIsDefaultType } from '@/blocks/defaultBlockTypeGuards'
+import { DefaultBlockSchema } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockFromConfigNoChildren,
 	BlockSchemaWithBlock,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../schema/index'
-import { EventEmitter } from '../../util/EventEmitter'
+} from '@/schema/index'
+import { EventEmitter } from '@/util/EventEmitter'
 import { getDraggableBlockFromElement } from '../SideMenu/dragging'
 
 let dragImageElement: HTMLElement | undefined

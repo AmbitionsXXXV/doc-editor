@@ -1,8 +1,8 @@
 import type { Emoji, EmojiMartData } from '@emoji-mart/data'
 
-import { checkDefaultInlineContentTypeInSchema } from '../../blocks/defaultBlockTypeGuards'
-import { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../schema/index'
+import { checkDefaultInlineContentTypeInSchema } from '@/blocks/defaultBlockTypeGuards'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
 import { DefaultGridSuggestionItem } from './DefaultGridSuggestionItem'
 
 let data:

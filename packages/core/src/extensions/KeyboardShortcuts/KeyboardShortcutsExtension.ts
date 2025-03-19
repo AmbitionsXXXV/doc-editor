@@ -4,14 +4,14 @@ import { TextSelection } from 'prosemirror-state'
 import {
 	getPrevBlockPos,
 	mergeBlocksCommand,
-} from '../../api/blockManipulation/commands/mergeBlocks/mergeBlocks'
-import { splitBlockCommand } from '../../api/blockManipulation/commands/splitBlock/splitBlock'
-import { updateBlockCommand } from '../../api/blockManipulation/commands/updateBlock/updateBlock'
+} from '@/api/blockManipulation/commands/mergeBlocks/mergeBlocks'
+import { splitBlockCommand } from '@/api/blockManipulation/commands/splitBlock/splitBlock'
+import { updateBlockCommand } from '@/api/blockManipulation/commands/updateBlock/updateBlock'
 import {
 	getBlockInfoFromResolvedPos,
 	getBlockInfoFromSelection,
-} from '../../api/getBlockInfoFromPos'
-import { EtcDocEditor } from '../../editor/EtcDocEditor'
+} from '@/api/getBlockInfoFromPos'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
 
 export const KeyboardShortcutsExtension = Extension.create<{
 	editor: EtcDocEditor<any, any, any>

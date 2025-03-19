@@ -8,8 +8,8 @@ import {
 } from '@doc-editor/core'
 import { ReactNode } from 'react'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useDictionary } from '../../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useDictionary } from '@/i18n/dictionary'
 import { BlockColorsItem } from './DefaultItems/BlockColorsItem'
 import { RemoveBlockItem } from './DefaultItems/RemoveBlockItem'
 import { DragHandleMenuProps } from './DragHandleMenuProps'

@@ -15,11 +15,11 @@ import {
 	RiUnderline,
 } from 'react-icons/ri'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEditorContentOrSelectionChange } from '../../../hooks/useEditorContentOrSelectionChange'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useSelectedBlocks } from '../../../hooks/useSelectedBlocks'
-import { useDictionary } from '../../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEditorContentOrSelectionChange } from '@/hooks/useEditorContentOrSelectionChange'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useSelectedBlocks } from '@/hooks/useSelectedBlocks'
+import { useDictionary } from '@/i18n/dictionary'
 
 type BasicTextStyle = 'bold' | 'italic' | 'underline' | 'strike' | 'code'
 

@@ -1,7 +1,7 @@
 import { Mark, Node, Schema } from '@tiptap/pm/model'
 
-import type { PartialBlock } from '../../blocks/defaultBlocks'
-import UniqueID from '../../extensions/UniqueID/UniqueID'
+import type { PartialBlock } from '@/blocks/defaultBlocks'
+import UniqueID from '@/extensions/UniqueID/UniqueID'
 import type {
 	InlineContentSchema,
 	PartialCustomInlineContentFromConfig,
@@ -10,12 +10,12 @@ import type {
 	PartialTableContent,
 	StyleSchema,
 	StyledText,
-} from '../../schema'
+} from '@/schema'
 import {
 	isPartialLinkInlineContent,
 	isStyledTextInlineContent,
-} from '../../schema/inlineContent/types'
-import { UnreachableCaseError } from '../../util/typescript'
+} from '@/schema/inlineContent/types'
+import { UnreachableCaseError } from '@/util/typescript'
 
 /**
  * Convert a StyledText inline element to a

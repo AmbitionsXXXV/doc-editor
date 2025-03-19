@@ -1,8 +1,8 @@
-import { PartialBlock } from '../../blocks/defaultBlocks'
-import { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { BlockSchema } from '../../schema/blocks/types'
-import { InlineContentSchema } from '../../schema/inlineContent/types'
-import { StyleSchema } from '../../schema/styles/types'
+import { PartialBlock } from '@/blocks/defaultBlocks'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema } from '@/schema/blocks/types'
+import { InlineContentSchema } from '@/schema/inlineContent/types'
+import { StyleSchema } from '@/schema/styles/types'
 
 export type EditorTestCases<
 	B extends BlockSchema,

@@ -1,5 +1,5 @@
-import { EtcDocEditor } from '../../../editor/EtcDocEditor'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../../schema/index'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
 
 export async function handleVSCodePaste<
 	BSchema extends BlockSchema,

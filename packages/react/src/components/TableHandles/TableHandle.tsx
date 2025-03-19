@@ -9,7 +9,7 @@ import { ReactNode, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { MdDragIndicator } from 'react-icons/md'
 
-import { useComponentsContext } from '../../editor/ComponentsContext'
+import { useComponentsContext } from '@/editor/ComponentsContext'
 import { TableHandleMenu } from './TableHandleMenu/TableHandleMenu'
 import { TableHandleProps } from './TableHandleProps'
 

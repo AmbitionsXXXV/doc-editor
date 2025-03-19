@@ -18,7 +18,7 @@ import {
 } from 'react'
 import { RiAddFill } from 'react-icons/ri'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
+import { useComponentsContext } from '@/editor/ComponentsContext'
 import { ExtendButtonProps } from './ExtendButtonProps'
 
 function cropEmptyRowsOrColumns<

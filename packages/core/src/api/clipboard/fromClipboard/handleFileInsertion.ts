@@ -1,12 +1,12 @@
-import { PartialBlock } from '../../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../../editor/EtcDocEditor'
+import { getBlockInfo, getNearestBlockContainerPos } from '@/api/getBlockInfoFromPos'
+import { PartialBlock } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockSchema,
 	FileBlockConfig,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../../schema/index'
-import { getBlockInfo, getNearestBlockContainerPos } from '../../getBlockInfoFromPos'
+} from '@/schema/index'
 import { acceptedMIMETypes } from './acceptedMIMETypes'
 
 function checkFileExtensionsMatch(fileExtension1: string, fileExtension2: string) {

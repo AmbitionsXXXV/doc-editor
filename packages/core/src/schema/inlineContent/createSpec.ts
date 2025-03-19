@@ -1,9 +1,9 @@
 import { Node } from '@tiptap/core'
 import { TagParseRule } from '@tiptap/pm/model'
 
-import { inlineContentToNodes } from '../../api/nodeConversions/blockToNode'
-import { nodeToCustomInlineContent } from '../../api/nodeConversions/nodeToBlock'
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
+import { inlineContentToNodes } from '@/api/nodeConversions/blockToNode'
+import { nodeToCustomInlineContent } from '@/api/nodeConversions/nodeToBlock'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import { propsToAttributes } from '../blocks/internal'
 import { Props } from '../propTypes'
 import { StyleSchema } from '../styles/types'

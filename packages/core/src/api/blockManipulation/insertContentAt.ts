@@ -1,8 +1,8 @@
 import { selectionToInsertionEnd } from '@tiptap/core'
 import { Node } from 'prosemirror-model'
 
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../schema/index'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
 
 // similar to tiptap insertContentAt
 export function insertContentAt<

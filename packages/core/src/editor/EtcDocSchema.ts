@@ -2,8 +2,8 @@ import {
 	defaultBlockSpecs,
 	defaultInlineContentSpecs,
 	defaultStyleSpecs,
-} from '../blocks/defaultBlocks'
-import type { BlockNoDefaults, PartialBlockNoDefaults } from '../schema/blocks/types'
+} from '@/blocks/defaultBlocks'
+import type { BlockNoDefaults, PartialBlockNoDefaults } from '@/schema/blocks/types'
 import {
 	BlockSchema,
 	BlockSchemaFromSpecs,
@@ -17,7 +17,7 @@ import {
 	getBlockSchemaFromSpecs,
 	getInlineContentSchemaFromSpecs,
 	getStyleSchemaFromSpecs,
-} from '../schema/index'
+} from '@/schema/index'
 import type { EtcDocEditor } from './EtcDocEditor'
 
 function removeUndefined<T extends Record<string, any> | undefined>(obj: T): T {

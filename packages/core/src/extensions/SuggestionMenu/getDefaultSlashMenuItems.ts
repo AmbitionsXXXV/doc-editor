@@ -1,13 +1,13 @@
-import { checkDefaultBlockTypeInSchema } from '../../blocks/defaultBlockTypeGuards'
-import { Block, PartialBlock } from '../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
+import { checkDefaultBlockTypeInSchema } from '@/blocks/defaultBlockTypeGuards'
+import { Block, PartialBlock } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockSchema,
 	InlineContentSchema,
 	StyleSchema,
 	isStyledTextInlineContent,
-} from '../../schema/index'
-import { formatKeyboardShortcut } from '../../util/browser'
+} from '@/schema/index'
+import { formatKeyboardShortcut } from '@/util/browser'
 import { DefaultSuggestionItem } from './DefaultSuggestionItem'
 
 // Sets the editor's text cursor position to the next content editable block,

@@ -1,15 +1,15 @@
 import { Node } from 'prosemirror-model'
 
-import { Block, PartialBlock } from '../../../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../../../editor/EtcDocEditor'
+import { blockToNode } from '@/api/nodeConversions/blockToNode'
+import { nodeToBlock } from '@/api/nodeConversions/nodeToBlock'
+import { Block, PartialBlock } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockIdentifier,
 	BlockSchema,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../../../schema/index'
-import { blockToNode } from '../../../nodeConversions/blockToNode'
-import { nodeToBlock } from '../../../nodeConversions/nodeToBlock'
+} from '@/schema/index'
 import { removeBlocksWithCallback } from '../removeBlocks/removeBlocks'
 
 export function replaceBlocks<

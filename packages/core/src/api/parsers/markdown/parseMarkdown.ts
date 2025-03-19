@@ -1,8 +1,8 @@
 import { Schema } from 'prosemirror-model'
 
-import { Block } from '../../../blocks/defaultBlocks'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../../schema/index'
-import { initializeESMDependencies } from '../../../util/esmDependencies'
+import { Block } from '@/blocks/defaultBlocks'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
+import { initializeESMDependencies } from '@/util/esmDependencies'
 import { HTMLToBlocks } from '../html/parseHTML'
 
 // modified version of https://github.com/syntax-tree/mdast-util-to-hast/blob/main/lib/handlers/code.js

@@ -1,15 +1,15 @@
 import { EditorState, Plugin, PluginKey, PluginView } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { UiElementPosition } from '../../extensions-shared/UiElementPosition'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { UiElementPosition } from '@/extensions-shared/UiElementPosition'
 import type {
 	BlockFromConfig,
 	FileBlockConfig,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../schema/index'
-import { EventEmitter } from '../../util/EventEmitter'
+} from '@/schema/index'
+import { EventEmitter } from '@/util/EventEmitter'
 
 export type FilePanelState<
 	I extends InlineContentSchema,

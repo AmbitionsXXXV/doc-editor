@@ -9,9 +9,9 @@ import {
 import { useCallback } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useDictionary } from '../../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useDictionary } from '@/i18n/dictionary'
 import { SideMenuProps } from '../SideMenuProps'
 
 export const AddBlockButton = <

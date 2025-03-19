@@ -1,7 +1,7 @@
 import { Mark, Node } from '@tiptap/pm/model'
 
-import type { Block } from '../../blocks/defaultBlocks'
-import UniqueID from '../../extensions/UniqueID/UniqueID'
+import type { Block } from '@/blocks/defaultBlocks'
+import UniqueID from '@/extensions/UniqueID/UniqueID'
 import type {
 	BlockSchema,
 	CustomInlineContentConfig,
@@ -12,12 +12,12 @@ import type {
 	StyleSchema,
 	Styles,
 	TableContent,
-} from '../../schema/index'
+} from '@/schema/index'
 import {
 	isLinkInlineContent,
 	isStyledTextInlineContent,
-} from '../../schema/inlineContent/types'
-import { UnreachableCaseError } from '../../util/typescript'
+} from '@/schema/inlineContent/types'
+import { UnreachableCaseError } from '@/util/typescript'
 import { getBlockInfoWithManualOffset } from '../getBlockInfoFromPos'
 
 /**

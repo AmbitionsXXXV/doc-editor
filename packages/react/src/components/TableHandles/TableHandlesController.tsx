@@ -8,8 +8,8 @@ import {
 import { FloatingPortal } from '@floating-ui/react'
 import { FC, useCallback, useMemo, useState } from 'react'
 
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
-import { useUIPluginState } from '../../hooks/useUIPluginState'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useUIPluginState } from '@/hooks/useUIPluginState'
 import { ExtendButton } from './ExtendButton/ExtendButton'
 import { ExtendButtonProps } from './ExtendButton/ExtendButtonProps'
 import { TableHandle } from './TableHandle'

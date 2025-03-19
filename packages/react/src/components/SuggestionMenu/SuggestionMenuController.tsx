@@ -8,9 +8,9 @@ import {
 import { flip, offset, shift, size } from '@floating-ui/react'
 import { FC, useCallback, useMemo } from 'react'
 
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
-import { useUIElementPositioning } from '../../hooks/useUIElementPositioning'
-import { useUIPluginState } from '../../hooks/useUIPluginState'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useUIElementPositioning } from '@/hooks/useUIElementPositioning'
+import { useUIPluginState } from '@/hooks/useUIPluginState'
 import { SuggestionMenu } from './SuggestionMenu'
 import { SuggestionMenuWrapper } from './SuggestionMenuWrapper'
 import { getDefaultReactSlashMenuItems } from './getDefaultReactSlashMenuItems'

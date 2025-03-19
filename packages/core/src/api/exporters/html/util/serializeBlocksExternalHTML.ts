@@ -1,17 +1,13 @@
 import { DOMSerializer, Fragment } from 'prosemirror-model'
 
-import { PartialBlock } from '../../../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../../../editor/EtcDocEditor'
-import {
-	BlockSchema,
-	InlineContentSchema,
-	StyleSchema,
-} from '../../../../schema/index'
-import { UnreachableCaseError } from '../../../../util/typescript'
 import {
 	inlineContentToNodes,
 	tableContentToNodes,
-} from '../../../nodeConversions/blockToNode'
+} from '@/api/nodeConversions/blockToNode'
+import { PartialBlock } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
+import { UnreachableCaseError } from '@/util/typescript'
 
 function addAttributesAndRemoveClasses(element: HTMLElement) {
 	// Removes all EtcDoc specific class names.

@@ -1,12 +1,12 @@
-import { uploadToTmpFilesDotOrg_DEV_ONLY } from '../../../blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
+import { uploadToTmpFilesDotOrg_DEV_ONLY } from '@/blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
 import {
 	DefaultBlockSchema,
 	DefaultInlineContentSchema,
 	defaultStyleSpecs,
-} from '../../../blocks/defaultBlocks'
-import { EtcDocEditor } from '../../../editor/EtcDocEditor'
-import { EtcDocSchema } from '../../../editor/EtcDocSchema'
-import { createStyleSpec } from '../../../schema/styles/createSpec'
+} from '@/blocks/defaultBlocks'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { EtcDocSchema } from '@/editor/EtcDocSchema'
+import { createStyleSpec } from '@/schema/styles/createSpec'
 import { EditorTestCases } from '../index'
 
 const small = createStyleSpec(

@@ -1,20 +1,20 @@
 import { Fragment, Node as PMNode, Slice } from 'prosemirror-model'
 import { EditorState } from 'prosemirror-state'
 
-import { Block, PartialBlock } from '../../../../blocks/defaultBlocks'
-import { EtcDocEditor } from '../../../../editor/EtcDocEditor'
-import { BlockIdentifier, BlockSchema } from '../../../../schema/blocks/types'
-import { InlineContentSchema } from '../../../../schema/inlineContent/types'
-import { StyleSchema } from '../../../../schema/styles/types'
-import { UnreachableCaseError } from '../../../../util/typescript'
-import { getBlockInfoFromResolvedPos } from '../../../getBlockInfoFromPos'
+import { getBlockInfoFromResolvedPos } from '@/api/getBlockInfoFromPos'
 import {
 	blockToNode,
 	inlineContentToNodes,
 	tableContentToNodes,
-} from '../../../nodeConversions/blockToNode'
-import { nodeToBlock } from '../../../nodeConversions/nodeToBlock'
-import { getNodeById } from '../../../nodeUtil'
+} from '@/api/nodeConversions/blockToNode'
+import { nodeToBlock } from '@/api/nodeConversions/nodeToBlock'
+import { getNodeById } from '@/api/nodeUtil'
+import { Block, PartialBlock } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockIdentifier, BlockSchema } from '@/schema/blocks/types'
+import { InlineContentSchema } from '@/schema/inlineContent/types'
+import { StyleSchema } from '@/schema/styles/types'
+import { UnreachableCaseError } from '@/util/typescript'
 
 export const updateBlockCommand =
 	<

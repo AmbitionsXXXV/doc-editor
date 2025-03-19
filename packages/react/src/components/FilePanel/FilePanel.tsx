@@ -8,9 +8,9 @@ import {
 } from '@doc-editor/core'
 import { useState } from 'react'
 
-import { ComponentProps, useComponentsContext } from '../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
-import { useDictionary } from '../../i18n/dictionary'
+import { ComponentProps, useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useDictionary } from '@/i18n/dictionary'
 import { EmbedTab } from './DefaultTabs/EmbedTab'
 import { UploadTab } from './DefaultTabs/UploadTab'
 import { FilePanelProps } from './FilePanelProps'

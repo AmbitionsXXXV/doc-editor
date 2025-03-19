@@ -8,12 +8,12 @@ import {
 import { useCallback, useMemo, useState } from 'react'
 import { RiLink } from 'react-icons/ri'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEditorContentOrSelectionChange } from '../../../hooks/useEditorContentOrSelectionChange'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useSelectedBlocks } from '../../../hooks/useSelectedBlocks'
-import { useDictionary } from '../../../i18n/dictionary'
-import { EditLinkMenuItems } from '../../LinkToolbar/EditLinkMenuItems'
+import { EditLinkMenuItems } from '@/components/LinkToolbar/EditLinkMenuItems'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEditorContentOrSelectionChange } from '@/hooks/useEditorContentOrSelectionChange'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useSelectedBlocks } from '@/hooks/useSelectedBlocks'
+import { useDictionary } from '@/i18n/dictionary'
 
 function checkLinkInSchema(
 	editor: EtcDocEditor<BlockSchema, any, StyleSchema>,

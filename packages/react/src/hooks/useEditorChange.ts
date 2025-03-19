@@ -1,7 +1,7 @@
 import type { EtcDocEditor } from '@doc-editor/core'
 import { useEffect } from 'react'
 
-import { useEtcDocContext } from '../editor/EtcDocContext'
+import { useEtcDocContext } from '@/editor/EtcDocContext'
 
 export function useEditorChange(
 	callback: () => void,

@@ -7,9 +7,9 @@ import {
 import { flip, offset, size } from '@floating-ui/react'
 import { FC, useCallback, useMemo } from 'react'
 
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useUIElementPositioning } from '../../../hooks/useUIElementPositioning'
-import { useUIPluginState } from '../../../hooks/useUIPluginState'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useUIElementPositioning } from '@/hooks/useUIElementPositioning'
+import { useUIPluginState } from '@/hooks/useUIPluginState'
 import { GridSuggestionMenu } from './GridSuggestionMenu'
 import { GridSuggestionMenuWrapper } from './GridSuggestionMenuWrapper'
 import { getDefaultReactEmojiPickerItems } from './getDefaultReactEmojiPickerItems'

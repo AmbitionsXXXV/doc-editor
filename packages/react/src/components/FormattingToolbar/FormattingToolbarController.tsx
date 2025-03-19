@@ -7,11 +7,11 @@ import {
 import { flip, offset } from '@floating-ui/react'
 import { FC, useMemo, useRef, useState } from 'react'
 
-import { useEditorContentOrSelectionChange } from '../../hooks/useEditorContentOrSelectionChange'
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
-import { useUIElementPositioning } from '../../hooks/useUIElementPositioning'
-import { useUIPluginState } from '../../hooks/useUIPluginState'
-import { mergeRefs } from '../../util/mergeRefs'
+import { useEditorContentOrSelectionChange } from '@/hooks/useEditorContentOrSelectionChange'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useUIElementPositioning } from '@/hooks/useUIElementPositioning'
+import { useUIPluginState } from '@/hooks/useUIPluginState'
+import { mergeRefs } from '@/util/mergeRefs'
 import { FormattingToolbar } from './FormattingToolbar'
 import { FormattingToolbarProps } from './FormattingToolbarProps'
 

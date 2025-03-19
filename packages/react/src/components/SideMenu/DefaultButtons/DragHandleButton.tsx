@@ -8,8 +8,8 @@ import {
 } from '@doc-editor/core'
 import { MdDragIndicator } from 'react-icons/md'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useDictionary } from '../../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useDictionary } from '@/i18n/dictionary'
 // import { DragHandleMenu } from '../DragHandleMenu/DragHandleMenu'
 import { SideMenuProps } from '../SideMenuProps'
 

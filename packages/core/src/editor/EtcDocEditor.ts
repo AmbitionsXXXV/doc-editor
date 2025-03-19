@@ -5,47 +5,47 @@ import { Transaction } from '@tiptap/pm/state'
 import { Node, Schema } from 'prosemirror-model'
 import * as Y from 'yjs'
 
-import { insertBlocks } from '../api/blockManipulation/commands/insertBlocks/insertBlocks'
+import { insertBlocks } from '@/api/blockManipulation/commands/insertBlocks/insertBlocks'
 import {
 	moveBlockDown,
 	moveBlockUp,
-} from '../api/blockManipulation/commands/moveBlock/moveBlock'
-import { removeBlocks } from '../api/blockManipulation/commands/removeBlocks/removeBlocks'
-import { replaceBlocks } from '../api/blockManipulation/commands/replaceBlocks/replaceBlocks'
-import { updateBlock } from '../api/blockManipulation/commands/updateBlock/updateBlock'
-import { insertContentAt } from '../api/blockManipulation/insertContentAt'
+} from '@/api/blockManipulation/commands/moveBlock/moveBlock'
+import { removeBlocks } from '@/api/blockManipulation/commands/removeBlocks/removeBlocks'
+import { replaceBlocks } from '@/api/blockManipulation/commands/replaceBlocks/replaceBlocks'
+import { updateBlock } from '@/api/blockManipulation/commands/updateBlock/updateBlock'
+import { insertContentAt } from '@/api/blockManipulation/insertContentAt'
 import {
 	getTextCursorPosition,
 	setTextCursorPosition,
-} from '../api/blockManipulation/selections/textCursorPosition/textCursorPosition'
-import { createExternalHTMLExporter } from '../api/exporters/html/externalHTMLExporter'
-import { createInternalHTMLSerializer } from '../api/exporters/html/internalHTMLSerializer'
-import { blocksToMarkdown } from '../api/exporters/markdown/markdownExporter'
-import { getBlockInfoFromSelection } from '../api/getBlockInfoFromPos'
-import { inlineContentToNodes } from '../api/nodeConversions/blockToNode'
-import { nodeToBlock } from '../api/nodeConversions/nodeToBlock'
-import { HTMLToBlocks } from '../api/parsers/html/parseHTML'
-import { markdownToBlocks } from '../api/parsers/markdown/parseMarkdown'
-import { checkDefaultBlockTypeInSchema } from '../blocks/defaultBlockTypeGuards'
+} from '@/api/blockManipulation/selections/textCursorPosition/textCursorPosition'
+import { createExternalHTMLExporter } from '@/api/exporters/html/externalHTMLExporter'
+import { createInternalHTMLSerializer } from '@/api/exporters/html/internalHTMLSerializer'
+import { blocksToMarkdown } from '@/api/exporters/markdown/markdownExporter'
+import { getBlockInfoFromSelection } from '@/api/getBlockInfoFromPos'
+import { inlineContentToNodes } from '@/api/nodeConversions/blockToNode'
+import { nodeToBlock } from '@/api/nodeConversions/nodeToBlock'
+import { HTMLToBlocks } from '@/api/parsers/html/parseHTML'
+import { markdownToBlocks } from '@/api/parsers/markdown/parseMarkdown'
+import { checkDefaultBlockTypeInSchema } from '@/blocks/defaultBlockTypeGuards'
 import {
 	Block,
 	DefaultBlockSchema,
 	DefaultInlineContentSchema,
 	DefaultStyleSchema,
 	PartialBlock,
-} from '../blocks/defaultBlocks'
-import { FilePanelProsemirrorPlugin } from '../extensions/FilePanel/FilePanelPlugin'
-import { FormattingToolbarProsemirrorPlugin } from '../extensions/FormattingToolbar/FormattingToolbarPlugin'
-import { LinkToolbarProsemirrorPlugin } from '../extensions/LinkToolbar/LinkToolbarPlugin'
-import { NodeSelectionKeyboardPlugin } from '../extensions/NodeSelectionKeyboard/NodeSelectionKeyboardPlugin'
-import { PlaceholderPlugin } from '../extensions/Placeholder/PlaceholderPlugin'
-import { PreviousBlockTypePlugin } from '../extensions/PreviousBlockType/PreviousBlockTypePlugin'
-import { SideMenuProsemirrorPlugin } from '../extensions/SideMenu/SideMenuPlugin'
-import { SuggestionMenuProseMirrorPlugin } from '../extensions/SuggestionMenu/SuggestionPlugin'
-import { TableHandlesProsemirrorPlugin } from '../extensions/TableHandles/TableHandlesPlugin'
-import { UniqueID } from '../extensions/UniqueID/UniqueID'
-import { Dictionary } from '../i18n/dictionary'
-import { en } from '../i18n/locales/index'
+} from '@/blocks/defaultBlocks'
+import { FilePanelProsemirrorPlugin } from '@/extensions/FilePanel/FilePanelPlugin'
+import { FormattingToolbarProsemirrorPlugin } from '@/extensions/FormattingToolbar/FormattingToolbarPlugin'
+import { LinkToolbarProsemirrorPlugin } from '@/extensions/LinkToolbar/LinkToolbarPlugin'
+import { NodeSelectionKeyboardPlugin } from '@/extensions/NodeSelectionKeyboard/NodeSelectionKeyboardPlugin'
+import { PlaceholderPlugin } from '@/extensions/Placeholder/PlaceholderPlugin'
+import { PreviousBlockTypePlugin } from '@/extensions/PreviousBlockType/PreviousBlockTypePlugin'
+import { SideMenuProsemirrorPlugin } from '@/extensions/SideMenu/SideMenuPlugin'
+import { SuggestionMenuProseMirrorPlugin } from '@/extensions/SuggestionMenu/SuggestionPlugin'
+import { TableHandlesProsemirrorPlugin } from '@/extensions/TableHandles/TableHandlesPlugin'
+import { UniqueID } from '@/extensions/UniqueID/UniqueID'
+import { Dictionary } from '@/i18n/dictionary'
+import { en } from '@/i18n/locales/index'
 import {
 	BlockIdentifier,
 	BlockSchema,
@@ -57,9 +57,9 @@ import {
 	StyleSchema,
 	StyleSpecs,
 	Styles,
-} from '../schema/index'
-import { mergeCSSClasses } from '../util/browser'
-import { UnreachableCaseError } from '../util/typescript'
+} from '@/schema/index'
+import { mergeCSSClasses } from '@/util/browser'
+import { UnreachableCaseError } from '@/util/typescript'
 import { getEtcDocExtensions } from './EtcDocExtensions'
 import { EtcDocSchema } from './EtcDocSchema'
 import { EtcDocTipTapEditor, EtcDocTipTapEditorOptions } from './EtcDocTipTapEditor'

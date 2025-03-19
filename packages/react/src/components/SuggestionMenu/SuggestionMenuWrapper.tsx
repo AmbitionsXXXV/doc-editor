@@ -1,8 +1,8 @@
 import { BlockSchema, InlineContentSchema, StyleSchema } from '@doc-editor/core'
 import { FC, useCallback, useEffect } from 'react'
 
-import { useEtcDocContext } from '../../editor/EtcDocContext'
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
+import { useEtcDocContext } from '@/editor/EtcDocContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
 import { useCloseSuggestionMenuNoItems } from './hooks/useCloseSuggestionMenuNoItems'
 import { useLoadSuggestionMenuItems } from './hooks/useLoadSuggestionMenuItems'
 import { useSuggestionMenuKeyboardNavigation } from './hooks/useSuggestionMenuKeyboardNavigation'

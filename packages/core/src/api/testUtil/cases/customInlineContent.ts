@@ -1,12 +1,12 @@
-import { uploadToTmpFilesDotOrg_DEV_ONLY } from '../../../blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
+import { uploadToTmpFilesDotOrg_DEV_ONLY } from '@/blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
 import {
 	DefaultBlockSchema,
 	DefaultStyleSchema,
 	defaultInlineContentSpecs,
-} from '../../../blocks/defaultBlocks'
-import { EtcDocEditor } from '../../../editor/EtcDocEditor'
-import { EtcDocSchema } from '../../../editor/EtcDocSchema'
-import { createInlineContentSpec } from '../../../schema/inlineContent/createSpec'
+} from '@/blocks/defaultBlocks'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { EtcDocSchema } from '@/editor/EtcDocSchema'
+import { createInlineContentSpec } from '@/schema/inlineContent/createSpec'
 import { EditorTestCases } from '../index'
 
 const mention = createInlineContentSpec(

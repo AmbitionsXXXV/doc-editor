@@ -8,7 +8,7 @@ import {
 } from '@doc-editor/core'
 import { ReactNode, useMemo } from 'react'
 
-import { useComponentsContext } from '../../editor/ComponentsContext'
+import { useComponentsContext } from '@/editor/ComponentsContext'
 import { AddBlockButton } from './DefaultButtons/AddBlockButton'
 import { DragHandleButton } from './DefaultButtons/DragHandleButton'
 import { SideMenuProps } from './SideMenuProps'

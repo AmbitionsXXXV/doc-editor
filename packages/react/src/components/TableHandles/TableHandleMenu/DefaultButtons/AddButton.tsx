@@ -7,9 +7,9 @@ import {
 	StyleSchema,
 } from '@doc-editor/core'
 
-import { useComponentsContext } from '../../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../../hooks/useEtcDocEditor'
-import { useDictionary } from '../../../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useDictionary } from '@/i18n/dictionary'
 import { TableHandleMenuProps } from '../TableHandleMenuProps'
 
 export const AddRowButton = <

@@ -9,16 +9,16 @@ import { Link } from '@tiptap/extension-link'
 import { Text } from '@tiptap/extension-text'
 import * as Y from 'yjs'
 
-import { createDropFileExtension } from '../api/clipboard/fromClipboard/fileDropExtension'
-import { createPasteFromClipboardExtension } from '../api/clipboard/fromClipboard/pasteExtension'
-import { createCopyToClipboardExtension } from '../api/clipboard/toClipboard/copyExtension'
-import { BackgroundColorExtension } from '../extensions/BackgroundColor/BackgroundColorExtension'
-import { KeyboardShortcutsExtension } from '../extensions/KeyboardShortcuts/KeyboardShortcutsExtension'
-import { TextAlignmentExtension } from '../extensions/TextAlignment/TextAlignmentExtension'
-import { TextColorExtension } from '../extensions/TextColor/TextColorExtension'
-import { TrailingNode } from '../extensions/TrailingNode/TrailingNodeExtension'
-import UniqueID from '../extensions/UniqueID/UniqueID'
-import { BlockContainer, BlockGroup, Doc } from '../pm-nodes/index'
+import { createDropFileExtension } from '@/api/clipboard/fromClipboard/fileDropExtension'
+import { createPasteFromClipboardExtension } from '@/api/clipboard/fromClipboard/pasteExtension'
+import { createCopyToClipboardExtension } from '@/api/clipboard/toClipboard/copyExtension'
+import { BackgroundColorExtension } from '@/extensions/BackgroundColor/BackgroundColorExtension'
+import { KeyboardShortcutsExtension } from '@/extensions/KeyboardShortcuts/KeyboardShortcutsExtension'
+import { TextAlignmentExtension } from '@/extensions/TextAlignment/TextAlignmentExtension'
+import { TextColorExtension } from '@/extensions/TextColor/TextColorExtension'
+import { TrailingNode } from '@/extensions/TrailingNode/TrailingNodeExtension'
+import UniqueID from '@/extensions/UniqueID/UniqueID'
+import { BlockContainer, BlockGroup, Doc } from '@/pm-nodes/index'
 import {
 	BlockSchema,
 	BlockSpecs,
@@ -27,7 +27,7 @@ import {
 	InlineContentSpecs,
 	StyleSchema,
 	StyleSpecs,
-} from '../schema/index'
+} from '@/schema/index'
 import type { EtcDocEditor } from './EtcDocEditor'
 
 /**

@@ -8,8 +8,8 @@ import {
 } from '@doc-editor/core'
 import { ReactNode } from 'react'
 
-import { useComponentsContext } from '../../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../../hooks/useEtcDocEditor'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
 import { DragHandleMenuProps } from '../DragHandleMenuProps'
 
 export const RemoveBlockItem = <

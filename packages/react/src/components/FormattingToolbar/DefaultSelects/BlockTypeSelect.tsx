@@ -17,14 +17,11 @@ import {
 	RiText,
 } from 'react-icons/ri'
 
-import {
-	ComponentProps,
-	useComponentsContext,
-} from '../../../editor/ComponentsContext'
-import { useEditorContentOrSelectionChange } from '../../../hooks/useEditorContentOrSelectionChange'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useSelectedBlocks } from '../../../hooks/useSelectedBlocks'
-import { useDictionary } from '../../../i18n/dictionary'
+import { ComponentProps, useComponentsContext } from '@/editor/ComponentsContext'
+import { useEditorContentOrSelectionChange } from '@/hooks/useEditorContentOrSelectionChange'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useSelectedBlocks } from '@/hooks/useSelectedBlocks'
+import { useDictionary } from '@/i18n/dictionary'
 
 export type BlockTypeSelectItem = {
 	name: string

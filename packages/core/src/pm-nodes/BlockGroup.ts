@@ -1,7 +1,7 @@
 import { Node } from '@tiptap/core'
 
-import { EtcDocDOMAttributes } from '../schema/index'
-import { mergeCSSClasses } from '../util/browser'
+import { EtcDocDOMAttributes } from '@/schema/index'
+import { mergeCSSClasses } from '@/util/browser'
 
 export const BlockGroup = Node.create<{
 	domAttributes?: EtcDocDOMAttributes

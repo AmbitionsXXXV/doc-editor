@@ -1,6 +1,6 @@
-import { Block, PartialBlock } from '../../blocks/defaultBlocks'
-import UniqueID from '../../extensions/UniqueID/UniqueID'
-import { BlockSchema, TableContent } from '../../schema/blocks/types'
+import { Block, PartialBlock } from '@/blocks/defaultBlocks'
+import UniqueID from '@/extensions/UniqueID/UniqueID'
+import { BlockSchema, TableContent } from '@/schema/blocks/types'
 import {
 	InlineContent,
 	InlineContentSchema,
@@ -8,8 +8,8 @@ import {
 	StyledText,
 	isPartialLinkInlineContent,
 	isStyledTextInlineContent,
-} from '../../schema/inlineContent/types'
-import { StyleSchema } from '../../schema/styles/types'
+} from '@/schema/inlineContent/types'
+import { StyleSchema } from '@/schema/styles/types'
 
 function textShorthandToStyledText(
 	content: string | StyledText<any>[] = '',

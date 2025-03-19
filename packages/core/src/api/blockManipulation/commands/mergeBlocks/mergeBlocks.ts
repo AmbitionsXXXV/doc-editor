@@ -1,7 +1,7 @@
 import { Node, ResolvedPos } from 'prosemirror-model'
 import { EditorState } from 'prosemirror-state'
 
-import { getBlockInfoFromResolvedPos } from '../../../getBlockInfoFromPos'
+import { getBlockInfoFromResolvedPos } from '@/api/getBlockInfoFromPos'
 
 export const getPrevBlockPos = (doc: Node, $nextBlockPos: ResolvedPos) => {
 	const prevNode = $nextBlockPos.nodeBefore

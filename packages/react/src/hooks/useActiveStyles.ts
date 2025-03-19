@@ -1,7 +1,7 @@
 import { EtcDocEditor, StyleSchema } from '@doc-editor/core'
 import { useState } from 'react'
 
-import { useEtcDocContext } from '../editor/EtcDocContext'
+import { useEtcDocContext } from '@/editor/EtcDocContext'
 import { useEditorChange } from './useEditorChange'
 import { useEditorSelectionChange } from './useEditorSelectionChange'
 

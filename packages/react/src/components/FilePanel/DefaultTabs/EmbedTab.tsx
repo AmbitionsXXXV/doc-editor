@@ -9,9 +9,9 @@ import {
 } from '@doc-editor/core'
 import { ChangeEvent, KeyboardEvent, useCallback, useState } from 'react'
 
-import { useComponentsContext } from '../../../editor/ComponentsContext'
-import { useEtcDocEditor } from '../../../hooks/useEtcDocEditor'
-import { useDictionary } from '../../../i18n/dictionary'
+import { useComponentsContext } from '@/editor/ComponentsContext'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useDictionary } from '@/i18n/dictionary'
 import { FilePanelProps } from '../FilePanelProps'
 
 export const EmbedTab = <

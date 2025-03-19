@@ -1,7 +1,7 @@
 import { Plugin, PluginKey } from 'prosemirror-state'
 import { Decoration, DecorationSet } from 'prosemirror-view'
 
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 
 const PLUGIN_KEY = new PluginKey('etcdoc-placeholder')
 

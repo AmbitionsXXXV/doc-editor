@@ -2,10 +2,10 @@ import { findParentNode } from '@tiptap/core'
 import { EditorState, Plugin, PluginKey } from 'prosemirror-state'
 import { Decoration, DecorationSet, EditorView } from 'prosemirror-view'
 
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { UiElementPosition } from '../../extensions-shared/UiElementPosition'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../schema/index'
-import { EventEmitter } from '../../util/EventEmitter'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { UiElementPosition } from '@/extensions-shared/UiElementPosition'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
+import { EventEmitter } from '@/util/EventEmitter'
 
 const findBlock = findParentNode((node) => node.type.name === 'blockContainer')
 

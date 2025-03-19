@@ -9,8 +9,8 @@ import {
 	useContext,
 } from 'react'
 
-import { DefaultReactGridSuggestionItem } from '../components/SuggestionMenu/GridSuggestionMenu/types'
-import { DefaultReactSuggestionItem } from '../components/SuggestionMenu/types'
+import { DefaultReactGridSuggestionItem } from '@/components/SuggestionMenu/GridSuggestionMenu/types'
+import { DefaultReactSuggestionItem } from '@/components/SuggestionMenu/types'
 
 export type ComponentProps = {
 	FormattingToolbar: {

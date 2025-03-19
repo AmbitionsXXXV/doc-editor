@@ -9,9 +9,9 @@ import {
 import { flip, offset } from '@floating-ui/react'
 import { FC } from 'react'
 
-import { useEtcDocEditor } from '../../hooks/useEtcDocEditor'
-import { useUIElementPositioning } from '../../hooks/useUIElementPositioning'
-import { useUIPluginState } from '../../hooks/useUIPluginState'
+import { useEtcDocEditor } from '@/hooks/useEtcDocEditor'
+import { useUIElementPositioning } from '@/hooks/useUIElementPositioning'
+import { useUIPluginState } from '@/hooks/useUIPluginState'
 import { FilePanel } from './FilePanel'
 import { FilePanelProps } from './FilePanelProps'
 

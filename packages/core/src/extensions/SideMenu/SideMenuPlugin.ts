@@ -2,12 +2,12 @@ import { PluginView } from '@tiptap/pm/state'
 import { EditorState, Plugin, PluginKey } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 
-import { Block } from '../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import { UiElementPosition } from '../../extensions-shared/UiElementPosition'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../schema/index'
-import { EventEmitter } from '../../util/EventEmitter'
-import { initializeESMDependencies } from '../../util/esmDependencies'
+import { Block } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { UiElementPosition } from '@/extensions-shared/UiElementPosition'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
+import { EventEmitter } from '@/util/EventEmitter'
+import { initializeESMDependencies } from '@/util/esmDependencies'
 import { dragStart, getDraggableBlockFromElement, unsetDragImage } from './dragging'
 
 export type SideMenuState<

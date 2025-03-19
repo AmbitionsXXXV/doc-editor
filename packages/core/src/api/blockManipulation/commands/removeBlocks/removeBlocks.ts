@@ -1,15 +1,15 @@
 import { Node } from 'prosemirror-model'
 import { Transaction } from 'prosemirror-state'
 
-import { Block } from '../../../../blocks/defaultBlocks'
-import type { EtcDocEditor } from '../../../../editor/EtcDocEditor'
+import { nodeToBlock } from '@/api/nodeConversions/nodeToBlock'
+import { Block } from '@/blocks/defaultBlocks'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockIdentifier,
 	BlockSchema,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../../../schema/index'
-import { nodeToBlock } from '../../../nodeConversions/nodeToBlock'
+} from '@/schema/index'
 
 export function removeBlocksWithCallback<
 	BSchema extends BlockSchema,

@@ -1,17 +1,17 @@
-import { uploadToTmpFilesDotOrg_DEV_ONLY } from '../../../blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
+import { uploadToTmpFilesDotOrg_DEV_ONLY } from '@/blocks/FileBlockContent/uploadToTmpFilesDotOrg_DEV_ONLY'
 import {
 	imagePropSchema,
 	imageRender,
-} from '../../../blocks/ImageBlockContent/ImageBlockContent'
+} from '@/blocks/ImageBlockContent/ImageBlockContent'
 import {
 	DefaultInlineContentSchema,
 	DefaultStyleSchema,
 	defaultBlockSpecs,
-} from '../../../blocks/defaultBlocks'
-import { defaultProps } from '../../../blocks/defaultProps'
-import { EtcDocEditor } from '../../../editor/EtcDocEditor'
-import { EtcDocSchema } from '../../../editor/EtcDocSchema'
-import { createBlockSpec } from '../../../schema/index'
+} from '@/blocks/defaultBlocks'
+import { defaultProps } from '@/blocks/defaultProps'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { EtcDocSchema } from '@/editor/EtcDocSchema'
+import { createBlockSpec } from '@/schema/index'
 import { EditorTestCases } from '../index'
 
 // This is a modified version of the default image block that does not implement

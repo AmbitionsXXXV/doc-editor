@@ -1,8 +1,8 @@
 import { Extension } from '@tiptap/core'
 import { Plugin } from 'prosemirror-state'
 
-import type { EtcDocEditor } from '../../../editor/EtcDocEditor'
-import { BlockSchema, InlineContentSchema, StyleSchema } from '../../../schema/index'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { BlockSchema, InlineContentSchema, StyleSchema } from '@/schema/index'
 import { acceptedMIMETypes } from './acceptedMIMETypes'
 import { handleFileInsertion } from './handleFileInsertion'
 

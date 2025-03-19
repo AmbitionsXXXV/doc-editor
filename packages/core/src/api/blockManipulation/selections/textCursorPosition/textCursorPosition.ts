@@ -1,20 +1,17 @@
 import { Node } from 'prosemirror-model'
 
-import type { EtcDocEditor } from '../../../../editor/EtcDocEditor'
-import { TextCursorPosition } from '../../../../editor/cursorPositionTypes'
+import { getBlockInfo, getBlockInfoFromSelection } from '@/api/getBlockInfoFromPos'
+import { nodeToBlock } from '@/api/nodeConversions/nodeToBlock'
+import { getNodeById } from '@/api/nodeUtil'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import { TextCursorPosition } from '@/editor/cursorPositionTypes'
 import {
 	BlockIdentifier,
 	BlockSchema,
 	InlineContentSchema,
 	StyleSchema,
-} from '../../../../schema/index'
-import { UnreachableCaseError } from '../../../../util/typescript'
-import {
-	getBlockInfo,
-	getBlockInfoFromSelection,
-} from '../../../getBlockInfoFromPos'
-import { nodeToBlock } from '../../../nodeConversions/nodeToBlock'
-import { getNodeById } from '../../../nodeUtil'
+} from '@/schema/index'
+import { UnreachableCaseError } from '@/util/typescript'
 
 export function getTextCursorPosition<
 	BSchema extends BlockSchema,
