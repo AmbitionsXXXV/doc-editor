@@ -3,7 +3,6 @@ import { EtcDocEditor } from '../../editor/EtcDocEditor'
 import { BlockSchema } from '../../schema/blocks/types'
 import { InlineContentSchema } from '../../schema/inlineContent/types'
 import { StyleSchema } from '../../schema/styles/types'
-import { NoInfer } from '../../util/typescript'
 
 export type EditorTestCases<
 	B extends BlockSchema,

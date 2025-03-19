@@ -59,7 +59,7 @@ import {
 	Styles,
 } from '../schema/index'
 import { mergeCSSClasses } from '../util/browser'
-import { NoInfer, UnreachableCaseError } from '../util/typescript'
+import { UnreachableCaseError } from '../util/typescript'
 import { getEtcDocExtensions } from './EtcDocExtensions'
 import { EtcDocSchema } from './EtcDocSchema'
 import { EtcDocTipTapEditor, EtcDocTipTapEditorOptions } from './EtcDocTipTapEditor'
