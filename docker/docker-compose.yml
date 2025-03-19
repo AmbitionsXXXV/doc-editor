@@ -1,16 +1,19 @@
-
 services:
   web:
     build:
       context: ..
       dockerfile: docker/Dockerfile.web
     ports:
-      - "3000:80"
+      - 80:80
+      - 443:443
+      - 443:443/udp
+      - 5173:5173
     # TODO: Uncomment this when the api is ready
-    # depends_on:
-    #   - api
+    depends_on:
+      - api
     environment:
       - API_URL=http://api:8000
+    restart: unless-stopped
 
   api:
     build:
@@ -26,6 +29,7 @@ services:
       - RUST_LOG=info
     volumes:
       - ../apps/api:/app/apps/api
+    restart: unless-stopped
 
   postgres:
     image: bitnami/postgresql:latest
@@ -38,6 +42,7 @@ services:
       POSTGRES_DB: doc_editor
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
 
 volumes:
   postgres_data:
