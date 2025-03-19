@@ -1,0 +1,10 @@
+{
+	"extends": "../../tsconfig.client.json",
+	"include": ["src/**/*"],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
+}

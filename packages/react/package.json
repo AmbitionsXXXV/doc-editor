@@ -1,0 +1,59 @@
+{
+	"name": "@doc-editor/react",
+	"private": false,
+	"sideEffects": ["*.css"],
+	"license": "MIT",
+	"version": "1.0.0",
+	"keywords": [
+		"doc-editor",
+		"editor",
+		"typescript",
+		"prosemirror",
+		"wysiwyg",
+		"rich-text-editor",
+		"feishu",
+		"notion",
+		"yjs",
+		"block-based",
+		"tiptap"
+	],
+	"description": "基于 Prosemirror 和 Tiptap 实现的类 Notion、飞书文档风格可扩展文本编辑器。",
+	"type": "module",
+	"source": "src/index.ts",
+	"main": "build/cjs/index.js",
+	"module": "build/esm/index.js",
+	"exports": {
+		".": {
+			"import": "./build/esm/index.js"
+		},
+		"./style.css": {
+			"import": "./build/esm/index.css"
+		}
+	},
+	"scripts": {
+		"build:watch": "tsup --watch",
+		"build": "tsup",
+		"clean": "rimraf build",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@doc-editor/core": "workspace:*",
+		"csstype": "^3.1.3",
+		"@floating-ui/react": "^0.27.5",
+		"@tiptap/core": "^2.11.5",
+		"@tiptap/react": "^2.11.5",
+		"lodash.merge": "^4.6.2",
+		"react-icons": "^5.5.0"
+	},
+	"devDependencies": {
+		"@types/lodash.foreach": "^4.5.9",
+		"@types/lodash.groupby": "^4.6.9",
+		"@types/lodash.merge": "^4.6.9",
+		"@types/react": "^19.0.11",
+		"@types/react-dom": "^19.0.4"
+	},
+	"peerDependencies": {
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	}
+}

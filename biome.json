@@ -15,7 +15,9 @@
 			"a11y": {
 				"useButtonType": "off",
 				"useValidAnchor": "off",
-				"noSvgWithoutTitle": "off"
+				"useMediaCaption": "off",
+				"noSvgWithoutTitle": "off",
+				"useKeyWithClickEvents": "off"
 			},
 			"correctness": {
 				"noUnusedVariables": "error",
