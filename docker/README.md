@@ -39,7 +39,7 @@ This guide explains how to deploy the document editor application using Docker.
    ```
 
    This will:
-   - Build the web container with Nginx
+   - Build the web container with Caddy
    - Build the API container with Rust
    - Start a PostgreSQL database
    - Connect all services together
@@ -52,14 +52,15 @@ This guide explains how to deploy the document editor application using Docker.
 
 ## Configuration
 
-### Nginx Configuration
+### Caddy Configuration
 
-The web server uses Nginx with a custom configuration located at `docker/nginx.conf`. This configuration:
+The web server uses Caddy with a custom configuration located at `docker/Caddyfile`. This configuration:
 
 - Serves the frontend application
 - Routes API requests to the backend
 - Handles SPA routing
-- Sets up caching for static assets
+- Sets up compression and caching for static assets
+- Provides automatic HTTPS in production environments
 
 ### Environment Variables
 
@@ -98,9 +99,10 @@ docker compose -f docker/docker-compose.yml logs -f web
 
 ## Production Deployment
 
-For production deployment, consider:
+For production deployment with Caddy:
 
-1. Using a proper secrets management solution instead of environment variables
-2. Setting up SSL certificates for HTTPS
-3. Implementing proper database backup procedures
-4. Using a container orchestration platform like Kubernetes
+1. Update the Caddyfile with your domain information (Caddy will automatically provision HTTPS certificates)
+2. Ensure ports 80 and 443 are exposed to the internet
+3. Consider using a proper secrets management solution instead of environment variables
+4. Implement proper database backup procedures
+5. Consider using a container orchestration platform like Kubernetes

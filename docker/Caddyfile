@@ -1,0 +1,36 @@
+:80 {
+    # Root directory for static files
+    root * /srv
+
+    # Enable gzip compression
+    encode gzip
+
+    # Handle API requests - reverse proxy to the api service
+    handle /api/* {
+        uri strip_prefix /api
+        reverse_proxy api:8000 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    # SPA routing - try files, then index.html for all other requests
+    handle {
+        try_files {path} {path}/ /index.html
+        file_server
+    }
+
+    # Cache control for static assets
+    @static {
+        path *.js *.css *.png *.jpg *.jpeg *.gif *.ico *.svg
+    }
+    header @static Cache-Control "public, max-age=2592000"
+    
+    # Prevent access to hidden files
+    @hidden {
+        path */.*
+    }
+    respond @hidden 403
+} 

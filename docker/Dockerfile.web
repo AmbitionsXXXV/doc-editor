@@ -1,19 +1,19 @@
-FROM nginx:alpine
+FROM caddy:2-alpine
 
 # Set working directory
-WORKDIR /usr/share/nginx/html
+WORKDIR /srv
 
-# Remove default nginx static assets
+# Remove default files if any
 RUN rm -rf ./*
 
 # Copy static assets from build
 COPY ./apps/web/build/client .
 
-# Copy nginx configuration
-COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
+# Copy Caddy configuration
+COPY ./docker/Caddyfile /etc/caddy/Caddyfile
 
-# Expose port
+# Expose ports
 EXPOSE 80
+EXPOSE 443
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Caddy runs automatically as the entrypoint
