@@ -6,6 +6,7 @@
 	"scripts": {
 		"build": "turbo run build --filter=./packages/* --filter=./apps/*",
 		"dev": "turbo run dev --filter=./packages/* --filter=./apps/* --filter=!./apps/api",
+		"dev:desktop": "pnpm --filter @doc-editor/desktop tauri dev",
 		"dev:api": "cd apps/api && cargo watch -x run",
 		"typecheck": "turbo run typecheck --filter=./packages/* --filter=./apps/*",
 		"lint": "biome lint .",

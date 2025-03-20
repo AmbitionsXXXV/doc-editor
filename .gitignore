@@ -39,3 +39,5 @@ pnpm-debug.log*
 target/
 logs/
 .cursor/mcp.json
+
+apps/desktop/src-tauri/gen
