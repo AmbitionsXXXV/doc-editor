@@ -2,7 +2,7 @@
 	"name": "@doc-editor/ui",
 	"private": true,
 	"sideEffects": ["*.css"],
-	"version": "1.19.0",
+	"version": "0.1.0",
 	"files": ["dist"],
 	"keywords": [
 		"editor",
