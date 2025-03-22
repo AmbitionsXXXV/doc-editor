@@ -9,12 +9,12 @@ import {
 	createHighlighter,
 } from 'shiki'
 
+import { createDefaultBlockDOMOutputSpec } from '@/blocks/defaultBlockHelpers'
 import {
 	PropSchema,
 	createBlockSpecFromStronglyTypedTiptapNode,
 	createStronglyTypedTiptapNode,
-} from '../../schema/index'
-import { createDefaultBlockDOMOutputSpec } from '../defaultBlockHelpers'
+} from '@/schema/index'
 import {
 	SupportedLanguageConfig,
 	defaultSupportedLanguages,

@@ -1,9 +1,9 @@
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockFromConfig,
 	BlockSchemaWithBlock,
 	FileBlockConfig,
-} from '../../schema/index'
+} from '@/schema/index'
 
 export const createFileBlockWrapper = (
 	block: BlockFromConfig<FileBlockConfig, any, any>,

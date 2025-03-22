@@ -1,11 +1,3 @@
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import {
-	BlockFromConfig,
-	FileBlockConfig,
-	PropSchema,
-	Props,
-	createBlockSpec,
-} from '../../schema/index'
 import {
 	createFigureWithCaption,
 	createFileAndCaptionWrapper,
@@ -13,8 +5,16 @@ import {
 	createLinkWithCaption,
 	createResizeHandlesWrapper,
 	parseFigureElement,
-} from '../FileBlockContent/fileBlockHelpers'
-import { defaultProps } from '../defaultProps'
+} from '@/blocks/FileBlockContent/fileBlockHelpers'
+import { defaultProps } from '@/blocks/defaultProps'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import {
+	BlockFromConfig,
+	FileBlockConfig,
+	PropSchema,
+	Props,
+	createBlockSpec,
+} from '@/schema/index'
 import { parseImageElement } from './imageBlockHelpers'
 
 export const imagePropSchema = {

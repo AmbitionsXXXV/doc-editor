@@ -1,14 +1,14 @@
 import { InputRule } from '@tiptap/core'
 
-import { updateBlockCommand } from '../../api/blockManipulation/commands/updateBlock/updateBlock'
-import { getBlockInfoFromSelection } from '../../api/getBlockInfoFromPos'
+import { updateBlockCommand } from '@/api/blockManipulation/commands/updateBlock/updateBlock'
+import { getBlockInfoFromSelection } from '@/api/getBlockInfoFromPos'
+import { createDefaultBlockDOMOutputSpec } from '@/blocks/defaultBlockHelpers'
+import { defaultProps } from '@/blocks/defaultProps'
 import {
 	PropSchema,
 	createBlockSpecFromStronglyTypedTiptapNode,
 	createStronglyTypedTiptapNode,
-} from '../../schema/index'
-import { createDefaultBlockDOMOutputSpec } from '../defaultBlockHelpers'
-import { defaultProps } from '../defaultProps'
+} from '@/schema/index'
 
 export const headingPropSchema = {
 	...defaultProps,

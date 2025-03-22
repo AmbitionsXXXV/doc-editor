@@ -1,12 +1,12 @@
-import { blockToNode } from '../api/nodeConversions/blockToNode'
-import type { EtcDocEditor } from '../editor/EtcDocEditor'
+import { blockToNode } from '@/api/nodeConversions/blockToNode'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import type {
 	BlockNoDefaults,
 	BlockSchema,
 	InlineContentSchema,
 	StyleSchema,
-} from '../schema/index'
-import { mergeCSSClasses } from '../util/browser'
+} from '@/schema/index'
+import { mergeCSSClasses } from '@/util/browser'
 
 // Function that creates a ProseMirror `DOMOutputSpec` for a default block.
 // Since all default blocks have the same structure (`blockContent` div with a

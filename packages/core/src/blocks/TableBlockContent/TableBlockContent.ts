@@ -5,13 +5,13 @@ import { TableRow } from '@tiptap/extension-table-row'
 import { Node as PMNode } from 'prosemirror-model'
 import { TableView } from 'prosemirror-tables'
 
+import { createDefaultBlockDOMOutputSpec } from '@/blocks/defaultBlockHelpers'
+import { defaultProps } from '@/blocks/defaultProps'
 import {
 	createBlockSpecFromStronglyTypedTiptapNode,
 	createStronglyTypedTiptapNode,
-} from '../../schema/index'
-import { mergeCSSClasses } from '../../util/browser'
-import { createDefaultBlockDOMOutputSpec } from '../defaultBlockHelpers'
-import { defaultProps } from '../defaultProps'
+} from '@/schema/index'
+import { mergeCSSClasses } from '@/util/browser'
 import { EMPTY_CELL_WIDTH, TableExtension } from './TableExtension'
 
 export const tablePropSchema = {

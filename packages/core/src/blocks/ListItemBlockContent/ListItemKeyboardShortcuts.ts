@@ -1,7 +1,7 @@
-import { splitBlockCommand } from '../../api/blockManipulation/commands/splitBlock/splitBlock'
-import { updateBlockCommand } from '../../api/blockManipulation/commands/updateBlock/updateBlock'
-import { getBlockInfoFromSelection } from '../../api/getBlockInfoFromPos'
-import { EtcDocEditor } from '../../editor/EtcDocEditor'
+import { splitBlockCommand } from '@/api/blockManipulation/commands/splitBlock/splitBlock'
+import { updateBlockCommand } from '@/api/blockManipulation/commands/updateBlock/updateBlock'
+import { getBlockInfoFromSelection } from '@/api/getBlockInfoFromPos'
+import { EtcDocEditor } from '@/editor/EtcDocEditor'
 
 export const handleEnter = (editor: EtcDocEditor<any, any, any>) => {
 	const ttEditor = editor._tiptapEditor

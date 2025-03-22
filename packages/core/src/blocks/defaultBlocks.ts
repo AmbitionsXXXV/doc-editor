@@ -4,8 +4,19 @@ import Italic from '@tiptap/extension-italic'
 import Strike from '@tiptap/extension-strike'
 import Underline from '@tiptap/extension-underline'
 
-import { BackgroundColor } from '../extensions/BackgroundColor/BackgroundColorMark'
-import { TextColor } from '../extensions/TextColor/TextColorMark'
+import { AudioBlock } from '@/blocks/AudioBlockContent/AudioBlockContent'
+import { CodeBlock } from '@/blocks/CodeBlockContent/CodeBlockContent'
+import { FileBlock } from '@/blocks/FileBlockContent/FileBlockContent'
+import { Heading } from '@/blocks/HeadingBlockContent/HeadingBlockContent'
+import { ImageBlock } from '@/blocks/ImageBlockContent/ImageBlockContent'
+import { BulletListItem } from '@/blocks/ListItemBlockContent/BulletListItemBlockContent/BulletListItemBlockContent'
+import { CheckListItem } from '@/blocks/ListItemBlockContent/CheckListItemBlockContent/CheckListItemBlockContent'
+import { NumberedListItem } from '@/blocks/ListItemBlockContent/NumberedListItemBlockContent/NumberedListItemBlockContent'
+import { Paragraph } from '@/blocks/ParagraphBlockContent/ParagraphBlockContent'
+import { Table } from '@/blocks/TableBlockContent/TableBlockContent'
+import { VideoBlock } from '@/blocks/VideoBlockContent/VideoBlockContent'
+import { BackgroundColor } from '@/extensions/BackgroundColor/BackgroundColorMark'
+import { TextColor } from '@/extensions/TextColor/TextColorMark'
 import {
 	BlockNoDefaults,
 	BlockSchema,
@@ -19,18 +30,7 @@ import {
 	getBlockSchemaFromSpecs,
 	getInlineContentSchemaFromSpecs,
 	getStyleSchemaFromSpecs,
-} from '../schema/index'
-import { AudioBlock } from './AudioBlockContent/AudioBlockContent'
-import { CodeBlock } from './CodeBlockContent/CodeBlockContent'
-import { FileBlock } from './FileBlockContent/FileBlockContent'
-import { Heading } from './HeadingBlockContent/HeadingBlockContent'
-import { ImageBlock } from './ImageBlockContent/ImageBlockContent'
-import { BulletListItem } from './ListItemBlockContent/BulletListItemBlockContent/BulletListItemBlockContent'
-import { CheckListItem } from './ListItemBlockContent/CheckListItemBlockContent/CheckListItemBlockContent'
-import { NumberedListItem } from './ListItemBlockContent/NumberedListItemBlockContent/NumberedListItemBlockContent'
-import { Paragraph } from './ParagraphBlockContent/ParagraphBlockContent'
-import { Table } from './TableBlockContent/TableBlockContent'
-import { VideoBlock } from './VideoBlockContent/VideoBlockContent'
+} from '@/schema/index'
 
 export { customizeCodeBlock } from './CodeBlockContent/CodeBlockContent'
 

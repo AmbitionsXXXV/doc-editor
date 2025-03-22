@@ -3,6 +3,7 @@
 		"appender",
 		"bitnami",
 		"Caddyfile",
+		"contenteditable",
 		"cxefaagzjfyekzmf",
 		"feishu",
 		"groupby",
@@ -12,7 +13,9 @@
 		"lettre",
 		"prosemirror",
 		"readwrite",
+		"selectednode",
 		"singlepart",
-		"Textblock"
+		"Textblock",
+		"tmpfiles"
 	]
 }

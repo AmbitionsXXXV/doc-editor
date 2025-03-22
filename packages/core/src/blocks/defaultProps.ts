@@ -1,4 +1,4 @@
-import type { PropSchema, Props } from '../schema/index'
+import type { PropSchema, Props } from '@/schema/index'
 
 // TODO: this system should probably be moved / refactored.
 // The dependency from schema on this file doesn't make sense

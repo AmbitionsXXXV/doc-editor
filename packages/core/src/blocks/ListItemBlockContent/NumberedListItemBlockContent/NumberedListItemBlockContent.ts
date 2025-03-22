@@ -1,15 +1,15 @@
 import { InputRule } from '@tiptap/core'
 
-import { updateBlockCommand } from '../../../api/blockManipulation/commands/updateBlock/updateBlock'
-import { getBlockInfoFromSelection } from '../../../api/getBlockInfoFromPos'
+import { updateBlockCommand } from '@/api/blockManipulation/commands/updateBlock/updateBlock'
+import { getBlockInfoFromSelection } from '@/api/getBlockInfoFromPos'
+import { handleEnter } from '@/blocks/ListItemBlockContent/ListItemKeyboardShortcuts'
+import { createDefaultBlockDOMOutputSpec } from '@/blocks/defaultBlockHelpers'
+import { defaultProps } from '@/blocks/defaultProps'
 import {
 	PropSchema,
 	createBlockSpecFromStronglyTypedTiptapNode,
 	createStronglyTypedTiptapNode,
-} from '../../../schema/index'
-import { createDefaultBlockDOMOutputSpec } from '../../defaultBlockHelpers'
-import { defaultProps } from '../../defaultProps'
-import { handleEnter } from '../ListItemKeyboardShortcuts'
+} from '@/schema/index'
 import { NumberedListIndexingPlugin } from './NumberedListIndexingPlugin'
 
 export const numberedListItemPropSchema = {

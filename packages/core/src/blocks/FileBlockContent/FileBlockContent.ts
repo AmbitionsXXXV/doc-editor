@@ -1,11 +1,11 @@
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
+import { defaultProps } from '@/blocks/defaultProps'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockFromConfig,
 	FileBlockConfig,
 	PropSchema,
 	createBlockSpec,
-} from '../../schema/index'
-import { defaultProps } from '../defaultProps'
+} from '@/schema/index'
 import {
 	createDefaultFilePreview,
 	createFileAndCaptionWrapper,

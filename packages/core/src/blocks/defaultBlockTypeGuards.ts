@@ -1,11 +1,11 @@
-import type { EtcDocEditor } from '../editor/EtcDocEditor'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
 import {
 	BlockFromConfig,
 	BlockSchema,
 	FileBlockConfig,
 	InlineContentSchema,
 	StyleSchema,
-} from '../schema/index'
+} from '@/schema/index'
 import {
 	Block,
 	DefaultBlockSchema,

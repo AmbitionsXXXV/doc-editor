@@ -1,11 +1,3 @@
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import {
-	BlockFromConfig,
-	FileBlockConfig,
-	PropSchema,
-	Props,
-	createBlockSpec,
-} from '../../schema/index'
 import {
 	createFigureWithCaption,
 	createFileAndCaptionWrapper,
@@ -13,9 +5,17 @@ import {
 	createLinkWithCaption,
 	createResizeHandlesWrapper,
 	parseFigureElement,
-} from '../FileBlockContent/fileBlockHelpers'
-import { defaultProps } from '../defaultProps'
-import { parseVideoElement } from './videoBlockHelpers'
+} from '@/blocks/FileBlockContent/fileBlockHelpers'
+import { parseVideoElement } from '@/blocks/VideoBlockContent/videoBlockHelpers'
+import { defaultProps } from '@/blocks/defaultProps'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import {
+	BlockFromConfig,
+	FileBlockConfig,
+	PropSchema,
+	Props,
+	createBlockSpec,
+} from '@/schema/index'
 
 export const videoPropSchema = {
 	textAlignment: defaultProps.textAlignment,

@@ -1,19 +1,19 @@
-import type { EtcDocEditor } from '../../editor/EtcDocEditor'
-import {
-	BlockFromConfig,
-	FileBlockConfig,
-	PropSchema,
-	Props,
-	createBlockSpec,
-} from '../../schema/index'
 import {
 	createFigureWithCaption,
 	createFileAndCaptionWrapper,
 	createFileBlockWrapper,
 	createLinkWithCaption,
 	parseFigureElement,
-} from '../FileBlockContent/fileBlockHelpers'
-import { defaultProps } from '../defaultProps'
+} from '@/blocks/FileBlockContent/fileBlockHelpers'
+import { defaultProps } from '@/blocks/defaultProps'
+import type { EtcDocEditor } from '@/editor/EtcDocEditor'
+import {
+	BlockFromConfig,
+	FileBlockConfig,
+	PropSchema,
+	Props,
+	createBlockSpec,
+} from '@/schema/index'
 import { parseAudioElement } from './audioBlockHelpers'
 
 export const audioPropSchema = {
