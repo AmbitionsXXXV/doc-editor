@@ -10,9 +10,9 @@
 		"clean": "node ../../tools/clean.js dist node_modules .turbo"
 	},
 	"devDependencies": {
-		"tailwindcss": "^4.0.14"
+		"tailwindcss": "^4.0.15"
 	},
 	"dependencies": {
-		"tw-animate-css": "^1.2.2"
+		"tw-animate-css": "^1.2.4"
 	}
 }
