@@ -4,6 +4,7 @@ import { TableHeader } from '@tiptap/extension-table-header'
 import { TableRow } from '@tiptap/extension-table-row'
 import { Node as PMNode } from 'prosemirror-model'
 import { TableView } from 'prosemirror-tables'
+import { ViewMutationRecord } from 'prosemirror-view'
 
 import { createDefaultBlockDOMOutputSpec } from '@/blocks/defaultBlockHelpers'
 import { defaultProps } from '@/blocks/defaultProps'
@@ -91,7 +92,7 @@ export const TableBlockContent = createStronglyTypedTiptapNode({
 					this.dom = blockContent
 				}
 
-				ignoreMutation(record: MutationRecord): boolean {
+				ignoreMutation(record: ViewMutationRecord): boolean {
 					return (
 						!(record.target as HTMLElement).closest('.tableWrapper-inner') ||
 						super.ignoreMutation(record)
