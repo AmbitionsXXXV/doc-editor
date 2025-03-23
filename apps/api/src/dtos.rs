@@ -3,7 +3,7 @@ use core::str;
 use serde::{Deserialize, Serialize};
 use validator::Validate;
 
-use crate::models::{User, UserRole};
+use crate::models::{AuthProvider, User, UserRole};
 
 #[derive(Validate, Debug, Default, Clone, Serialize, Deserialize)]
 pub struct RegisterUserDto {
@@ -55,6 +55,8 @@ pub struct FilterUserDto {
     pub created_at: DateTime<FixedOffset>,
     #[serde(rename = "updatedAt")]
     pub updated_at: DateTime<FixedOffset>,
+    pub auth_provider: String,
+    pub profile_picture: Option<String>,
 }
 
 impl FilterUserDto {
@@ -74,6 +76,8 @@ impl FilterUserDto {
             role: user.role.to_str().to_string(),
             created_at,
             updated_at,
+            auth_provider: user.auth_provider.to_str().to_string(),
+            profile_picture: user.profile_picture.clone(),
         }
     }
 
@@ -149,13 +153,13 @@ pub struct UserPasswordUpdateDto {
     pub old_password: String,
 }
 
-#[derive(Serialize, Deserialize, Validate)]
+#[derive(Debug, Validate, Default, Clone, Serialize, Deserialize)]
 pub struct VerifyEmailQueryDto {
     #[validate(length(min = 1, message = "Token is required."))]
     pub token: String,
 }
 
-#[derive(Deserialize, Serialize, Validate, Debug, Clone)]
+#[derive(Debug, Validate, Default, Clone, Serialize, Deserialize)]
 pub struct ForgotPasswordRequestDto {
     #[validate(
         length(min = 1, message = "Email is required"),
@@ -164,7 +168,7 @@ pub struct ForgotPasswordRequestDto {
     pub email: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, Validate, Clone)]
+#[derive(Debug, Validate, Default, Clone, Serialize, Deserialize)]
 pub struct ResetPasswordRequestDto {
     #[validate(length(min = 1, message = "Token is required."))]
     pub token: String,
@@ -182,8 +186,45 @@ pub struct ResetPasswordRequestDto {
     pub new_password_confirm: String,
 }
 
-#[derive(Debug, Deserialize, Validate)]
+#[derive(Debug, Validate, Default, Clone, Serialize, Deserialize)]
 pub struct ResendVerificationDto {
     #[validate(email(message = "Invalid email address"))]
     pub email: String,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct GoogleUserInfo {
+    pub id: String,
+    pub email: String,
+    pub verified_email: bool,
+    pub name: String,
+    pub given_name: Option<String>,
+    pub family_name: Option<String>,
+    pub picture: Option<String>,
+    pub locale: Option<String>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct GoogleCallbackDto {
+    pub code: String,
+    pub state: Option<String>,
+    pub scope: Option<String>,
+    pub error: Option<String>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct GithubUserInfo {
+    pub id: i64,
+    pub login: String,
+    pub name: Option<String>,
+    pub email: Option<String>,
+    pub avatar_url: Option<String>,
+    pub html_url: String,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct GithubCallbackDto {
+    pub code: String,
+    pub state: Option<String>,
+    pub error: Option<String>,
 }

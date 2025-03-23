@@ -14,6 +14,12 @@ pub struct Config {
     pub host: String,
     pub cors_allowed_origins: Vec<String>,
     pub env: String,
+    pub google_client_id: String,
+    pub google_client_secret: String,
+    pub google_redirect_url: String,
+    pub github_client_id: String,
+    pub github_client_secret: String,
+    pub github_redirect_url: String,
 }
 
 impl Config {
@@ -91,6 +97,42 @@ impl Config {
                 7
             });
 
+        // Google OAuth 配置
+        let google_client_id = env::var("GOOGLE_CLIENT_ID").unwrap_or_else(|_| {
+            if env_mode == "production" {
+                eprintln!("警告: 生产环境中 GOOGLE_CLIENT_ID 未设置");
+            }
+            "".to_string()
+        });
+
+        let google_client_secret = env::var("GOOGLE_CLIENT_SECRET").unwrap_or_else(|_| {
+            if env_mode == "production" {
+                eprintln!("警告: 生产环境中 GOOGLE_CLIENT_SECRET 未设置");
+            }
+            "".to_string()
+        });
+
+        let google_redirect_url = env::var("GOOGLE_REDIRECT_URL")
+            .unwrap_or_else(|_| format!("{}/api/auth/google/callback", frontend_url));
+
+        // GitHub OAuth 配置
+        let github_client_id = env::var("GITHUB_CLIENT_ID").unwrap_or_else(|_| {
+            if env_mode == "production" {
+                eprintln!("警告: 生产环境中 GITHUB_CLIENT_ID 未设置");
+            }
+            "".to_string()
+        });
+
+        let github_client_secret = env::var("GITHUB_CLIENT_SECRET").unwrap_or_else(|_| {
+            if env_mode == "production" {
+                eprintln!("警告: 生产环境中 GITHUB_CLIENT_SECRET 未设置");
+            }
+            "".to_string()
+        });
+
+        let github_redirect_url = env::var("GITHUB_REDIRECT_URL")
+            .unwrap_or_else(|_| format!("{}/api/auth/github/callback", frontend_url));
+
         Self {
             jwt_secret,
             jwt_maxage,
@@ -103,6 +145,12 @@ impl Config {
             host,
             cors_allowed_origins,
             env: env_mode,
+            google_client_id,
+            google_client_secret,
+            google_redirect_url,
+            github_client_id,
+            github_client_secret,
+            github_redirect_url,
         }
     }
 }

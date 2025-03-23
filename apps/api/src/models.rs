@@ -17,6 +17,24 @@ impl UserRole {
     }
 }
 
+#[derive(Debug, Deserialize, Serialize, Clone, Copy, sqlx::Type, PartialEq)]
+#[sqlx(type_name = "auth_provider", rename_all = "lowercase")]
+pub enum AuthProvider {
+    Local,
+    Google,
+    Github,
+}
+
+impl AuthProvider {
+    pub fn to_str(self) -> &'static str {
+        match self {
+            AuthProvider::Local => "local",
+            AuthProvider::Google => "google",
+            AuthProvider::Github => "github",
+        }
+    }
+}
+
 #[derive(Debug, Deserialize, Serialize, sqlx::FromRow, sqlx::Type, Clone)]
 pub struct User {
     pub id: uuid::Uuid,
@@ -31,6 +49,9 @@ pub struct User {
     pub created_at: Option<DateTime<Utc>>,
     #[serde(rename = "updatedAt")]
     pub updated_at: Option<DateTime<Utc>>,
+    pub auth_provider: AuthProvider,
+    pub provider_user_id: Option<String>,
+    pub profile_picture: Option<String>,
 }
 
 // 在 models.rs 中添加
