@@ -1,33 +1,25 @@
 use std::sync::Arc;
 
 use axum::{
-    Extension, Json, Router,
+    Extension,
     extract::Query,
-    http::{HeaderMap, StatusCode, header},
+    http::header,
     response::{IntoResponse, Redirect},
-    routing::{get, post},
 };
 use axum_extra::extract::cookie::Cookie;
-use chrono::{Duration, FixedOffset, Utc};
+use chrono::Duration;
 use oauth2::{
-    AuthUrl, AuthorizationCode, ClientId, ClientSecret, CsrfToken, PkceCodeChallenge,
-    PkceCodeVerifier, RedirectUrl, Scope, TokenResponse, TokenUrl, basic::BasicClient,
+    AuthUrl, AuthorizationCode, ClientId, ClientSecret, CsrfToken, RedirectUrl, Scope,
+    TokenResponse, TokenUrl, basic::BasicClient,
 };
 use reqwest::Client as HttpClient;
-use serde::Deserialize;
-use sqlx::error::DatabaseError;
 use validator::Validate;
 
 use crate::{
     AppState,
     db::{DbError, UserExt},
-    dtos::{
-        ForgotPasswordRequestDto, GithubCallbackDto, GithubUserInfo, GoogleCallbackDto,
-        GoogleUserInfo, LoginUserDto, RegisterUserDto, ResendVerificationDto,
-        ResetPasswordRequestDto, Response, UserLoginResponseDto, VerifyEmailQueryDto,
-    },
-    error::{ErrorMessage, HttpError},
-    mail::mails::{send_forgot_password_email, send_verification_email, send_welcome_email},
+    dtos::{GoogleCallbackDto, GoogleUserInfo},
+    error::HttpError,
     models::AuthProvider,
     utils::{password, token},
 };
