@@ -1,5 +1,3 @@
-use std::sync::Arc;
-
 use axum::{
     Extension,
     extract::Query,
@@ -13,11 +11,12 @@ use oauth2::{
     TokenResponse, TokenUrl, basic::BasicClient,
 };
 use reqwest::Client as HttpClient;
+use std::sync::Arc;
 use validator::Validate;
 
 use crate::{
     AppState,
-    db::{DbError, UserExt},
+    db::UserExt,
     dtos::{GoogleCallbackDto, GoogleUserInfo},
     error::HttpError,
     models::AuthProvider,

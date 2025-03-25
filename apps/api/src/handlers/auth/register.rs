@@ -2,7 +2,6 @@ use std::sync::Arc;
 
 use axum::{Extension, Json, http::StatusCode, response::IntoResponse};
 use chrono::{Duration, Utc};
-use sqlx::error::DatabaseError;
 use validator::Validate;
 
 use crate::{

@@ -6,7 +6,7 @@ use validator::Validate;
 
 use crate::{
     AppState,
-    db::{DbError, UserExt},
+    db::UserExt,
     dtos::{ForgotPasswordRequestDto, ResetPasswordRequestDto, Response},
     error::HttpError,
     mail::mails::send_forgot_password_email,

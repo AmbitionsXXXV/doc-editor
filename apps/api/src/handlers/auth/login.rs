@@ -11,7 +11,7 @@ use validator::Validate;
 
 use crate::{
     AppState,
-    db::{DbError, UserExt},
+    db::UserExt,
     dtos::{LoginUserDto, UserLoginResponseDto},
     error::{ErrorMessage, HttpError},
     utils::{password, token},

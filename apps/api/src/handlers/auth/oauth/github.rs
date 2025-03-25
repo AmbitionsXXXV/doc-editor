@@ -1,19 +1,18 @@
-use std::sync::Arc;
-
 use axum::{
-    Extension, Json,
+    Extension,
     extract::Query,
-    http::{HeaderMap, StatusCode, header},
+    http::header,
     response::{IntoResponse, Redirect},
 };
 use axum_extra::extract::cookie::Cookie;
 use chrono::{Duration, Utc};
 use oauth2::{
-    AuthUrl, AuthorizationCode, ClientId, ClientSecret, CsrfToken, PkceCodeChallenge,
-    PkceCodeVerifier, RedirectUrl, Scope, TokenResponse, TokenUrl, basic::BasicClient,
+    AuthUrl, AuthorizationCode, ClientId, ClientSecret, CsrfToken, RedirectUrl, Scope,
+    TokenResponse, TokenUrl, basic::BasicClient,
 };
 use reqwest::Client as HttpClient;
 use serde::Deserialize;
+use std::sync::Arc;
 
 use crate::{
     AppState,
