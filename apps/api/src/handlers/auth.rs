@@ -1,5 +1,3 @@
-use std::sync::Arc;
-
 mod login;
 mod oauth;
 mod passwords;
@@ -8,33 +6,22 @@ mod register;
 use axum::{
     Extension, Json, Router,
     extract::Query,
-    http::{HeaderMap, StatusCode, header},
+    http::{HeaderMap, header},
     response::{IntoResponse, Redirect},
     routing::{get, post},
 };
 use axum_extra::extract::cookie::Cookie;
-use chrono::{Duration, FixedOffset, Utc};
-use oauth2::{
-    AuthUrl, AuthorizationCode, ClientId, ClientSecret, CsrfToken, PkceCodeChallenge,
-    PkceCodeVerifier, RedirectUrl, Scope, TokenResponse, TokenUrl, basic::BasicClient,
-};
-use reqwest::Client as HttpClient;
-use serde::Deserialize;
-use sqlx::error::DatabaseError;
+use chrono::{Duration, Utc};
+use std::sync::Arc;
 use validator::Validate;
 
 use crate::{
     AppState,
-    db::{DbError, UserExt},
-    dtos::{
-        ForgotPasswordRequestDto, GithubCallbackDto, GithubUserInfo, GoogleCallbackDto,
-        GoogleUserInfo, LoginUserDto, RegisterUserDto, ResendVerificationDto,
-        ResetPasswordRequestDto, Response, UserLoginResponseDto, VerifyEmailQueryDto,
-    },
+    db::UserExt,
+    dtos::{ResendVerificationDto, Response, VerifyEmailQueryDto},
     error::{ErrorMessage, HttpError},
-    mail::mails::{send_forgot_password_email, send_verification_email, send_welcome_email},
-    models::AuthProvider,
-    utils::{password, token},
+    mail::mails::{send_verification_email, send_welcome_email},
+    utils::token,
 };
 
 pub fn auth_handler() -> Router {
