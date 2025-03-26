@@ -8,6 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+	const isDev = mode === 'development'
 	// 加载环境变量，包括根目录和 apps/web 目录
 	// 注意：这将优先使用 apps/web/.env 中的变量
 	const rootPath = path.resolve(__dirname, '../../')
@@ -28,6 +29,16 @@ export default defineConfig(({ mode }) => {
 			// 不要完全覆盖 import.meta.env，而是只添加你需要的变量
 			// Vite 会自动将 VITE_ 前缀的环境变量暴露给客户端
 			'import.meta.env.NODE_ENV': JSON.stringify(rootEnv.NODE_ENV),
+		},
+		build: {
+			sourcemap: true,
+			minify: 'terser',
+			terserOptions: {
+				compress: {
+					drop_console: !isDev,
+					drop_debugger: !isDev,
+				},
+			},
 		},
 	}
 })
