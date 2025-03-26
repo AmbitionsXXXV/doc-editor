@@ -44,7 +44,6 @@ export const SideMenuController = <
 		return null
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { show, referencePos, ...data } = state
 
 	const Component = props.sideMenu || SideMenu

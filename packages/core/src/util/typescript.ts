@@ -5,7 +5,6 @@ export class UnreachableCaseError extends Error {
 }
 
 export function assertEmpty(obj: Record<string, never>, throwError = true) {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { 'data-test': dataTest, ...rest } = obj // exclude data-test
 
 	if (Object.keys(rest).length > 0 && throwError) {

@@ -79,7 +79,6 @@ export const ColorStyleButton = () => {
 				)
 			}
 
-			// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 			color === 'default'
 				? editor.removeStyles({ textColor: color })
 				: editor.addStyles({ textColor: color })
@@ -100,7 +99,6 @@ export const ColorStyleButton = () => {
 				)
 			}
 
-			// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 			color === 'default'
 				? editor.removeStyles({ backgroundColor: color })
 				: editor.addStyles({ backgroundColor: color })

@@ -11,7 +11,6 @@ type CallbackFunction<
 > = (...props: CallbackType<T, EventName>) => any
 
 export class EventEmitter<T extends Record<string, any>> {
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 	private callbacks: { [key: string]: Function[] } = {}
 
 	public on<EventName extends StringKeyOf<T>>(

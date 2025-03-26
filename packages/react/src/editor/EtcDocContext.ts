@@ -30,7 +30,6 @@ export function useEtcDocContext<
 	BSchema extends BlockSchema = DefaultBlockSchema,
 	ISchema extends InlineContentSchema = DefaultInlineContentSchema,
 	SSchema extends StyleSchema = DefaultStyleSchema,
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 >(
 	_schema?: EtcDocSchema<BSchema, ISchema, SSchema>,
 ): EtcDocContextValue<BSchema, ISchema, SSchema> | undefined {
