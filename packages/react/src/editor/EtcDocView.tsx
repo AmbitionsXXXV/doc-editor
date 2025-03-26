@@ -66,8 +66,9 @@ function EtcDocViewComponent<
 	ISchema extends InlineContentSchema,
 	SSchema extends StyleSchema,
 >(
-	props: EtcDocViewProps<BSchema, ISchema, SSchema>,
-	ref: React.Ref<HTMLDivElement>,
+	props: EtcDocViewProps<BSchema, ISchema, SSchema> & {
+		ref?: React.Ref<HTMLDivElement>
+	},
 ) {
 	const {
 		editor,
@@ -84,6 +85,7 @@ function EtcDocViewComponent<
 		sideMenu,
 		filePanel,
 		tableHandles,
+		ref,
 		...rest
 	} = props
 
@@ -177,13 +179,13 @@ function EtcDocViewComponent<
 	)
 }
 
-// https://fettblog.eu/typescript-react-generic-forward-refs/
-export const EtcDocViewRaw = React.forwardRef(EtcDocViewComponent) as unknown as <
+export const EtcDocViewRaw = <
 	BSchema extends BlockSchema,
 	ISchema extends InlineContentSchema,
 	SSchema extends StyleSchema,
 >(
-	props: EtcDocViewProps<BSchema, ISchema, SSchema> & {
-		ref?: React.ForwardedRef<HTMLDivElement>
-	},
-) => React.ComponentProps<'div'>
+	props: EtcDocViewProps<BSchema, ISchema, SSchema>,
+) => {
+	const { ref, ...rest } = props
+	return <EtcDocViewComponent {...rest} ref={ref} />
+}
