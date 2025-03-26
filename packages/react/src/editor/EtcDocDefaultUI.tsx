@@ -21,7 +21,7 @@ export function EtcDocDefaultUI(props: EtcDocDefaultUIProps) {
 	const editor = useEtcDocEditor()
 
 	if (!editor) {
-		throw new Error('EtcDocDefaultUI must be used within a EtcDocContext.Provider')
+		throw new Error('EtcDocDefaultUI must be used within a EtcDocContext')
 	}
 
 	return (
