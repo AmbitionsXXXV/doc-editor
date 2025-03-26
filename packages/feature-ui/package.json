@@ -1,0 +1,71 @@
+{
+	"name": "@doc-editor/feature-ui",
+	"private": false,
+	"sideEffects": ["*.css"],
+	"version": "1.19.0",
+	"keywords": [
+		"doc-editor",
+		"editor",
+		"typescript",
+		"prosemirror",
+		"wysiwyg",
+		"rich-text-editor",
+		"feishu",
+		"notion",
+		"yjs",
+		"block-based",
+		"tiptap"
+	],
+	"description": "基于 Prosemirror 和 Tiptap 实现的类 Notion、飞书文档风格可扩展文本编辑器。",
+	"type": "module",
+	"source": "src/index.ts",
+	"main": "build/cjs/index.js",
+	"module": "build/esm/index.js",
+	"exports": {
+		".": {
+			"import": "./build/esm/index.js"
+		},
+		"./style.css": {
+			"import": "./build/esm/index.css"
+		}
+	},
+	"scripts": {
+		"build:watch": "tsup --watch",
+		"build": "tsup",
+		"clean": "rimraf build",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@doc-editor/core": "workspace:*",
+		"@doc-editor/react": "workspace:*",
+		"@doc-editor/ui": "workspace:*",
+		"@radix-ui/react-dropdown-menu": "^2.1.6",
+		"@radix-ui/react-label": "^2.1.2",
+		"@radix-ui/react-popover": "^1.1.6",
+		"@radix-ui/react-select": "^2.1.6",
+		"@radix-ui/react-slot": "^1.1.2",
+		"@radix-ui/react-tabs": "^1.1.3",
+		"@radix-ui/react-toggle": "^1.1.2",
+		"@radix-ui/react-tooltip": "^1.1.8",
+		"autoprefixer": "^10.4.21",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.484.0",
+		"postcss": "^8.5.3",
+		"react-hook-form": "^7.54.2",
+		"tailwind-merge": "^2.6.0",
+		"tailwindcss": "^4.0.17",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@radix-ui/colors": "^3.0.0",
+		"@types/node": "^22.13.13",
+		"@types/react": "^19.0.12",
+		"@types/react-dom": "^19.0.4",
+		"rimraf": "^6.0.1"
+	},
+	"peerDependencies": {
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	}
+}
