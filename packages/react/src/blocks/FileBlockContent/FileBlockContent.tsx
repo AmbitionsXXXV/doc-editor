@@ -3,7 +3,7 @@ import { fileBlockConfig, fileParse } from '@doc-editor/core'
 import {
 	ReactCustomBlockRenderProps,
 	createReactBlockSpec,
-} from '../../schema/ReactBlockSpec'
+} from '@/schema/ReactBlockSpec'
 import {
 	DefaultFilePreview,
 	FileBlockWrapper,

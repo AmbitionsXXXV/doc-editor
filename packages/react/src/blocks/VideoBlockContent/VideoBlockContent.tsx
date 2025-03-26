@@ -5,7 +5,7 @@ import { RiVideoFill } from 'react-icons/ri'
 import {
 	ReactCustomBlockRenderProps,
 	createReactBlockSpec,
-} from '../../schema/ReactBlockSpec'
+} from '@/schema/ReactBlockSpec'
 import {
 	FigureWithCaption,
 	FileBlockWrapper,

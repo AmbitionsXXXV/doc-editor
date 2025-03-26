@@ -2,9 +2,9 @@ import { FileBlockConfig } from '@doc-editor/core'
 import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { RiFile2Line } from 'react-icons/ri'
 
-import { useUploadLoading } from '../../hooks/useUploadLoading'
-import { useDictionary } from '../../i18n/dictionary'
-import { ReactCustomBlockRenderProps } from '../../schema/ReactBlockSpec'
+import { useUploadLoading } from '@/hooks/useUploadLoading'
+import { useDictionary } from '@/i18n/dictionary'
+import { ReactCustomBlockRenderProps } from '@/schema/ReactBlockSpec'
 
 export const FileBlockWrapper = (
 	props: Omit<
