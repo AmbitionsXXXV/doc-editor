@@ -3,6 +3,15 @@ import { BackgroundLines } from '@doc-editor/ui/background-lines'
 import { Button } from '@doc-editor/ui/button'
 import { ColorfulText } from '@doc-editor/ui/colorful-text'
 import { useNavigate } from 'react-router'
+import { Route } from '.react-router/types/src/routes/+types/Home'
+
+// biome-ignore lint/correctness/noEmptyPattern: <explanation>
+export function meta({}: Route.MetaArgs) {
+	return [
+		{ title: 'Doc Editor' },
+		{ name: 'description', content: '现代化的协作文档编辑平台，让团队协作更高效' },
+	]
+}
 
 export function Home() {
 	const navigate = useNavigate()
