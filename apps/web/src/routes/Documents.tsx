@@ -1,3 +1,10 @@
+import { Mention } from '@/blocks/mention'
+import {
+	EtcDocSchema,
+	defaultBlockSpecs,
+	defaultInlineContentSpecs,
+	defaultStyleSpecs,
+} from '@doc-editor/core'
 import { Button } from '@doc-editor/ui/button'
 import { Edit, Share } from 'lucide-react'
 import { useState } from 'react'
@@ -21,6 +28,21 @@ export function Documents() {
 
 	// 如果没有指定文档ID，使用第一个文档
 	const activeDocId = documentId || '1'
+
+	const schema = EtcDocSchema.create({
+		inlineContentSpecs: {
+			...defaultInlineContentSpecs,
+			mention: Mention,
+		},
+		blockSpecs: {
+			...defaultBlockSpecs,
+		},
+		styleSpecs: {
+			...defaultStyleSpecs,
+		},
+	})
+
+	console.log(schema)
 
 	return (
 		<div className="flex h-[calc(100vh-64px)]">
