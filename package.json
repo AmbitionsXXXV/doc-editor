@@ -21,10 +21,14 @@
 		"docker:pg:start": "docker compose -f docker/docker-compose.yml up postgres",
 		"docker:pg:stop": "docker compose -f docker/docker-compose.yml down postgres",
 		"docker:web:start": "docker compose -f docker/docker-compose.yml up web",
-		"docker:web:stop": "docker compose -f docker/docker-compose.yml down web"
+		"docker:web:stop": "docker compose -f docker/docker-compose.yml down web",
+		"changeset": "changeset",
+		"version": "changeset version",
+		"publish": "pnpm build && changeset publish"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"@changesets/cli": "^2.28.1",
 		"@commitlint/cli": "^19.8.0",
 		"@commitlint/config-conventional": "^19.8.0",
 		"@rslib/core": "^0.6.1",
