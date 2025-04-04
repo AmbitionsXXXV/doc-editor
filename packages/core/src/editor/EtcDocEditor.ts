@@ -676,22 +676,23 @@ export class EtcDocEditor<
 			return undefined
 		}
 
-		const blocks: Block<BSchema, ISchema, SSchema>[] = []
+		// 首先找到选区中涉及到的区块及其深度
+		const blockPositions: Array<{ pos: number; depth: number; node: Node }> = []
 
-		// TODO: This adds all child blocks to the same array. Needs to find min
-		//  depth and only add blocks at that depth.
 		this._tiptapEditor.state.doc.descendants((node, pos) => {
 			if (node.type.spec.group !== 'blockContent') {
 				return true
 			}
 
-			// Fixed the block pos and size
-			// all block is wrapped with a blockContent wrapper
-			// and blockContent wrapper pos = inner block pos - 1
-			// blockContent wrapper end = inner block pos + nodeSize + 1
-			// need to add 1 to start and -1 to end
+			// 修正区块位置和大小
+			// 所有区块都被 blockContent 包装器包裹
+			// blockContent 包装器位置 = 内部区块位置 - 1
+			// blockContent 包装器结束 = 内部区块位置 + nodeSize + 1
+			// 需要在开始位置加 1，结束位置减 1
 			const end = pos + node.nodeSize - 1
 			const start = pos + 1
+
+			// 检查区块是否在选区范围内
 			if (
 				end <= this._tiptapEditor.state.selection.from ||
 				start >= this._tiptapEditor.state.selection.to
@@ -699,9 +700,27 @@ export class EtcDocEditor<
 				return true
 			}
 
-			blocks.push(
+			// 获取当前节点的深度
+			const depth = this._tiptapEditor.state.doc.resolve(pos).depth
+			blockPositions.push({ pos, depth, node })
+
+			return true // 继续遍历以找到所有相关区块
+		})
+
+		// 如果没有找到区块，返回空数组
+		if (blockPositions.length === 0) {
+			return { blocks: [] }
+		}
+
+		// 找出最小深度
+		const minDepth = Math.min(...blockPositions.map((item) => item.depth))
+
+		// 只保留最小深度的区块
+		const filteredBlocks = blockPositions
+			.filter((item) => item.depth === minDepth)
+			.map((item) =>
 				nodeToBlock(
-					this._tiptapEditor.state.doc.resolve(pos).node(),
+					item.node,
 					this.schema.blockSchema,
 					this.schema.inlineContentSchema,
 					this.schema.styleSchema,
@@ -709,10 +728,7 @@ export class EtcDocEditor<
 				),
 			)
 
-			return false
-		})
-
-		return { blocks: blocks }
+		return { blocks: filteredBlocks }
 	}
 
 	/**
