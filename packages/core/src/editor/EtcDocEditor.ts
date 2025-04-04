@@ -204,9 +204,14 @@ export class EtcDocEditor<
 	 */
 	public readonly headless: boolean = false
 
+	/**
+	 * The underlying Tiptap editor instance.
+	 * Note: This is `undefined` in headless mode. Use methods with proper headless checks
+	 * instead of directly accessing this property whenever possible.
+	 */
 	public readonly _tiptapEditor: EtcDocTipTapEditor & {
 		contentComponent: any
-	} = undefined as any // TODO: Type should actually reflect that it can be `undefined` in headless mode
+	} = undefined as any
 
 	/**
 	 * Used by React to store a reference to an `ElementRenderer` helper utility to make sure we can render React elements
@@ -426,7 +431,7 @@ export class EtcDocEditor<
 				attributes: {
 					// As of TipTap v2.5.0 the tabIndex is removed when the editor is not
 					// editable, so you can't focus it. We want to revert this as we have
-					// UI behaviour that relies on it.
+					// UI behavior that relies on it.
 					tabIndex: '0',
 					...newOptions._tiptapOptions?.editorProps?.attributes,
 					...newOptions.domAttributes?.editor,
@@ -456,6 +461,9 @@ export class EtcDocEditor<
 	}
 
 	dispatch(tr: Transaction) {
+		if (this.headless) {
+			return
+		}
 		this._tiptapEditor.dispatch(tr)
 	}
 
@@ -465,14 +473,23 @@ export class EtcDocEditor<
 	 * @warning Not needed to call manually when using React, use EtcDocView to take care of mounting
 	 */
 	public mount = (parentElement?: HTMLElement | null) => {
+		if (this.headless) {
+			return
+		}
 		this._tiptapEditor.mount(parentElement)
 	}
 
 	public get prosemirrorView() {
+		if (this.headless) {
+			throw new Error('Cannot access prosemirrorView in headless mode')
+		}
 		return this._tiptapEditor.view
 	}
 
 	public get domElement() {
+		if (this.headless) {
+			throw new Error('Cannot access domElement in headless mode')
+		}
 		return this._tiptapEditor.view.dom as HTMLDivElement
 	}
 
@@ -1068,7 +1085,7 @@ export class EtcDocEditor<
 	}
 
 	/**
-	 * A callback function that runs whenever the editor's contents change.
+	 * A callback function that runs whenever the editor's content changes.
 	 *
 	 * @param callback The callback to execute.
 	 * @returns A function to remove the callback.
@@ -1123,6 +1140,10 @@ export class EtcDocEditor<
 			ignoreQueryLength?: boolean
 		},
 	) {
+		if (this.headless) {
+			throw new Error('Cannot open suggestion menu in headless mode')
+		}
+
 		const tr = this.prosemirrorView.state.tr
 		const transaction = pluginState?.deleteTriggerCharacter
 			? tr.insertText(triggerCharacter)
