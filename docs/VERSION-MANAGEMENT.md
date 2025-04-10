@@ -15,7 +15,7 @@
 1. **创建更改**：在开发新功能或修复 bug 后，创建一个 changeset：
 
    ```bash
-   pnpm changeset
+   bun changeset
    ```
 
    按照提示，选择受影响的包，选择版本类型，并写下变更描述。
@@ -30,13 +30,13 @@
 3. **版本更新**：准备发布时，运行以下命令更新各个包的版本号：
 
    ```bash
-   pnpm version
+   bun version
    ```
 
 4. **发布**：运行以下命令构建并发布更新的包：
 
    ```bash
-   pnpm publish
+   bun publish
    ```
 
 ## 常用命令
@@ -44,25 +44,25 @@
 - **创建 changeset**：
 
   ```bash
-  pnpm changeset
+  bun changeset
   ```
 
 - **更新版本号**：
 
   ```bash
-  pnpm version
+  bun version
   ```
 
 - **发布包**：
 
   ```bash
-  pnpm publish
+  bun publish
   ```
 
 - **预览变更（不实际更新版本号）**：
 
   ```bash
-  pnpm changeset version --dry-run
+  bun changeset version --dry-run
   ```
 
 ## 如何处理依赖关系

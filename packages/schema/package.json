@@ -8,11 +8,11 @@
 		"build": "rslib build",
 		"dev": "rslib build --watch",
 		"typecheck": "tsc --noEmit",
-		"clean": "node ../../tools/clean.js dist node_modules .turbo"
+		"clean": "bun ../../tools/clean.js dist node_modules .turbo"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.52.1",
-		"@types/node": "^22.13.10",
+		"@microsoft/api-extractor": "^7.52.3",
+		"@types/node": "^22.14.0",
 		"zod": "^3.24.2"
 	}
 }

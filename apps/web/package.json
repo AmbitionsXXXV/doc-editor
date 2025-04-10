@@ -1,5 +1,5 @@
 {
-	"name": "doc-editor-web",
+	"name": "@doc-editor/web",
 	"private": true,
 	"version": "0.1.0",
 	"type": "module",
@@ -8,7 +8,7 @@
 		"dev:scan": "react-router dev && react-scan dev",
 		"build": "react-router build",
 		"typecheck": "react-router typegen && tsc",
-		"clean": "node ../../tools/clean.js dist node_modules .turbo"
+		"clean": "bun ../../tools/clean.js dist node_modules .turbo"
 	},
 	"dependencies": {
 		"@doc-editor/core": "workspace:*",

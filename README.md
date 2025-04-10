@@ -21,7 +21,7 @@
 ### 要求
 
 - Node.js 22+
-- pnpm 10.5.0+
+- bun 1.2.9+
 - Rust 1.85+
 - Docker (用于数据库和缓存)
 
@@ -32,23 +32,23 @@
 ./tools/setup.sh
 
 # 或手动安装依赖
-pnpm install
+bun install
 ```
 
 ### 启动开发服务器
 
 ```bash
 # 启动前端和其他服务（不包括API）
-pnpm dev
+bun dev
 
 # 仅启动API服务
-pnpm dev:api
+bun dev:api
 
 # 启动所有服务（包括API）
-pnpm dev:all
+bun dev:all
 
 # 仅启动前端
-pnpm --filter "@doc-editor/web" dev
+bun --filter "@doc-editor/web" dev
 
 # 直接使用  Cargo 启动后端
 cd apps/api && cargo run

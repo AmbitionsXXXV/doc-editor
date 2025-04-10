@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "turbo run build --filter=./packages/* --filter=./apps/*",
 		"dev": "turbo run dev --filter=./packages/* --filter=./apps/* --filter=!./apps/api",
-		"dev:desktop": "pnpm --filter @doc-editor/desktop tauri dev",
+		"dev:desktop": "bun --filter @doc-editor/desktop tauri dev",
 		"dev:api": "cd apps/api && cargo watch -x run",
 		"typecheck": "turbo run typecheck --filter=./packages/* --filter=./apps/*",
 		"lint": "biome lint .",
@@ -15,7 +15,7 @@
 		"format:fix": "biome format --write .",
 		"check": "biome check .",
 		"check:fix": "biome check --write .",
-		"clean": "turbo run clean --filter=./packages/* --filter=./apps/* && node tools/clean.js node_modules .turbo",
+		"clean": "turbo run clean --filter=./packages/* --filter=./apps/* && bun tools/clean.js node_modules .turbo",
 		"prepare": "lefthook install",
 		"commit": "git-cz",
 		"docker:pg:start": "docker compose -f docker/docker-compose.yml up postgres",
@@ -24,7 +24,7 @@
 		"docker:web:stop": "docker compose -f docker/docker-compose.yml down web",
 		"changeset": "changeset",
 		"version": "changeset version",
-		"publish": "pnpm build && changeset publish"
+		"publish": "bun run build && changeset publish"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
@@ -44,8 +44,6 @@
 			"path": "node_modules/cz-git"
 		}
 	},
-	"packageManager": "pnpm@10.7.1",
-	"engines": {
-		"node": ">=22.0.0"
-	}
+	"packageManager": "bun@1.2.9",
+	"workspaces": ["apps/*", "packages/*", "tools/*"]
 }

@@ -1,11 +1,11 @@
 {
-	"name": "doc-editor-api",
+	"name": "@doc-editor/api",
 	"private": true,
 	"version": "0.1.0",
 	"scripts": {
 		"lint": "cargo clippy -- -D warnings",
 		"format": "cargo fmt",
 		"test": "cargo test",
-		"clean": "cargo clean && node ../../tools/clean.js target node_modules .turbo"
+		"clean": "cargo clean && bun ../../tools/clean.js target node_modules .turbo"
 	}
 }
