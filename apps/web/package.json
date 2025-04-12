@@ -8,7 +8,7 @@
 		"dev:scan": "react-router dev && react-scan dev",
 		"build": "react-router build",
 		"typecheck": "react-router typegen && tsc",
-		"clean": "bun ../../tools/clean.js dist node_modules .turbo"
+		"clean": "bun ../../tools/clean.js dist node_modules .turbo build .react-router"
 	},
 	"dependencies": {
 		"@doc-editor/core": "workspace:*",

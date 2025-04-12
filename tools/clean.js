@@ -14,7 +14,7 @@ import { cwd } from 'node:process'
 import { $ } from 'bun'
 
 // Default directories to clean if none specified
-const DEFAULT_DIRS = ['dist', 'node_modules', '.turbo']
+const DEFAULT_DIRS = ['dist', 'node_modules', '.turbo', 'build']
 
 // Get directories to clean from command line arguments (excluding 'bun' and script path)
 const args = Bun.argv.slice(2)
