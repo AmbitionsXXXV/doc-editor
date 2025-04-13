@@ -8,7 +8,7 @@ import {
 	InlineContentSchema,
 	StyleSchema,
 } from '@doc-editor/core'
-import { createContext, useContext, useState } from 'react'
+import { createContext, use, useState } from 'react'
 
 type EtcDocContextValue<
 	BSchema extends BlockSchema = DefaultBlockSchema,
@@ -33,7 +33,7 @@ export function useEtcDocContext<
 >(
 	_schema?: EtcDocSchema<BSchema, ISchema, SSchema>,
 ): EtcDocContextValue<BSchema, ISchema, SSchema> | undefined {
-	const context = useContext(EtcDocContext) as any
+	const context = use(EtcDocContext) as any
 
 	return context
 }

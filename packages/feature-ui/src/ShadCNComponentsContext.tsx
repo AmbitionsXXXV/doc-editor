@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import { createContext, use } from 'react'
 
 import { Button as ShadCNButton } from '@doc-editor/ui/button'
 import {
@@ -43,5 +43,5 @@ export const ShadCNComponentsContext = createContext<ShadCNComponents | undefine
 )
 
 export function useShadCNComponentsContext() {
-	return useContext(ShadCNComponentsContext)
+	return use(ShadCNComponentsContext)
 }

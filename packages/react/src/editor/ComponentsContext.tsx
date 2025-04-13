@@ -6,7 +6,7 @@ import {
 	MouseEvent,
 	ReactNode,
 	createContext,
-	useContext,
+	use,
 } from 'react'
 
 import { DefaultReactGridSuggestionItem } from '@/components/SuggestionMenu/GridSuggestionMenu/types'
@@ -280,5 +280,5 @@ export type Components = {
 export const ComponentsContext = createContext<Components | undefined>(undefined)
 
 export function useComponentsContext(): Components | undefined {
-	return useContext(ComponentsContext)!
+	return use(ComponentsContext)!
 }
