@@ -1,14 +1,15 @@
-import { forwardRef, useImperativeHandle, useState } from 'react'
+import React, { useImperativeHandle, useState } from 'react'
 import { createPortal, flushSync } from 'react-dom'
 
 /**
- * A helper component to render a single element to a container so we can subsequently read the DOM / HTML contents
+ * 用于将单个元素渲染到指定容器的辅助组件，便于后续读取 DOM/HTML 内容
  *
- * This is useful so we can render arbitrary React elements (blocks) in the correct context (used by `ReactRenderUtil`)
+ * 这对于在正确上下文中渲染任意 React 元素（如 block）很有用（由 ReactRenderUtil 使用）
  */
-export const ElementRenderer = forwardRef<
-	(node: React.ReactNode, container: HTMLElement) => void
->((_props, ref) => {
+export function ElementRenderer(
+	_props: {},
+	ref?: React.Ref<(node: React.ReactNode, container: HTMLElement) => void>,
+) {
 	const [singleRenderData, setSingleRenderData] = useState<
 		{ node: React.ReactNode; container: HTMLElement } | undefined
 	>()
@@ -21,7 +22,7 @@ export const ElementRenderer = forwardRef<
 					setSingleRenderData({ node, container })
 				})
 
-				// clear after it's been rendered to `container`
+				// 渲染到 container 后清除
 				setSingleRenderData(undefined)
 			}
 		},
@@ -34,4 +35,6 @@ export const ElementRenderer = forwardRef<
 				createPortal(singleRenderData.node, singleRenderData.container)}
 		</>
 	)
-})
+}
+
+ElementRenderer.displayName = 'ElementRenderer'
