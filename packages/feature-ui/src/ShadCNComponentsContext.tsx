@@ -1,5 +1,8 @@
 import { createContext, use } from 'react'
 
+import { ExtendButton } from '@doc-editor/feature-ui/tableHandle/ExtendButton'
+import { TableHandle } from '@doc-editor/feature-ui/tableHandle/TableHandle'
+import { Badge as ShadCNBadge } from '@doc-editor/ui/badge'
 import { Button as ShadCNButton } from '@doc-editor/ui/button'
 import {
 	Select as ShadCNSelect,
@@ -17,6 +20,9 @@ import {
 } from '@doc-editor/ui/tooltip'
 
 export const ShadCNDefaultComponents = {
+	Badge: {
+		Badge: ShadCNBadge,
+	},
 	Button: { Button: ShadCNButton },
 	Select: {
 		Select: ShadCNSelect,
@@ -24,6 +30,10 @@ export const ShadCNDefaultComponents = {
 		SelectItem: ShadCNSelectItem,
 		SelectTrigger: ShadCNSelectTrigger,
 		SelectValue: ShadCNSelectValue,
+	},
+	TableHandle: {
+		Root: TableHandle,
+		ExtendButton: ExtendButton,
 	},
 	Toggle: {
 		Toggle: ShadCNToggle,

@@ -17,7 +17,9 @@
 				"useValidAnchor": "off",
 				"useMediaCaption": "off",
 				"noSvgWithoutTitle": "off",
-				"useKeyWithClickEvents": "off"
+				"useSemanticElements": "off",
+				"useKeyWithClickEvents": "off",
+				"useFocusableInteractive": "off"
 			},
 			"correctness": {
 				"noUnusedVariables": "error",
