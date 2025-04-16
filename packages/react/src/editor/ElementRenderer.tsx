@@ -6,10 +6,11 @@ import { createPortal, flushSync } from 'react-dom'
  *
  * 这对于在正确上下文中渲染任意 React 元素（如 block）很有用（由 ReactRenderUtil 使用）
  */
-export function ElementRenderer(
-	_props: {},
-	ref?: React.Ref<(node: React.ReactNode, container: HTMLElement) => void>,
-) {
+export function ElementRenderer(props: {
+	ref?: React.Ref<(node: React.ReactNode, container: HTMLElement) => void>
+}) {
+	const { ref } = props
+
 	const [singleRenderData, setSingleRenderData] = useState<
 		{ node: React.ReactNode; container: HTMLElement } | undefined
 	>()
