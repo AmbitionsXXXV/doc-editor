@@ -25,6 +25,7 @@ export default defineConfig({
 	parserPreset: 'conventional-changelog-conventionalcommits',
 	rules: {
 		'scope-enum': [2, 'always', scopes],
+		'header-max-length': [2, 'always', 1000],
 		'body-max-line-length': [2, 'always', 1000],
 	},
 	prompt: {

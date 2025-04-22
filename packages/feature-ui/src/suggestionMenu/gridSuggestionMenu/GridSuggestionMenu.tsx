@@ -1,16 +1,17 @@
 import { assertEmpty } from '@doc-editor/core'
 import { ComponentProps } from '@doc-editor/react'
 import React from 'react'
+import { GridSuggestionMenuEmptyItem } from './GridSuggestionMenuEmptyItem'
+import { GridSuggestionMenuItem } from './GridSuggestionMenuItem'
+import { GridSuggestionMenuLoader } from './GridSuggestionMenuLoader'
 
-export function GridSuggestionMenu(
+function GridSuggestionMenuRoot(
 	props: ComponentProps['GridSuggestionMenu']['Root'] & {
 		ref?: React.Ref<HTMLDivElement>
 	},
 ) {
 	const { className, children, id, columns, ref, ...rest } = props
-
 	assertEmpty(rest)
-
 	return (
 		<div
 			className={className}
@@ -22,4 +23,11 @@ export function GridSuggestionMenu(
 			{children}
 		</div>
 	)
+}
+
+export const GridSuggestionMenu = {
+	Root: GridSuggestionMenuRoot,
+	Item: GridSuggestionMenuItem,
+	EmptyItem: GridSuggestionMenuEmptyItem,
+	Loader: GridSuggestionMenuLoader,
 }

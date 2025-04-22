@@ -5,6 +5,8 @@ import {
 	defaultInlineContentSpecs,
 	defaultStyleSpecs,
 } from '@doc-editor/core'
+import { EtcDocView } from '@doc-editor/feature-ui'
+import { useCreateEtcDoc } from '@doc-editor/react'
 import { Button } from '@doc-editor/ui/button'
 import { Edit, Share } from 'lucide-react'
 import { useState } from 'react'
@@ -42,7 +44,9 @@ export function Documents() {
 		},
 	})
 
-	console.log(schema)
+	const editor = useCreateEtcDoc({
+		schema,
+	})
 
 	return (
 		<div className="flex h-[calc(100vh-64px)]">
@@ -65,6 +69,7 @@ export function Documents() {
 						</div>
 					</div>
 
+					<EtcDocView editor={editor} />
 					<div className="flex-1 rounded-lg border bg-card p-4"></div>
 				</div>
 			</main>

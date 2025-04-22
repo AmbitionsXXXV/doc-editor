@@ -37,6 +37,7 @@
       "version": "0.1.0",
       "dependencies": {
         "@doc-editor/core": "workspace:*",
+        "@doc-editor/feature-ui": "workspace:*",
         "@doc-editor/react": "workspace:*",
         "@doc-editor/ui": "workspace:*",
         "@react-router/node": "^7.5.0",

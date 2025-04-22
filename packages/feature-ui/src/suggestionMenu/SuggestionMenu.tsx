@@ -1,18 +1,20 @@
 import { assertEmpty } from '@doc-editor/core'
 import { ComponentProps } from '@doc-editor/react'
 import React from 'react'
+import { SuggestionMenuEmptyItem } from './SuggestionMenuEmptyItem'
+import { SuggestionMenuItem } from './SuggestionMenuItem'
+import { SuggestionMenuLabel } from './SuggestionMenuLabel'
+import { SuggestionMenuLoader } from './SuggestionMenuLoader'
 
 import { cn } from '@doc-editor/ui/lib/utils'
 
-export function SuggestionMenu(
+function SuggestionMenuRoot(
 	props: ComponentProps['SuggestionMenu']['Root'] & {
 		ref?: React.Ref<HTMLDivElement>
 	},
 ) {
 	const { className, children, id, ref, ...rest } = props
-
 	assertEmpty(rest)
-
 	return (
 		<div
 			id={id}
@@ -26,4 +28,12 @@ export function SuggestionMenu(
 			{children}
 		</div>
 	)
+}
+
+export const SuggestionMenu = {
+	Root: SuggestionMenuRoot,
+	Item: SuggestionMenuItem,
+	EmptyItem: SuggestionMenuEmptyItem,
+	Label: SuggestionMenuLabel,
+	Loader: SuggestionMenuLoader,
 }

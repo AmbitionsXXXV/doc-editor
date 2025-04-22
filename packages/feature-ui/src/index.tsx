@@ -11,6 +11,12 @@ import {
 	ShadCNComponentsContext,
 	ShadCNDefaultComponents,
 } from '@doc-editor/feature-ui/ShadCNComponentsContext'
+import { SideMenu } from '@doc-editor/feature-ui/sideMenu/SideMenu'
+import { SideMenuButton } from '@doc-editor/feature-ui/sideMenu/SideMenuButton'
+import { SuggestionMenu } from '@doc-editor/feature-ui/suggestionMenu/SuggestionMenu'
+import { GridSuggestionMenu } from '@doc-editor/feature-ui/suggestionMenu/gridSuggestionMenu/GridSuggestionMenu'
+import { ExtendButton } from '@doc-editor/feature-ui/tableHandle/ExtendButton'
+import { TableHandle } from '@doc-editor/feature-ui/tableHandle/TableHandle'
 import {
 	Toolbar,
 	ToolbarButton,
@@ -25,6 +31,16 @@ export const components: Components = {
 		Root: Toolbar,
 		Button: ToolbarButton,
 		Select: ToolbarSelect,
+	},
+	SideMenu: {
+		Root: SideMenu,
+		Button: SideMenuButton,
+	},
+	SuggestionMenu,
+	GridSuggestionMenu,
+	TableHandle: {
+		Root: TableHandle,
+		ExtendButton: ExtendButton,
 	},
 }
 
