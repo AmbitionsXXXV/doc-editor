@@ -10,6 +10,7 @@
         "@commitlint/config-conventional": "^19.8.0",
         "@rslib/core": "^0.6.3",
         "cz-git": "^1.11.1",
+        "etc-shared-biome-rules": "^0.1.2",
         "fast-glob": "^3.3.3",
         "lefthook": "^1.11.10",
         "tsup": "^8.4.0",
@@ -1151,6 +1152,8 @@
     "esprima": ["esprima@4.0.1", "", { "bin": { "esparse": "./bin/esparse.js", "esvalidate": "./bin/esvalidate.js" } }, "sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A=="],
 
     "estree-walker": ["estree-walker@3.0.3", "", { "dependencies": { "@types/estree": "^1.0.0" } }, "sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g=="],
+
+    "etc-shared-biome-rules": ["etc-shared-biome-rules@0.1.2", "", {}, "sha512-Z9RLAd7RxHQjxNeH7N42HiZd4ux7mk7wb6XRU36A6O88SuJ4o4yxXqmJPKOFsW9xxlN5ndq4cSxy0v2FYqu5mw=="],
 
     "exit-hook": ["exit-hook@2.2.1", "", {}, "sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw=="],
 
