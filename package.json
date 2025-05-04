@@ -28,16 +28,16 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
-		"@changesets/cli": "^2.29.1",
+		"@changesets/cli": "^2.29.2",
 		"@commitlint/cli": "^19.8.0",
 		"@commitlint/config-conventional": "^19.8.0",
-		"@rslib/core": "^0.6.3",
+		"@rslib/core": "^0.6.8",
 		"cz-git": "^1.11.1",
 		"etc-shared-biome-rules": "^0.1.2",
 		"fast-glob": "^3.3.3",
-		"lefthook": "^1.11.10",
+		"lefthook": "^1.11.12",
 		"tsup": "^8.4.0",
-		"turbo": "^2.5.0",
+		"turbo": "^2.5.2",
 		"typescript": "^5.8.3"
 	},
 	"config": {

@@ -11,6 +11,21 @@ import {
 	ShadCNComponentsContext,
 	ShadCNDefaultComponents,
 } from '@doc-editor/feature-ui/ShadCNComponentsContext'
+import { Form } from '@doc-editor/feature-ui/form/Form'
+import { TextInput } from '@doc-editor/feature-ui/form/TextInput'
+import {
+	Menu,
+	MenuDivider,
+	MenuDropdown,
+	MenuItem,
+	MenuLabel,
+	MenuTrigger,
+} from '@doc-editor/feature-ui/menu/Menu'
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from '@doc-editor/feature-ui/popover/popover'
 import { SideMenu } from '@doc-editor/feature-ui/sideMenu/SideMenu'
 import { SideMenuButton } from '@doc-editor/feature-ui/sideMenu/SideMenuButton'
 import { SuggestionMenu } from '@doc-editor/feature-ui/suggestionMenu/SuggestionMenu'
@@ -37,6 +52,25 @@ export const components: Components = {
 		Button: SideMenuButton,
 	},
 	SuggestionMenu,
+	Generic: {
+		Form: {
+			Root: Form,
+			TextInput: TextInput,
+		},
+		Menu: {
+			Root: Menu,
+			Trigger: MenuTrigger,
+			Dropdown: MenuDropdown,
+			Divider: MenuDivider,
+			Label: MenuLabel,
+			Item: MenuItem,
+		},
+		Popover: {
+			Root: Popover,
+			Content: PopoverContent,
+			Trigger: PopoverTrigger,
+		},
+	},
 	GridSuggestionMenu,
 	TableHandle: {
 		Root: TableHandle,
