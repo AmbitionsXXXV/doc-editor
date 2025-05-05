@@ -86,7 +86,7 @@ export const CreateLinkButton = () => {
 			<Components.Generic.Popover.Trigger>
 				{/* TODO: hide tooltip on click */}
 				<Components.FormattingToolbar.Button
-					className={'bn-button'}
+					className={'button'}
 					data-test="createLink"
 					label={dict.formatting_toolbar.link.tooltip}
 					mainTooltip={dict.formatting_toolbar.link.tooltip}
@@ -98,7 +98,7 @@ export const CreateLinkButton = () => {
 				/>
 			</Components.Generic.Popover.Trigger>
 			<Components.Generic.Popover.Content
-				className={'bn-popover-content bn-form-popover'}
+				className={'popover-content form-popover'}
 				variant={'form-popover'}
 			>
 				<EditLinkMenuItems url={url} text={text} editLink={update} />

@@ -157,7 +157,7 @@ function EtcDocViewComponent<
 				<EditorContent editor={editor}>
 					<div
 						className={mergeCSSClasses(
-							'bn-container',
+							'container',
 							editorColorScheme || '',
 							className || '',
 						)}

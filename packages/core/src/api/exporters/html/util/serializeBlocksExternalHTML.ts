@@ -12,7 +12,7 @@ import { UnreachableCaseError } from '@/util/typescript'
 function addAttributesAndRemoveClasses(element: HTMLElement) {
 	// Removes all EtcDoc specific class names.
 	const className =
-		[...element.classList].filter((className) => !className.startsWith('bn-')) || []
+		[...element.classList].filter((className) => !className.startsWith('')) || []
 
 	if (className.length > 0) {
 		element.className = className.join(' ')
@@ -121,7 +121,7 @@ function serializeBlock<
 	].implementation.toExternalHTML({ ...block, props } as any, editor as any)
 
 	const elementFragment = doc.createDocumentFragment()
-	if (ret.dom.classList.contains('bn-block-content')) {
+	if (ret.dom.classList.contains('block-content')) {
 		const blockContentDataAttributes = [...attrs, ...ret.dom.attributes].filter(
 			(attr) =>
 				attr.name.startsWith('data') &&

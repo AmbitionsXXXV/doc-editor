@@ -57,7 +57,7 @@ export function SuggestionMenuWrapper<Item>(props: {
 		setContentEditableProps((p) => ({
 			...p,
 			'aria-expanded': true,
-			'aria-controls': 'bn-suggestion-menu',
+			'aria-controls': 'suggestion-menu',
 		}))
 		return () => {
 			setContentEditableProps((p) => ({
@@ -73,7 +73,7 @@ export function SuggestionMenuWrapper<Item>(props: {
 		setContentEditableProps((p) => ({
 			...p,
 			'aria-activedescendant': selectedIndex
-				? `bn-suggestion-menu-item-${selectedIndex}`
+				? `suggestion-menu-item-${selectedIndex}`
 				: undefined,
 		}))
 		return () => {

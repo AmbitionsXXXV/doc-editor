@@ -104,7 +104,7 @@ export const BasicTextStyleButton = <Style extends BasicTextStyle>(props: {
 	const Icon = icons[props.basicTextStyle] as any // TODO
 	return (
 		<Components.FormattingToolbar.Button
-			className="bn-button"
+			className="button"
 			data-test={props.basicTextStyle}
 			onClick={() => toggleStyle(props.basicTextStyle)}
 			isSelected={active}

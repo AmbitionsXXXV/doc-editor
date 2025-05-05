@@ -18,14 +18,14 @@ export const createFileBlockWrapper = (
 	buttonIcon?: HTMLElement,
 ) => {
 	const wrapper = document.createElement('div')
-	wrapper.className = 'bn-file-block-content-wrapper'
+	wrapper.className = 'file-block-content-wrapper'
 
 	if (block.props.url === '') {
 		const addFileButton = createAddFileButton(block, editor, buttonText, buttonIcon)
 		wrapper.appendChild(addFileButton.dom)
 
 		const loading = document.createElement('div')
-		loading.className = 'bn-file-loading-preview'
+		loading.className = 'file-loading-preview'
 		loading.textContent = 'Loading...'
 
 		const destroyUploadStartHandler = editor.onUploadStart((blockId) => {
@@ -72,15 +72,15 @@ export const createDefaultFilePreview = (
 	block: BlockFromConfig<FileBlockConfig, any, any>,
 ): { dom: HTMLElement; destroy?: () => void } => {
 	const file = document.createElement('div')
-	file.className = 'bn-file-default-preview'
+	file.className = 'file-default-preview'
 
 	const icon = document.createElement('div')
-	icon.className = 'bn-file-default-preview-icon'
+	icon.className = 'file-default-preview-icon'
 	icon.innerHTML =
 		'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 8L9.00319 2H19.9978C20.5513 2 21 2.45531 21 2.9918V21.0082C21 21.556 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5501 3 20.9932V8ZM10 4V9H5V20H19V4H10Z"></path></svg>'
 
 	const fileName = document.createElement('p')
-	fileName.className = 'bn-file-default-preview-name'
+	fileName.className = 'file-default-preview-name'
 	fileName.textContent = block.props.name || ''
 
 	file.appendChild(icon)
@@ -97,10 +97,10 @@ export const createFileAndCaptionWrapper = (
 	file: HTMLElement,
 ) => {
 	const fileAndCaptionWrapper = document.createElement('div')
-	fileAndCaptionWrapper.className = 'bn-file-and-caption-wrapper'
+	fileAndCaptionWrapper.className = 'file-and-caption-wrapper'
 
 	const caption = document.createElement('p')
-	caption.className = 'bn-file-caption'
+	caption.className = 'file-caption'
 	caption.textContent = block.props.caption
 
 	if (
@@ -127,10 +127,10 @@ export const createAddFileButton = (
 	buttonIcon?: HTMLElement,
 ) => {
 	const addFileButton = document.createElement('div')
-	addFileButton.className = 'bn-add-file-button'
+	addFileButton.className = 'add-file-button'
 
 	const addFileButtonIcon = document.createElement('div')
-	addFileButtonIcon.className = 'bn-add-file-button-icon'
+	addFileButtonIcon.className = 'add-file-button-icon'
 	if (buttonIcon) {
 		addFileButtonIcon.appendChild(buttonIcon)
 	} else {
@@ -139,7 +139,7 @@ export const createAddFileButton = (
 	}
 
 	const addFileButtonText = document.createElement('p')
-	addFileButtonText.className = 'bn-add-file-button-text'
+	addFileButtonText.className = 'add-file-button-text'
 	addFileButtonText.innerHTML =
 		buttonText || editor.dictionary.file_blocks.file.add_button_text
 
@@ -239,14 +239,14 @@ export const createResizeHandlesWrapper = (
 
 	// Wrapper element for rendered element and resize handles.
 	const wrapper = document.createElement('div')
-	wrapper.className = 'bn-visual-media-wrapper'
+	wrapper.className = 'visual-media-wrapper'
 
 	// Resize handle elements.
 	const leftResizeHandle = document.createElement('div')
-	leftResizeHandle.className = 'bn-visual-media-resize-handle'
+	leftResizeHandle.className = 'visual-media-resize-handle'
 	leftResizeHandle.style.left = '4px'
 	const rightResizeHandle = document.createElement('div')
-	rightResizeHandle.className = 'bn-visual-media-resize-handle'
+	rightResizeHandle.className = 'visual-media-resize-handle'
 	rightResizeHandle.style.right = '4px'
 
 	// Temporary parameters set when the user begins resizing the element, used to

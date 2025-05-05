@@ -1,9 +1,7 @@
 @import './tailwindStyles.css';
 @import url('@doc-editor/react/style.css');
 
-@import "tailwindcss" prefix(bn);
-
-.bn-shadcn {
+.shadcn {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -35,7 +33,7 @@
     --radius: 0.5rem;
 }
 
-.bn-shadcn.dark {
+.shadcn.dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -65,59 +63,59 @@
     --ring: 212.7 26.8% 83.9%;
 }
 
-.bn-shadcn * {
-    @apply bn-border-border;
+.shadcn * {
+    @apply border-border;
 }
 
-.bn-shadcn .bn-editor {
-    @apply bn-bg-background bn-text-foreground;
+.shadcn .editor {
+    @apply bg-background text-foreground;
 }
 
-.bn-shadcn [data-radix-popper-content-wrapper] {
+.shadcn [data-radix-popper-content-wrapper] {
     z-index: 99999 !important;
 }
 
-.bn-shadcn .bn-editor:focus-visible {
+.shadcn .editor:focus-visible {
     outline: none;
 }
 
-.bn-shadcn .bn-side-menu {
+.shadcn .side-menu {
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
-.bn-shadcn .bn-side-menu .bn-button {
+.shadcn .side-menu .button {
     padding: 0;
     height: 24px;
 }
 
-.bn-shadcn .bn-select {
+.shadcn .select {
     max-height: var(--radix-select-content-available-height);
 }
 
-.bn-shadcn .bn-menu-dropdown {
+.shadcn .menu-dropdown {
     max-height: var(--radix-dropdown-menu-content-available-height);
 }
 
-.bn-shadcn .bn-color-picker-dropdown {
+.shadcn .color-picker-dropdown {
     overflow: auto;
 }
 
-.bn-shadcn .bn-suggestion-menu {
+.shadcn .suggestion-menu {
     height: fit-content;
     max-height: 500px;
 }
 
-.bn-shadcn .bn-suggestion-menu-item[aria-selected='true'],
-.bn-shadcn .bn-suggestion-menu-item:hover {
+.shadcn .suggestion-menu-item[aria-selected='true'],
+.shadcn .suggestion-menu-item:hover {
     background-color: hsl(var(--accent));
 }
 
-.bn-shadcn .bn-grid-suggestion-menu {
-    background: var(--bn-colors-menu-background);
-    border-radius: var(--bn-border-radius-large);
-    box-shadow: var(--bn-shadow-medium);
+.shadcn .grid-suggestion-menu {
+    background: var(--colors-menu-background);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
     display: grid;
     gap: 7px;
     height: fit-content;
@@ -127,9 +125,9 @@
     padding: 20px;
 }
 
-.bn-shadcn .bn-grid-suggestion-menu-item {
+.shadcn .grid-suggestion-menu-item {
     align-items: center;
-    border-radius: var(--bn-border-radius-large);
+    border-radius: var(--border-radius-large);
     cursor: pointer;
     display: flex;
     font-size: 24px;
@@ -140,15 +138,15 @@
     width: 32px;
 }
 
-.bn-shadcn .bn-grid-suggestion-menu-item[aria-selected='true'],
-.bn-shadcn .bn-grid-suggestion-menu-item:hover {
-    background-color: var(--bn-colors-hovered-background);
+.shadcn .grid-suggestion-menu-item[aria-selected='true'],
+.shadcn .grid-suggestion-menu-item:hover {
+    background-color: var(--colors-hovered-background);
 }
 
-.bn-shadcn .bn-grid-suggestion-menu-empty-item,
-.bn-shadcn .bn-grid-suggestion-menu-loader {
+.shadcn .grid-suggestion-menu-empty-item,
+.shadcn .grid-suggestion-menu-loader {
     align-items: center;
-    color: var(--bn-colors-menu-text);
+    color: var(--colors-menu-text);
     display: flex;
     font-size: 14px;
     font-weight: 500;
@@ -156,14 +154,14 @@
     justify-content: center;
 }
 
-.bn-shadcn .bn-grid-suggestion-menu-loader span {
+.shadcn .grid-suggestion-menu-loader span {
     background-color: hsl(var(--accent));
 }
 
-.bn-shadcn .bn-extend-button-add-remove-columns {
+.shadcn .extend-button-add-remove-columns {
     cursor: col-resize;
 }
 
-.bn-shadcn .bn-extend-button-add-remove-rows {
+.shadcn .extend-button-add-remove-rows {
     cursor: row-resize;
 }

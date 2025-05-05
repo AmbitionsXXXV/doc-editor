@@ -52,7 +52,7 @@ export const SideMenu = <
 	}, [props.block, props.editor.schema.blockSchema])
 
 	return (
-		<Components.SideMenu.Root className={'bn-side-menu'} {...dataAttributes}>
+		<Components.SideMenu.Root className={'side-menu'} {...dataAttributes}>
 			{props.children || (
 				<>
 					<AddBlockButton {...props} />

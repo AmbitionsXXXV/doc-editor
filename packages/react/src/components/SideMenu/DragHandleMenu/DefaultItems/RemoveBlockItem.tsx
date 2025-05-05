@@ -27,7 +27,7 @@ export const RemoveBlockItem = <
 
 	return (
 		<Components.Generic.Menu.Item
-			className={'bn-menu-item'}
+			className={'menu-item'}
 			onClick={() => editor.removeBlocks([props.block])}
 		>
 			{props.children}

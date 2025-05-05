@@ -31,7 +31,7 @@ export const DragHandleButton = <
 			draggable={true}
 			onDragStart={props.blockDragStart}
 			onDragEnd={props.blockDragEnd}
-			className={'bn-button'}
+			className={'button'}
 			icon={<MdDragIndicator size={24} data-test="dragHandle" />}
 		/>
 	)
@@ -53,7 +53,7 @@ export const DragHandleButton = <
 	//                 draggable={true}
 	//                 onDragStart={props.blockDragStart}
 	//                 onDragEnd={props.blockDragEnd}
-	//                 className={'bn-button'}
+	//                 className={'button'}
 	//                 icon={<MdDragIndicator size={24} data-test="dragHandle" />}
 	//             />
 	//         </Components.Generic.Menu.Trigger>

@@ -131,12 +131,12 @@ function setDragImage(view: EditorView, from: number, to = from) {
 		.filter(
 			(className) =>
 				className !== 'ProseMirror' &&
-				className !== 'bn-root' &&
-				className !== 'bn-editor',
+				className !== 'root' &&
+				className !== 'editor',
 		)
 		.join(' ')
 
-	dragImageElement.className = `${dragImageElement.className} bn-drag-preview ${inheritedClasses}`
+	dragImageElement.className = `${dragImageElement.className} drag-preview ${inheritedClasses}`
 
 	if (view.root instanceof ShadowRoot) {
 		view.root.appendChild(dragImageElement)

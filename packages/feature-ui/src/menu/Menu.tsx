@@ -141,7 +141,7 @@ export const MenuItem = forwardRef<
 	if (checked !== undefined) {
 		return (
 			<ShadCNComponents.DropdownMenu.DropdownMenuCheckboxItem
-				className={cn(className, 'bn-gap-1')}
+				className={cn(className, 'gap-1')}
 				ref={ref}
 				checked={checked}
 				onClick={onClick}
@@ -162,7 +162,7 @@ export const MenuItem = forwardRef<
 		>
 			{icon}
 			{children}
-			{subTrigger && <ChevronRight className="bn-ml-auto bn-h-4 bn-w-4" />}
+			{subTrigger && <ChevronRight className="ml-auto h-4 w-4" />}
 		</ShadCNComponents.DropdownMenu.DropdownMenuItem>
 	)
 })

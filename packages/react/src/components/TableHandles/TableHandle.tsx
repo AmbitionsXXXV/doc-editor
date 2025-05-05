@@ -46,8 +46,8 @@ export const TableHandle = <
 			<Components.Generic.Menu.Trigger>
 				<Components.TableHandle.Root
 					className={mergeCSSClasses(
-						'bn-table-handle',
-						isDragging ? 'bn-table-handle-dragging' : '',
+						'table-handle',
+						isDragging ? 'table-handle-dragging' : '',
 					)}
 					draggable={true}
 					onDragStart={(e) => {

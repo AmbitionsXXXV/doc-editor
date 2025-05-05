@@ -56,7 +56,7 @@ export const BlockContainer = Node.create<{
 
 	renderHTML({ HTMLAttributes }) {
 		const blockOuter = document.createElement('div')
-		blockOuter.className = 'bn-block-outer'
+		blockOuter.className = 'block-outer'
 		blockOuter.setAttribute('data-node-type', 'blockOuter')
 		for (const [attribute, value] of Object.entries(HTMLAttributes)) {
 			if (attribute !== 'class') {
@@ -69,7 +69,7 @@ export const BlockContainer = Node.create<{
 			...HTMLAttributes,
 		}
 		const block = document.createElement('div')
-		block.className = mergeCSSClasses('bn-block', blockHTMLAttributes.class)
+		block.className = mergeCSSClasses('block', blockHTMLAttributes.class)
 		block.setAttribute('data-node-type', this.name)
 		for (const [attribute, value] of Object.entries(blockHTMLAttributes)) {
 			if (attribute !== 'class') {

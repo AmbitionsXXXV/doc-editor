@@ -59,9 +59,9 @@ export const EmbedTab = <
 	}, [editor, block, currentURL])
 
 	return (
-		<Components.FilePanel.TabPanel className={'bn-tab-panel'}>
+		<Components.FilePanel.TabPanel className={'tab-panel'}>
 			<Components.FilePanel.TextInput
-				className={'bn-text-input'}
+				className={'text-input'}
 				placeholder={dict.file_panel.embed.url_placeholder}
 				value={currentURL}
 				onChange={handleURLChange}
@@ -69,7 +69,7 @@ export const EmbedTab = <
 				data-test={'embed-input'}
 			/>
 			<Components.FilePanel.Button
-				className={'bn-button'}
+				className={'button'}
 				onClick={handleURLClick}
 				data-test="embed-input-button"
 			>

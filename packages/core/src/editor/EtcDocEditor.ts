@@ -436,8 +436,8 @@ export class EtcDocEditor<
 					...newOptions._tiptapOptions?.editorProps?.attributes,
 					...newOptions.domAttributes?.editor,
 					class: mergeCSSClasses(
-						'bn-editor',
-						newOptions.defaultStyles ? 'bn-default-styles' : '',
+						'editor',
+						newOptions.defaultStyles ? 'default-styles' : '',
 						newOptions.domAttributes?.editor?.class || '',
 					),
 				},

@@ -22,7 +22,7 @@ export const LinkToolbar = (props: LinkToolbarProps & { children?: ReactNode }) 
 
 	if (props.children) {
 		return (
-			<Components.LinkToolbar.Root className={'bn-toolbar bn-link-toolbar'}>
+			<Components.LinkToolbar.Root className={'toolbar link-toolbar'}>
 				{props.children}
 			</Components.LinkToolbar.Root>
 		)
@@ -30,7 +30,7 @@ export const LinkToolbar = (props: LinkToolbarProps & { children?: ReactNode }) 
 
 	return (
 		<Components.LinkToolbar.Root
-			className={'bn-toolbar bn-link-toolbar'}
+			className={'toolbar link-toolbar'}
 			onMouseEnter={props.stopHideTimer}
 			onMouseLeave={props.startHideTimer}
 		>

@@ -22,7 +22,7 @@ export function createDefaultBlockDOMOutputSpec(
 ) {
 	const blockContent = document.createElement('div')
 	blockContent.className = mergeCSSClasses(
-		'bn-block-content',
+		'block-content',
 		blockContentHTMLAttributes.class,
 	)
 	blockContent.setAttribute('data-content-type', blockName)
@@ -34,7 +34,7 @@ export function createDefaultBlockDOMOutputSpec(
 
 	const inlineContent = document.createElement(htmlTag)
 	inlineContent.className = mergeCSSClasses(
-		'bn-inline-content',
+		'inline-content',
 		inlineContentHTMLAttributes.class,
 	)
 	for (const [attribute, value] of Object.entries(inlineContentHTMLAttributes)) {

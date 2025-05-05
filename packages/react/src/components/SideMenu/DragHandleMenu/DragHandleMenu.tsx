@@ -33,9 +33,7 @@ export const DragHandleMenu = <
 	const dict = useDictionary()
 
 	return (
-		<Components.Generic.Menu.Dropdown
-			className={'bn-menu-dropdown bn-drag-handle-menu'}
-		>
+		<Components.Generic.Menu.Dropdown className={'menu-dropdown drag-handle-menu'}>
 			{props.children || (
 				<>
 					<RemoveBlockItem {...props}>

@@ -287,11 +287,11 @@ export const ExtendButton = <
 	return (
 		<Components.TableHandle.ExtendButton
 			className={mergeCSSClasses(
-				'bn-extend-button',
+				'extend-button',
 				props.orientation === 'addOrRemoveColumns'
-					? 'bn-extend-button-add-remove-columns'
-					: 'bn-extend-button-add-remove-rows',
-				editingState !== null ? 'bn-extend-button-editing' : '',
+					? 'extend-button-add-remove-columns'
+					: 'extend-button-add-remove-rows',
+				editingState !== null ? 'extend-button-editing' : '',
 			)}
 			onClick={onClickHandler}
 			onMouseDown={mouseDownHandler}

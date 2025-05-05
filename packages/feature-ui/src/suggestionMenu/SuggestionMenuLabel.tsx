@@ -14,10 +14,7 @@ export function SuggestionMenuLabel(
 	assertEmpty(rest)
 
 	return (
-		<div
-			className={cn('bn-px-2 bn-py-1.5 bn-text-sm bn-font-semibold', className)}
-			ref={ref}
-		>
+		<div className={cn('px-2 py-1.5 font-semibold text-sm', className)} ref={ref}>
 			{children}
 		</div>
 	)

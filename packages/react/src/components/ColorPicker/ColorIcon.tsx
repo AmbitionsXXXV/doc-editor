@@ -26,7 +26,7 @@ export const ColorIcon = (
 
 	return (
 		<div
-			className={'bn-color-icon'}
+			className={'color-icon'}
 			data-background-color={backgroundColor}
 			data-text-color={textColor}
 			style={style}

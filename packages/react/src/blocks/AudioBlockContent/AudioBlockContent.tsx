@@ -23,7 +23,7 @@ export const AudioPreview = (
 
 	return (
 		<audio
-			className={'bn-audio'}
+			className={'audio'}
 			src={resolved.downloadUrl}
 			controls
 			contentEditable={false}

@@ -52,7 +52,7 @@ export const EditLinkMenuItems = (
 		<Components.Generic.Form.Root>
 			{/* // TODO: add labels? */}
 			<Components.Generic.Form.TextInput
-				className={'bn-text-input'}
+				className={'text-input'}
 				name="url"
 				icon={<RiLink />}
 				autoFocus={true}
@@ -63,7 +63,7 @@ export const EditLinkMenuItems = (
 				onSubmit={handleSubmit}
 			/>
 			<Components.Generic.Form.TextInput
-				className={'bn-text-input'}
+				className={'text-input'}
 				name="title"
 				icon={<RiText />}
 				placeholder={dict.link_toolbar.form.title_placeholder}

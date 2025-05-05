@@ -19,11 +19,11 @@ export const FileBlockWrapper = (
 	const showLoader = useUploadLoading(props.block.id)
 
 	if (showLoader) {
-		return <div className={'bn-file-loading-preview'}>Loading...</div>
+		return <div className={'file-loading-preview'}>Loading...</div>
 	}
 
 	return (
-		<div className={'bn-file-block-content-wrapper'}>
+		<div className={'file-block-content-wrapper'}>
 			{props.block.props.url === '' ? (
 				<AddFileButton {...props} />
 			) : props.block.props.showPreview === false ? (
@@ -42,15 +42,11 @@ export const FileBlockWrapper = (
 export const DefaultFilePreview = (
 	props: Omit<ReactCustomBlockRenderProps<FileBlockConfig, any, any>, 'contentRef'>,
 ) => (
-	<div
-		className={'bn-file-default-preview'}
-		contentEditable={false}
-		draggable={false}
-	>
-		<div className={'bn-file-default-preview-icon'}>
+	<div className={'file-default-preview'} contentEditable={false} draggable={false}>
+		<div className={'file-default-preview-icon'}>
 			<RiFile2Line size={24} />
 		</div>
-		<p className={'bn-file-default-preview-name'}>{props.block.props.name}</p>
+		<p className={'file-default-preview-name'}>{props.block.props.name}</p>
 	</div>
 )
 
@@ -63,10 +59,10 @@ export const FileAndCaptionWrapper = (
 	},
 ) => {
 	return (
-		<div className={'bn-file-and-caption-wrapper'}>
+		<div className={'file-and-caption-wrapper'}>
 			{props.children}
 			{props.block.props.caption && (
-				<p className={'bn-file-caption'}>{props.block.props.caption}</p>
+				<p className={'file-caption'}>{props.block.props.caption}</p>
 			)}
 		</div>
 	)
@@ -98,14 +94,14 @@ export const AddFileButton = (
 
 	return (
 		<div
-			className={'bn-add-file-button'}
+			className={'add-file-button'}
 			onMouseDown={addFileButtonMouseDownHandler}
 			onClick={addFileButtonClickHandler}
 		>
-			<div className={'bn-add-file-button-icon'}>
+			<div className={'add-file-button-icon'}>
 				{props.buttonIcon || <RiFile2Line size={24} />}
 			</div>
-			<div className={'bn-add-file-button-text'}>
+			<div className={'add-file-button-text'}>
 				{props.buttonText || dict.file_blocks.file.add_button_text}
 			</div>
 		</div>
@@ -251,7 +247,7 @@ export const ResizeHandlesWrapper = (
 
 	return (
 		<div
-			className={'bn-visual-media-wrapper'}
+			className={'visual-media-wrapper'}
 			onMouseEnter={childWrapperMouseEnterHandler}
 			onMouseLeave={childWrapperMouseLeaveHandler}
 		>
@@ -259,12 +255,12 @@ export const ResizeHandlesWrapper = (
 			{(childHovered || resizeParams) && (
 				<>
 					<div
-						className={'bn-visual-media-resize-handle'}
+						className={'visual-media-resize-handle'}
 						style={{ left: '4px' }}
 						onMouseDown={leftResizeHandleMouseDownHandler}
 					/>
 					<div
-						className={'bn-visual-media-resize-handle'}
+						className={'visual-media-resize-handle'}
 						style={{ right: '4px' }}
 						onMouseDown={rightResizeHandleMouseDownHandler}
 					/>

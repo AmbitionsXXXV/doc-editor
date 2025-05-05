@@ -49,7 +49,7 @@ export const AddBlockButton = <
 
 	return (
 		<Components.SideMenu.Button
-			className={'bn-button'}
+			className={'button'}
 			label={dict.side_menu.add_block_label}
 			icon={<AiOutlinePlus size={24} onClick={onClick} data-test="dragHandleAdd" />}
 		/>

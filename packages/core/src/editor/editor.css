@@ -1,7 +1,6 @@
-
 @import url('prosemirror-tables/style/tables.css');
 
-.bn-editor {
+.editor {
     outline: none;
     padding-inline: 54px;
 
@@ -12,31 +11,31 @@
 }
 
 /*
-bn-root should be applied to all top-level elements
+root should be applied to all top-level elements
 
 This includes the Prosemirror editor, but also <div> element such as 
 Tippy popups that are appended to document.body directly
 */
-.bn-root {
+.root {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-.bn-root *,
-.bn-root *::before,
-.bn-root *::after {
+.root *,
+.root *::before,
+.root *::after {
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
     box-sizing: inherit;
 }
 
 /* reset styles, they will be set on blockContent */
-.bn-default-styles p,
-.bn-default-styles h1,
-.bn-default-styles h2,
-.bn-default-styles h3,
-.bn-default-styles li {
+.default-styles p,
+.default-styles h1,
+.default-styles h2,
+.default-styles h3,
+.default-styles li {
     margin: 0;
     padding: 0;
     font-size: inherit;
@@ -44,7 +43,7 @@ Tippy popups that are appended to document.body directly
     min-width: 2px !important;
 }
 
-.bn-default-styles {
+.default-styles {
     font-size: 16px;
     font-weight: normal;
     font-family:
@@ -65,14 +64,14 @@ Tippy popups that are appended to document.body directly
     -moz-osx-font-smoothing: grayscale;
 }
 
-.bn-table-drop-cursor {
+.table-drop-cursor {
     position: absolute;
     z-index: 20;
     background-color: #adf;
     pointer-events: none;
 }
 
-.bn-drag-preview {
+.drag-preview {
     position: absolute;
     top: 0;
     left: 0;
@@ -138,17 +137,17 @@ Tippy popups that are appended to document.body directly
 }
 
 /* table related: */
-.bn-editor table {
+.editor table {
     width: auto !important;
     word-break: break-word;
 }
-.bn-editor th,
-.bn-editor td {
+.editor th,
+.editor td {
     border: 1px solid #ddd;
     padding: 3px 5px;
 }
 
-.bn-editor th {
+.editor th {
     font-weight: bold;
     text-align: left;
 }

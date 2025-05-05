@@ -37,7 +37,7 @@ export const BlockGroup = Node.create<{
 		}
 		const blockGroup = document.createElement('div')
 		blockGroup.className = mergeCSSClasses(
-			'bn-block-group',
+			'block-group',
 			blockGroupHTMLAttributes.class,
 		)
 		blockGroup.setAttribute('data-node-type', 'blockGroup')

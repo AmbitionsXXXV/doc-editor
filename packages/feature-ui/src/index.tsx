@@ -103,7 +103,7 @@ export const EtcDocView = <
 		<ShadCNComponentsContext value={componentsValue}>
 			<ComponentsContext value={components}>
 				<EtcDocViewRaw
-					className={mergeCSSClasses('bn-shadcn', className || '')}
+					className={mergeCSSClasses('shadcn', className || '')}
 					{...rest}
 				/>
 			</ComponentsContext>

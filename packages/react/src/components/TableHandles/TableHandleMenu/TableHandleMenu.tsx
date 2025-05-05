@@ -20,7 +20,7 @@ export const TableHandleMenu = <
 	const Components = useComponentsContext()!
 
 	return (
-		<Components.Generic.Menu.Dropdown className={'bn-table-handle-menu'}>
+		<Components.Generic.Menu.Dropdown className={'table-handle-menu'}>
 			{props.children || (
 				<>
 					<DeleteButton

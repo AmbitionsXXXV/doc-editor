@@ -64,9 +64,7 @@ export const FormattingToolbar = (
 	const Components = useComponentsContext()!
 
 	return (
-		<Components.FormattingToolbar.Root
-			className={'bn-toolbar bn-formatting-toolbar'}
-		>
+		<Components.FormattingToolbar.Root className={'toolbar formatting-toolbar'}>
 			{props.children || getFormattingToolbarItems(props.blockTypeSelectItems)}
 		</Components.FormattingToolbar.Root>
 	)

@@ -573,7 +573,7 @@ export class TableHandlesProsemirrorPlugin<
 								// The widget is a small bar which spans the width of the cell.
 								Decoration.widget(decorationPos, () => {
 									const widget = document.createElement('div')
-									widget.className = 'bn-table-drop-cursor'
+									widget.className = 'table-drop-cursor'
 									widget.style.left = '0'
 									widget.style.right = '0'
 									// This is only necessary because the drop indicator's height
@@ -619,7 +619,7 @@ export class TableHandlesProsemirrorPlugin<
 								// The widget is a small bar which spans the height of the cell.
 								Decoration.widget(decorationPos, () => {
 									const widget = document.createElement('div')
-									widget.className = 'bn-table-drop-cursor'
+									widget.className = 'table-drop-cursor'
 									widget.style.top = '0'
 									widget.style.bottom = '0'
 									// This is only necessary because the drop indicator's width

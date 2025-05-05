@@ -33,7 +33,7 @@ export const ImagePreview = (
 	return (
 		<ResizeHandlesWrapper {...props} width={width} setWidth={setWidth}>
 			<img
-				className={'bn-visual-media'}
+				className={'visual-media'}
 				src={resolved.downloadUrl}
 				alt={props.block.props.caption || 'EtcDoc image'}
 				contentEditable={false}

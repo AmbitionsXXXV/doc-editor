@@ -63,7 +63,7 @@ export function InlineContentWrapper<
 		<NodeViewWrapper
 			as={'span'}
 			// Sets inline content section class
-			className={'bn-inline-content-section'}
+			className={'inline-content-section'}
 			// Sets content type attribute
 			data-inline-content-type={props.inlineContentType}
 			// Adds props as HTML attributes in kebab-case with "data-" prefix. Skips
@@ -188,7 +188,7 @@ export function createReactInlineContentSpec<
 						)
 					},
 					{
-						className: 'bn-ic-react-node-view-renderer',
+						className: 'ic-react-node-view-renderer',
 						as: 'span',
 						// contentDOMElementTag: "span", (requires tt upgrade)
 					},

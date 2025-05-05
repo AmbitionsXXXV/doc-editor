@@ -20,7 +20,7 @@ export function Toolbar(props: ToolbarProps & { ref?: React.Ref<HTMLDivElement> 
 			<div
 				className={cn(
 					className,
-					'bn-flex bn-gap-1 bn-p-1 bn-bg-popover bn-text-popover-foreground bn-border bn-rounded-lg bn-shadow-md',
+					'flex gap-1 rounded-lg border bg-popover p-1 text-popover-foreground shadow-md',
 				)}
 				ref={ref}
 				onMouseEnter={onMouseEnter}
@@ -98,7 +98,7 @@ export function ToolbarButton(
 				{trigger}
 			</ShadCNComponents.Tooltip.TooltipTrigger>
 			<ShadCNComponents.Tooltip.TooltipContent
-				className={'bn-flex bn-flex-col bn-items-center'}
+				className={'flex flex-col items-center'}
 			>
 				<span>{mainTooltip}</span>
 				{secondaryTooltip && <span>{secondaryTooltip}</span>}
@@ -120,7 +120,7 @@ export function ToolbarSelect(
 
 	// TODO?
 	const SelectItemContent = (props: any) => (
-		<div className={'bn-flex bn-gap-1 bn-items-center'}>
+		<div className={'flex items-center gap-1'}>
 			{props.icon}
 			{props.text}
 		</div>
@@ -140,7 +140,7 @@ export function ToolbarSelect(
 			}
 			disabled={isDisabled}
 		>
-			<ShadCNComponents.Select.SelectTrigger className={'bn-border-none'}>
+			<ShadCNComponents.Select.SelectTrigger className={'border-none'}>
 				<ShadCNComponents.Select.SelectValue />
 			</ShadCNComponents.Select.SelectTrigger>
 			<ShadCNComponents.Select.SelectContent className={className} ref={ref}>

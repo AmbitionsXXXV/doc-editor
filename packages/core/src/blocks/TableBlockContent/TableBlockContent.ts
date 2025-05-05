@@ -63,7 +63,7 @@ export const TableBlockContent = createStronglyTypedTiptapNode({
 
 					const blockContent = document.createElement('div')
 					blockContent.className = mergeCSSClasses(
-						'bn-block-content',
+						'block-content',
 						blockContentHTMLAttributes.class,
 					)
 					blockContent.setAttribute('data-content-type', 'table')

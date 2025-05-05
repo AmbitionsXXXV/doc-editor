@@ -1,5 +1,5 @@
 /* Based on https://stackoverflow.com/questions/63761312/how-to-scope-tailwind-css/69999793#69999793*/
-.bn-shadcn {
+.shadcn {
     /*
     1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
     2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)

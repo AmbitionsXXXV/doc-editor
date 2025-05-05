@@ -41,7 +41,7 @@ export const FileReplaceButton = () => {
 		<Components.Generic.Popover.Root opened={isOpen} position={'bottom'}>
 			<Components.Generic.Popover.Trigger>
 				<Components.FormattingToolbar.Button
-					className={'bn-button'}
+					className={'button'}
 					onClick={() => setIsOpen(!isOpen)}
 					isSelected={isOpen}
 					mainTooltip={
@@ -56,7 +56,7 @@ export const FileReplaceButton = () => {
 				/>
 			</Components.Generic.Popover.Trigger>
 			<Components.Generic.Popover.Content
-				className={'bn-popover-content bn-panel-popover'}
+				className={'popover-content panel-popover'}
 				variant={'panel-popover'}
 			>
 				<FilePanel block={block as any} />

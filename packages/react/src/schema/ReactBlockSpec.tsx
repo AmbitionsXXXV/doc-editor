@@ -75,10 +75,7 @@ export function BlockContentWrapper<
 				Object.entries(props.domAttributes || {}).filter(([key]) => key !== 'class'),
 			)}
 			// Sets blockContent class
-			className={mergeCSSClasses(
-				'bn-block-content',
-				props.domAttributes?.class || '',
-			)}
+			className={mergeCSSClasses('block-content', props.domAttributes?.class || '')}
 			// Sets content type attribute
 			data-content-type={props.blockType}
 			// Adds props as HTML attributes in kebab-case with "data-" prefix. Skips
@@ -184,7 +181,7 @@ export function createReactBlockSpec<
 						)
 					},
 					{
-						className: 'bn-react-node-view-renderer',
+						className: 'react-node-view-renderer',
 					},
 				)(props) as NodeView<any>
 

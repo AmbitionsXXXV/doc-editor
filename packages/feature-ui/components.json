@@ -7,8 +7,7 @@
 		"config": "tailwind.config.ts",
 		"css": "src/style.css",
 		"baseColor": "slate",
-		"cssVariables": true,
-		"prefix": "bn-"
+		"cssVariables": true
 	},
 	"aliases": {
 		"components": "@doc-editor/feature-ui/components",

@@ -81,9 +81,9 @@ export const UploadTab = <
 			: '*/*'
 
 	return (
-		<Components.FilePanel.TabPanel className={'bn-tab-panel'}>
+		<Components.FilePanel.TabPanel className={'tab-panel'}>
 			<Components.FilePanel.FileInput
-				className="bn-file-input"
+				className="file-input"
 				data-test="upload-input"
 				accept={accept}
 				placeholder={
@@ -94,7 +94,7 @@ export const UploadTab = <
 				onChange={handleFileChange}
 			/>
 			{uploadFailed && (
-				<div className="bn-error-text">{dict.file_panel.upload.upload_error}</div>
+				<div className="error-text">{dict.file_panel.upload.upload_error}</div>
 			)}
 		</Components.FilePanel.TabPanel>
 	)

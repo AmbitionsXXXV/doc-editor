@@ -31,7 +31,7 @@ export function TableHandle(
 	return (
 		<ShadCNComponents.Button.Button
 			variant={'ghost'}
-			className={cn(className, 'bn-p-0 bn-h-fit bn-w-fit bn-text-gray-400')}
+			className={cn(className, 'h-fit w-fit p-0 text-gray-400')}
 			ref={ref}
 			aria-label={label}
 			draggable={draggable}

@@ -26,7 +26,7 @@ export function SuggestionMenuItem(
 
 		const overflow = elementOverflow(
 			itemRef.current,
-			document.querySelector('.bn-suggestion-menu')!,
+			document.querySelector('.suggestion-menu')!,
 		)
 		if (overflow === 'top') {
 			itemRef.current.scrollIntoView(true)
@@ -38,7 +38,7 @@ export function SuggestionMenuItem(
 	return (
 		<div
 			className={cn(
-				'bn-relative bn-flex bn-cursor-pointer bn-select-none bn-items-center bn-rounded-sm bn-px-2 bn-py-1.5 bn-text-sm bn-outline-none bn-transition-colors focus:bn-bg-accent focus:bn-text-accent-foreground data-[disabled]:bn-pointer-events-none data-[disabled]:bn-opacity-50',
+				'relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
 				className,
 			)}
 			ref={mergeRefs([ref, itemRef])}
@@ -48,16 +48,16 @@ export function SuggestionMenuItem(
 			aria-selected={isSelected || undefined}
 		>
 			{item.icon && (
-				<div className="bn-p-3" data-position="left">
+				<div className="p-3" data-position="left">
 					{item.icon}
 				</div>
 			)}
-			<div className="bn-flex-1">
-				<div className="bn-text-sm">{item.title}</div>
-				<div className="bn-text-xs">{item.subtext}</div>
+			<div className="flex-1">
+				<div className="text-sm">{item.title}</div>
+				<div className="text-xs">{item.subtext}</div>
 			</div>
 			{item.badge && (
-				<div data-position="right" className="bn-text-xs">
+				<div data-position="right" className="text-xs">
 					<ShadCNComponents.Badge.Badge variant="secondary">
 						{item.badge}
 					</ShadCNComponents.Badge.Badge>

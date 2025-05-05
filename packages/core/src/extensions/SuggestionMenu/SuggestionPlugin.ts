@@ -302,7 +302,7 @@ export class SuggestionMenuProseMirrorPlugin<
 									blockNode.pos + blockNode.node.nodeSize,
 									{
 										nodeName: 'span',
-										class: 'bn-suggestion-decorator',
+										class: 'suggestion-decorator',
 										'data-decoration-id': suggestionPluginState.decorationId,
 									},
 								),
@@ -317,7 +317,7 @@ export class SuggestionMenuProseMirrorPlugin<
 							suggestionPluginState.queryStartPos!,
 							{
 								nodeName: 'span',
-								class: 'bn-suggestion-decorator',
+								class: 'suggestion-decorator',
 								'data-decoration-id': suggestionPluginState.decorationId,
 							},
 						),

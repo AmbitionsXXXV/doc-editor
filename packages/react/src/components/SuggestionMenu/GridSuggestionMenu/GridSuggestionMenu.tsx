@@ -15,7 +15,7 @@ export function GridSuggestionMenu<T extends DefaultReactGridSuggestionItem>(
 	const loader =
 		loadingState === 'loading-initial' || loadingState === 'loading' ? (
 			<Components.GridSuggestionMenu.Loader
-				className={'bn-grid-suggestion-menu-loader'}
+				className={'grid-suggestion-menu-loader'}
 				columns={columns}
 			>
 				{dict.suggestion_menu.loading}
@@ -32,7 +32,7 @@ export function GridSuggestionMenu<T extends DefaultReactGridSuggestionItem>(
 			//   currentGroup = item.group;
 			//   renderedItems.push(
 			//     <Components.SuggestionMenu.Label
-			//       className={"bn-suggestion-menu-label"}
+			//       className={"suggestion-menu-label"}
 			//       key={currentGroup}>
 			//       {currentGroup}
 			//     </Components.SuggestionMenu.Label>
@@ -41,9 +41,9 @@ export function GridSuggestionMenu<T extends DefaultReactGridSuggestionItem>(
 
 			renderedItems.push(
 				<Components.GridSuggestionMenu.Item
-					className={'bn-grid-suggestion-menu-item'}
+					className={'grid-suggestion-menu-item'}
 					item={item}
-					id={`bn-grid-suggestion-menu-item-${i}`}
+					id={`grid-suggestion-menu-item-${i}`}
 					isSelected={i === selectedIndex}
 					key={item.id}
 					onClick={() => onItemClick?.(item)}
@@ -56,15 +56,15 @@ export function GridSuggestionMenu<T extends DefaultReactGridSuggestionItem>(
 
 	return (
 		<Components.GridSuggestionMenu.Root
-			id="bn-grid-suggestion-menu"
+			id="grid-suggestion-menu"
 			columns={columns}
-			className="bn-grid-suggestion-menu"
+			className="grid-suggestion-menu"
 		>
 			{loader}
 			{renderedItems}
 			{renderedItems.length === 0 && props.loadingState === 'loaded' && (
 				<Components.GridSuggestionMenu.EmptyItem
-					className={'bn-grid-suggestion-menu-empty-item'}
+					className={'grid-suggestion-menu-empty-item'}
 					columns={columns}
 				>
 					{dict.suggestion_menu.no_items_title}

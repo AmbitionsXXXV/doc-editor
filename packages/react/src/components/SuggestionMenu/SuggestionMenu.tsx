@@ -14,7 +14,7 @@ export function SuggestionMenu<T extends DefaultReactSuggestionItem>(
 
 	const loader =
 		loadingState === 'loading-initial' || loadingState === 'loading' ? (
-			<Components.SuggestionMenu.Loader className={'bn-suggestion-menu-loader'}>
+			<Components.SuggestionMenu.Loader className={'suggestion-menu-loader'}>
 				{dict.suggestion_menu.loading}
 			</Components.SuggestionMenu.Loader>
 		) : null
@@ -29,7 +29,7 @@ export function SuggestionMenu<T extends DefaultReactSuggestionItem>(
 				currentGroup = item.group
 				renderedItems.push(
 					<Components.SuggestionMenu.Label
-						className={'bn-suggestion-menu-label'}
+						className={'suggestion-menu-label'}
 						key={currentGroup}
 					>
 						{currentGroup}
@@ -39,9 +39,9 @@ export function SuggestionMenu<T extends DefaultReactSuggestionItem>(
 
 			renderedItems.push(
 				<Components.SuggestionMenu.Item
-					className={'bn-suggestion-menu-item'}
+					className={'suggestion-menu-item'}
 					item={item}
-					id={`bn-suggestion-menu-item-${i}`}
+					id={`suggestion-menu-item-${i}`}
 					isSelected={i === selectedIndex}
 					key={item.title}
 					onClick={() => onItemClick?.(item)}
@@ -53,14 +53,11 @@ export function SuggestionMenu<T extends DefaultReactSuggestionItem>(
 	}, [Components, items, onItemClick, selectedIndex])
 
 	return (
-		<Components.SuggestionMenu.Root
-			id="bn-suggestion-menu"
-			className="bn-suggestion-menu"
-		>
+		<Components.SuggestionMenu.Root id="suggestion-menu" className="suggestion-menu">
 			{renderedItems}
 			{renderedItems.length === 0 &&
 				(props.loadingState === 'loading' || props.loadingState === 'loaded') && (
-					<Components.SuggestionMenu.EmptyItem className={'bn-suggestion-menu-item'}>
+					<Components.SuggestionMenu.EmptyItem className={'suggestion-menu-item'}>
 						{dict.suggestion_menu.no_items_title}
 					</Components.SuggestionMenu.EmptyItem>
 				)}

@@ -38,14 +38,14 @@ export const BlockColorsItem = <
 	return (
 		<Components.Generic.Menu.Root position={'right'} sub={true}>
 			<Components.Generic.Menu.Trigger sub={true}>
-				<Components.Generic.Menu.Item className={'bn-menu-item'} subTrigger={true}>
+				<Components.Generic.Menu.Item className={'menu-item'} subTrigger={true}>
 					{props.children}
 				</Components.Generic.Menu.Item>
 			</Components.Generic.Menu.Trigger>
 
 			<Components.Generic.Menu.Dropdown
 				sub={true}
-				className={'bn-menu-dropdown bn-color-picker-dropdown'}
+				className={'menu-dropdown color-picker-dropdown'}
 			>
 				<ColorPicker
 					iconSize={18}

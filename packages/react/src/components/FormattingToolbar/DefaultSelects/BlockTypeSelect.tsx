@@ -139,6 +139,6 @@ export const BlockTypeSelect = (props: { items?: BlockTypeSelectItem[] }) => {
 	}
 
 	return (
-		<Components.FormattingToolbar.Select className={'bn-select'} items={fullItems} />
+		<Components.FormattingToolbar.Select className={'select'} items={fullItems} />
 	)
 }

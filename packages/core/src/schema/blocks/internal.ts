@@ -166,7 +166,7 @@ export function wrapInBlockStructure<
 	}
 	// Sets blockContent class
 	blockContent.className = mergeCSSClasses(
-		'bn-block-content',
+		'block-content',
 		domAttributes?.class || '',
 	)
 	// Sets content type attribute
@@ -188,7 +188,7 @@ export function wrapInBlockStructure<
 
 	if (element.contentDOM !== undefined) {
 		element.contentDOM.className = mergeCSSClasses(
-			'bn-inline-content',
+			'inline-content',
 			element.contentDOM.className,
 		)
 		element.contentDOM.setAttribute('data-editable', '')

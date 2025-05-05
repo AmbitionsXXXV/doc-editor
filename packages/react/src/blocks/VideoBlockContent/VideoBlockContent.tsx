@@ -33,7 +33,7 @@ export const VideoPreview = (
 	return (
 		<ResizeHandlesWrapper {...props} width={width} setWidth={setWidth}>
 			<video
-				className={'bn-visual-media'}
+				className={'visual-media'}
 				src={resolved.downloadUrl}
 				controls={true}
 				contentEditable={false}
