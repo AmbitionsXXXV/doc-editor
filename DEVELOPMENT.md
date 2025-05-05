@@ -91,7 +91,6 @@ doc-editor/
 - **@doc-editor/web**: 主要前端应用，使用 React 19 和 Vite
 - **@doc-editor/ui**: 基于 shadcn/ui 的共享 UI 组件库
 - **@doc-editor/editor**: 基于 Tiptap 的文档编辑器组件
-- **@doc-editor/schema**: 共享类型定义和 Zod 验证
 - **api**: Rust 后端 API，使用 Axum 框架
 
 ## 开发工作流
@@ -118,7 +117,6 @@ pnpm build
 
 # 构建特定包
 pnpm --filter "@doc-editor/ui" build
-pnpm --filter "@doc-editor/schema" build
 pnpm --filter "@doc-editor/editor" build
 ```
 
