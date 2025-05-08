@@ -24,7 +24,8 @@
 		"docker:web:stop": "docker compose -f docker/docker-compose.yml down web",
 		"changeset": "changeset",
 		"version": "changeset version",
-		"publish": "bun run build && changeset publish"
+		"publish": "bun run build && changeset publish",
+		"knip": "knip"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
@@ -34,6 +35,7 @@
 		"cz-git": "^1.11.1",
 		"etc-shared-biome-rules": "^0.1.3",
 		"fast-glob": "^3.3.3",
+		"knip": "^5.55.1",
 		"lefthook": "^1.11.12",
 		"tsup": "^8.4.0",
 		"turbo": "^2.5.3",
@@ -44,6 +46,6 @@
 			"path": "node_modules/cz-git"
 		}
 	},
-	"packageManager": "bun@1.2.9",
+	"packageManager": "bun@1.2.12",
 	"workspaces": ["apps/*", "packages/*", "tools/*"]
 }
